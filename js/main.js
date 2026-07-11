@@ -136,8 +136,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---------- 3. Accordéon des règles spéciales ---------- */
-  if (window.location.pathname.toLowerCase().endsWith('special-rules.html')) {
+  /* ---------- 3. Accordéon des règles affichées en version compacte ---------- */
+  if (window.location.pathname.toLowerCase().endsWith('special-rules.html') ||
+      window.location.pathname.toLowerCase().endsWith('core-rules.html') ||
+      window.location.pathname.toLowerCase().endsWith('reactions.html')) {
     var ruleCards = document.querySelectorAll('#content > section');
 
     ruleCards.forEach(function (card) {
