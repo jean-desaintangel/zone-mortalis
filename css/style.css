@@ -117,6 +117,13 @@ em { color: inherit; }
   display: block;
 }
 
+/* Stratagème de Réserves : les titres h3 accordéon sont mis en avant comme les h2. */
+h3.rule-trigger {
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold-dim);
+  padding-bottom: 0.35rem;
+}
+
 /* Nom VO : affiche le nom original de la règle en anglais sous le titre français. */
 .vo {
   display: block;

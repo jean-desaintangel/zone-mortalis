@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
           return;
         }
 
-        if (node.classList && node.classList.contains('flavor')) {
+        if (node.classList && (node.classList.contains('flavor') || node.classList.contains('rule-summary'))) {
           capture = true;
           return;
         }
@@ -189,6 +189,51 @@ document.addEventListener('DOMContentLoaded', function () {
         toggleCard();
       });
 
+      heading.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleCard();
+        }
+      });
+    });
+  }
+
+  /* ---------- 3bis. Accordéon des Stratagèmes de Réserves (titres h3) ---------- */
+  if (window.location.pathname.toLowerCase().endsWith('reserves.html')) {
+    var stratHeadings = Array.prototype.filter.call(document.querySelectorAll('#content h3'), function (heading) {
+      return !heading.closest('.callout');
+    });
+
+    stratHeadings.forEach(function (heading) {
+      var card = document.createElement('div');
+      card.className = 'rule-card';
+      heading.parentNode.insertBefore(card, heading);
+      card.appendChild(heading);
+
+      heading.classList.add('rule-trigger');
+      heading.setAttribute('role', 'button');
+      heading.setAttribute('tabindex', '0');
+      heading.setAttribute('aria-expanded', 'false');
+
+      var details = document.createElement('div');
+      details.className = 'rule-details';
+
+      var next = card.nextSibling;
+      while (next && !(next.nodeType === 1 && next.tagName === 'H3')) {
+        var toMove = next;
+        next = next.nextSibling;
+        details.appendChild(toMove);
+      }
+
+      card.appendChild(details);
+
+      function toggleCard() {
+        var shouldOpen = !card.classList.contains('is-open');
+        card.classList.toggle('is-open', shouldOpen);
+        heading.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      }
+
+      heading.addEventListener('click', toggleCard);
       heading.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
