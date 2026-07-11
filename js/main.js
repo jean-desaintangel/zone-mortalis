@@ -136,7 +136,67 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---------- 3. Bouton retour en haut ---------- */
+  /* ---------- 3. Accordéon des règles spéciales ---------- */
+  if (window.location.pathname.toLowerCase().endsWith('special-rules.html')) {
+    var ruleCards = document.querySelectorAll('#content > section');
+
+    ruleCards.forEach(function (card) {
+      card.classList.add('rule-card');
+
+      var heading = card.querySelector('h2');
+      if (!heading) return;
+
+      heading.classList.add('rule-trigger');
+      heading.setAttribute('role', 'button');
+      heading.setAttribute('tabindex', '0');
+      heading.setAttribute('aria-expanded', 'false');
+
+      var details = document.createElement('div');
+      details.className = 'rule-details';
+
+      var capture = false;
+      Array.prototype.slice.call(card.childNodes).forEach(function (node) {
+        if (node.nodeType !== 1) return;
+
+        if (node.tagName === 'H2') {
+          capture = false;
+          return;
+        }
+
+        if (node.classList && node.classList.contains('flavor')) {
+          capture = true;
+          return;
+        }
+
+        if (capture) {
+          details.appendChild(node);
+        }
+      });
+
+      if (details.childNodes.length > 0) {
+        card.appendChild(details);
+      }
+
+      function toggleCard(force) {
+        var shouldOpen = typeof force === 'boolean' ? force : !card.classList.contains('is-open');
+        card.classList.toggle('is-open', shouldOpen);
+        heading.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      }
+
+      heading.addEventListener('click', function () {
+        toggleCard();
+      });
+
+      heading.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleCard();
+        }
+      });
+    });
+  }
+
+  /* ---------- 4. Bouton retour en haut ---------- */
   var topBtn = document.querySelector('.back-to-top');
   if (topBtn) {
     window.addEventListener('scroll', function () {

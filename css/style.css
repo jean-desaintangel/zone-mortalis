@@ -1,32 +1,33 @@
 /* ==========================================================================
    Zone Mortalis — Règles de Jeu (Horus Heresy · Journal Tactica · VF)
-   Thème sombre militaire — mobile-first
+   Ce fichier rassemble tous les styles du site : couleurs, typographie,
+   structure des pages, navigation, composants interactifs et mise en page.
    ========================================================================== */
 
-/* ---------- Variables ---------- */
+/* ---------- Variables de thème ---------- */
 :root {
-  --bg: #0d0d0d;            /* fond principal */
-  --bg-alt: #16150f;        /* fond de panneaux */
-  --bg-card: #1a1913;       /* fond des cards */
-  --text: #e8e0d0;          /* texte principal (blanc cassé) */
-  --text-dim: #a89f8c;      /* texte secondaire */
-  --gold: #c9a84c;          /* accent or/ambre */
-  --gold-dim: #8a7434;      /* or atténué (bordures) */
-  --blood: #8b0000;         /* rouge sang */
-  --blood-light: #c0392b;   /* rouge clair (hover) */
-  --border: #33301f;        /* bordures discrètes */
+  --bg: #f3eadc;            /* fond principal clair */
+  --bg-alt: #efe4c8;        /* fond de panneaux */
+  --bg-card: #f8f2e6;       /* fond des cards */
+  --text: #241c12;          /* texte principal sombre */
+  --text-dim: #6d6147;      /* texte secondaire */
+  --gold: #b4872f;          /* accent or/ambre */
+  --gold-dim: #8e6f24;      /* or atténué (bordures) */
+  --blood: #7a1f1f;         /* rouge sang */
+  --blood-light: #a63131;   /* rouge clair (hover) */
+  --border: #cdbb91;        /* bordures discrètes */
   --font-title: 'Cinzel', 'Times New Roman', serif;
   --font-body: 'Open Sans', 'Segoe UI', Arial, sans-serif;
   --nav-height: 56px;
 }
 
-/* ---------- Reset & base ---------- */
+/* ---------- Réinitialisation et styles de base ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 12px); }
 
 body {
-  background: var(--bg);
+  background: linear-gradient(180deg, #f8f2e6 0%, var(--bg) 100%);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 16px;
@@ -39,9 +40,9 @@ img { max-width: 100%; height: auto; }
 a { color: var(--gold); text-decoration: none; }
 a:hover, a:focus { color: var(--blood-light); text-decoration: underline; }
 
-::selection { background: var(--gold); color: #111; }
+::selection { background: var(--gold); color: #fff8ea; }
 
-/* ---------- Typographie ---------- */
+/* ---------- Typographie et textes généraux ---------- */
 h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.2; }
 
 h1 { font-size: 1.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.04em; }
@@ -52,10 +53,10 @@ h4 { font-size: 0.95rem; color: var(--gold); margin: 1.2rem 0 0.5rem; }
 p { margin: 0 0 1rem; }
 ul, ol { margin: 0 0 1rem; padding-left: 1.4rem; }
 li { margin-bottom: 0.5rem; }
-strong { color: #f5edda; }
+strong { color: #3e3018; }
 em { color: inherit; }
 
-/* Texte d'ambiance (fluff) */
+/* Texte d'ambiance : le « flavor text » qui donne l'atmosphère de la règle. */
 .flavor {
   font-style: italic;
   color: var(--text-dim);
@@ -64,17 +65,59 @@ em { color: inherit; }
   margin-bottom: 1rem;
 }
 
-/* Résumé de règle (phrase clé en gras) */
+/* Résumé de règle : la phrase clé, mise en valeur pour repérer rapidement l'idée principale. */
 .rule-summary {
   font-weight: 700;
-  color: #f5edda;
-  background: rgba(201, 168, 76, 0.07);
+  color: var(--text);
+  background: rgba(180, 135, 47, 0.12);
   border-left: 3px solid var(--gold);
   padding: 0.6rem 0.9rem;
   margin-bottom: 1rem;
 }
 
-/* Nom VO entre parenthèses dans un titre */
+/* Accordéon des règles spéciales : au départ, on voit seulement le titre et le flavor ; le détail s'affiche au clic. */
+.rule-card {
+  margin-bottom: 2rem;
+}
+
+.rule-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  user-select: none;
+}
+
+.rule-trigger:hover,
+.rule-trigger:focus-visible {
+  color: var(--blood-light);
+  outline: none;
+}
+
+.rule-trigger::after {
+  content: "＋";
+  color: var(--gold);
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.rule-card.is-open .rule-trigger::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+.rule-details {
+  display: none;
+  margin-top: 0.4rem;
+}
+
+.rule-card.is-open .rule-details {
+  display: block;
+}
+
+/* Nom VO : affiche le nom original de la règle en anglais sous le titre français. */
 .vo {
   display: block;
   font-family: var(--font-body);
@@ -86,7 +129,7 @@ em { color: inherit; }
   margin-top: 0.15rem;
 }
 
-/* ---------- Layout ---------- */
+/* ---------- Mise en page générale ---------- */
 main {
   max-width: 860px;
   margin: 0 auto;
@@ -115,12 +158,12 @@ main {
 
 section { margin-bottom: 2rem; }
 
-/* ---------- Navigation sticky ---------- */
+/* ---------- Navigation principale sticky ---------- */
 .site-nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(13, 13, 13, 0.97);
+  background: rgba(245, 233, 206, 0.96);
   border-bottom: 1px solid var(--gold-dim);
   height: var(--nav-height);
   display: flex;
@@ -164,11 +207,11 @@ section { margin-bottom: 2rem; }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Menu (mobile : panneau déroulant) */
+/* Menu mobile : un panneau qui s'ouvre et se ferme au clic sur l'icône hamburger. */
 .nav-menu {
   position: fixed;
   top: var(--nav-height); left: 0; right: 0;
-  background: #131208;
+  background: #f7eedc;
   border-bottom: 2px solid var(--blood);
   list-style: none;
   padding: 8px 0 14px;
@@ -208,7 +251,7 @@ section { margin-bottom: 2rem; }
   text-transform: uppercase;
 }
 
-/* ---------- Barre de recherche ---------- */
+/* ---------- Barre de recherche interne à la page ---------- */
 .search-bar {
   display: flex;
   gap: 8px;
@@ -216,7 +259,7 @@ section { margin-bottom: 2rem; }
 }
 .search-bar input {
   flex: 1;
-  background: var(--bg-alt);
+  background: #fbf6ea;
   border: 1px solid var(--gold-dim);
   border-radius: 3px;
   color: var(--text);
@@ -239,13 +282,13 @@ section { margin-bottom: 2rem; }
 }
 .search-bar button:hover { background: var(--blood-light); }
 .search-count { font-size: 0.8rem; color: var(--text-dim); margin: -1rem 0 1.4rem; }
-mark.search-hit { background: var(--gold); color: #111; padding: 0 2px; border-radius: 2px; }
+mark.search-hit { background: var(--gold); color: #fff8ea; padding: 0 2px; border-radius: 2px; }
 mark.search-hit.current { background: var(--blood-light); color: #fff; }
 
-/* ---------- Encadrés ---------- */
+/* ---------- Encadrés de contenu ---------- */
 .callout {
   border: 1px solid var(--gold-dim);
-  background: var(--bg-alt);
+  background: rgba(255, 248, 234, 0.8);
   padding: 1rem 1.1rem;
   margin: 1.2rem 0;
   border-radius: 2px;
@@ -253,17 +296,17 @@ mark.search-hit.current { background: var(--blood-light); color: #fff; }
 .callout > h3, .callout > h4 { margin-top: 0; }
 .callout p:last-child, .callout ol:last-child, .callout ul:last-child { margin-bottom: 0; }
 
-/* Note du concepteur / attention : bordure rouge */
+/* Encadré d'alerte : utilisé pour les notes du concepteur ou les avertissements importants. */
 .callout--designer { border-color: var(--blood); background: rgba(139, 0, 0, 0.08); }
 .callout--designer > h3, .callout--designer > h4 { color: var(--blood-light); }
 .callout--designer > h3::before, .callout--designer > h4::before { content: "⚠ "; }
 
-/* Règle spéciale mise en avant */
+/* Encadré de mise en avant : sert à souligner une règle particulièrement importante. */
 .callout--rule { border-color: var(--gold); }
 .callout--rule > h3, .callout--rule > h4 { color: var(--gold); }
 .callout--rule > h3::before, .callout--rule > h4::before { content: "✦ "; }
 
-/* ---------- Tableaux ---------- */
+/* ---------- Tableaux de règles ---------- */
 .table-wrap { overflow-x: auto; margin: 1.2rem 0; -webkit-overflow-scrolling: touch; }
 
 table.rule-table {
@@ -278,10 +321,10 @@ table.rule-table caption {
   font-size: 0.85rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--text);
   text-align: left;
   padding: 0.5rem 0.8rem;
-  background: #22200f;
+  background: #f8f2e6;
   border: 1px solid var(--gold-dim);
   border-bottom: none;
 }
@@ -291,7 +334,7 @@ table.rule-table th {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--gold);
-  background: #201e12;
+  background: #efe4c8;
   text-align: left;
   padding: 0.55rem 0.8rem;
   border: 1px solid var(--gold-dim);
@@ -301,9 +344,9 @@ table.rule-table td {
   border: 1px solid var(--border);
   vertical-align: top;
 }
-table.rule-table tr:nth-child(even) td { background: rgba(201, 168, 76, 0.04); }
+table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 
-/* ---------- Cards (page d'accueil) ---------- */
+/* ---------- Cartes de la page d'accueil ---------- */
 .hero { text-align: center; padding: 1.6rem 0 0.6rem; }
 .hero h1 { font-size: 1.9rem; margin-bottom: 0.3rem; }
 .hero .subtitle { font-family: var(--font-title); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); }
@@ -318,7 +361,7 @@ table.rule-table tr:nth-child(even) td { background: rgba(201, 168, 76, 0.04); }
 
 .card {
   display: block;
-  background: var(--bg-card);
+  background: #f9f4e8;
   border: 1px solid var(--border);
   border-top: 3px solid var(--gold-dim);
   border-radius: 3px;
@@ -334,7 +377,7 @@ table.rule-table tr:nth-child(even) td { background: rgba(201, 168, 76, 0.04); }
 .card--soon { opacity: 0.55; cursor: not-allowed; border-top-color: var(--blood); }
 .card--soon:hover { transform: none; border-top-color: var(--blood); }
 
-/* ---------- Navigation bas de page (précédent / suivant) ---------- */
+/* ---------- Navigation de bas de page (précédent / suivant) ---------- */
 .page-nav {
   display: flex;
   justify-content: space-between;
@@ -348,7 +391,7 @@ table.rule-table tr:nth-child(even) td { background: rgba(201, 168, 76, 0.04); }
   letter-spacing: 0.04em;
 }
 
-/* ---------- Bouton retour en haut ---------- */
+/* ---------- Bouton de retour en haut ---------- */
 .back-to-top {
   position: fixed;
   right: 16px; bottom: 18px;
@@ -356,8 +399,8 @@ table.rule-table tr:nth-child(even) td { background: rgba(201, 168, 76, 0.04); }
   width: 46px; height: 46px;
   border-radius: 50%;
   border: 1px solid var(--gold);
-  background: rgba(13, 13, 13, 0.92);
-  color: var(--gold);
+  background: rgba(255, 248, 234, 0.96);
+  color: var(--blood);
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
@@ -368,7 +411,7 @@ table.rule-table tr:nth-child(even) td { background: rgba(201, 168, 76, 0.04); }
 .back-to-top.visible { display: flex; }
 .back-to-top:hover { background: var(--blood); color: #fff; border-color: var(--blood); }
 
-/* ---------- Pied de page ---------- */
+/* ---------- Pied de page du site ---------- */
 .site-footer {
   border-top: 1px solid var(--border);
   margin-top: 2.5rem;
@@ -379,7 +422,7 @@ table.rule-table tr:nth-child(even) td { background: rgba(201, 168, 76, 0.04); }
 }
 
 /* ==========================================================================
-   Breakpoints
+   Points de rupture pour la version responsive du site
    ========================================================================== */
 
 /* Tablette ≥ 768px */

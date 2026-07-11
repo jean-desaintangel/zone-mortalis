@@ -28,19 +28,8 @@ Sections prévues (badge « Bientôt disponible ») : Armurerie, Listes d'armée
 - Bouton « Retour en haut » flottant
 - Google Fonts en `display=swap` avec polices de secours : le contenu reste lisible hors connexion
 
-## Déploiement sur GitHub Pages
+## Utilisation locale
 
-1. Créer un dépôt GitHub (ex. `zone-mortalis`) et pousser ces fichiers à la racine :
-   ```bash
-   git init
-   git add index.html css js pages README.md
-   git commit -m "Site Zone Mortalis VF"
-   git branch -M main
-   git remote add origin https://github.com/<votre-compte>/zone-mortalis.git
-   git push -u origin main
-   ```
-2. Sur GitHub : **Settings → Pages → Source : Deploy from a branch**, branche `main`, dossier `/ (root)`.
-3. Le site est publié après une minute à l'adresse :
-   `https://<votre-compte>.github.io/zone-mortalis/`
+Le site est entièrement statique : il suffit d'ouvrir [index.html](index.html) dans un navigateur, ou de l'héberger sur un simple serveur web local si vous préférez.
 
 Aucune configuration supplémentaire n'est nécessaire (pas de `.htaccess`, pas de backend).
