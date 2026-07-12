@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Règles Principales</title>
+    <!-- CSP : n'autorise que nos propres fichiers + Google Fonts (défense en profondeur) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"
+    />
+    <title>Règles principales — Zone Mortalis VF</title>
     <meta
       name="description"
       content="Règles fondamentales de Zone Mortalis : plafond, couloirs, murs, portes, échelles, barricades, charges de sape."
@@ -14,12 +19,20 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <!-- Favicon vectoriel embarqué : évite une requête 404 sur /favicon.ico -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='13'%3E⚔️%3C/text%3E%3C/svg%3E"
+    />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
-  <body>
+  <body data-accordion="sections">
+    <!-- Lien d’évitement : premier élément focusable, il permet aux utilisateurs
+         clavier de sauter le menu et d’aller directement au contenu. -->
+    <a class="skip-link" href="#content">Aller au contenu</a>
     <!-- Cette page suit la même structure que les autres pages : navigation, contenu détaillé, puis pied de page. -->
     <!-- La navigation du haut permet de passer rapidement d'une catégorie de règles à une autre. -->
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Navigation principale">
       <a class="nav-brand" href="../index.html">Zone Mortalis</a>
       <button
         class="nav-toggle"
@@ -39,17 +52,17 @@
     </nav>
 
     <!-- Le contenu principal rassemble les règles de base, organisées par thème et présentées de façon progressive. -->
-    <main>
+    <main id="content">
       <header class="page-header">
         <p class="kicker">Journal Tactica — Zone Mortalis</p>
         <h1>Règles principales</h1>
         <hr class="rule-divider" />
       </header>
 
-      <div id="content">
+      <div class="rules-content">
         <section>
           <div class="callout callout--rule">
-            <h3 id="ceiling-heading" style="text-align: center">
+            <h3 id="ceiling-heading">
               Plafond et dalles de terrain
             </h3>
             <p>
@@ -173,8 +186,8 @@
             <p>
               Les joueurs peuvent définir les portes comme ayant la Règle
               spéciale Portes (X) avec une valeur égale à la largeur de la Porte
-              en pouces, ce qui permet de suivre facilement quelles zones est
-              accessible à quelles Figurines.
+              en pouces, ce qui permet de suivre facilement quelles zones sont
+              accessibles à quelles Figurines.
             </p>
           </div>
         </section>
@@ -280,9 +293,9 @@
           </p>
         </section>
       </div>
-      <!-- /#content -->
+      <!-- /.rules-content -->
 
-      <nav class="page-nav">
+      <nav class="page-nav" aria-label="Pages précédente et suivante">
         <a href="../index.html">← Accueil</a>
         <a href="special-rules.html">Règles spéciales →</a>
       </nav>

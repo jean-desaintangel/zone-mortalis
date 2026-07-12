@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Règles Spéciales</title>
+    <!-- CSP : n'autorise que nos propres fichiers + Google Fonts (défense en profondeur) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"
+    />
+    <title>Règles spéciales — Zone Mortalis VF</title>
     <meta
       name="description"
       content="Règles spéciales de Zone Mortalis : armes de barrage, zone d'interdiction de vol, Espace Confiné (X), Porte (X), écrasement."
@@ -14,12 +19,20 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <!-- Favicon vectoriel embarqué : évite une requête 404 sur /favicon.ico -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='13'%3E⚔️%3C/text%3E%3C/svg%3E"
+    />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
-  <body>
+  <body data-accordion="sections">
+    <!-- Lien d’évitement : premier élément focusable, il permet aux utilisateurs
+         clavier de sauter le menu et d’aller directement au contenu. -->
+    <a class="skip-link" href="#content">Aller au contenu</a>
     <!-- Cette page présente les règles spéciales sous forme compacte, puis les détaille au clic. -->
     <!-- La structure reste simple pour garder la lecture fluide et lisible. -->
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Navigation principale">
       <a class="nav-brand" href="../index.html">Zone Mortalis</a>
       <button
         class="nav-toggle"
@@ -41,14 +54,14 @@
     </nav>
 
     <!-- Le contenu principal contient l'introduction et la liste des règles spéciales à explorer. -->
-    <main>
+    <main id="content">
       <header class="page-header">
         <p class="kicker">Journal Tactica — Zone Mortalis</p>
         <h1>Règles spéciales</h1>
         <hr class="rule-divider" />
       </header>
 
-      <div id="content">
+      <div class="rules-content">
         <section>
           <h2>Armes de Barrage en Zone Mortalis</h2>
           <p class="rule-summary">
@@ -82,18 +95,18 @@
             les portes.
           </p>
           <p>
-            Les gabarit d’explosion ne peuvent pas dévier à travers un mur 
-            ni à travers une porte fermé. Si un jet de déviation amène 
+            Les gabarits d’explosion ne peuvent pas dévier à travers un mur 
+            ni à travers une porte fermée. Si un jet de déviation amène 
             le point central d’un gabarit d’explosion au
-            contact d’un mur ou d’une porte fermé, le gabarit
+            contact d’un mur ou d’une porte fermée, le gabarit
             d’Explosion ne dévie que jusqu’au point où son centre touche le bord
-            du mur ou de la porte fermé. Résolvez l’effet de l’arme à
+            du mur ou de la porte fermée. Résolvez l’effet de l’arme à
             partir de cet emplacement.
           </p>
           <p>
             Si aucune ligne ne peut être tracée entre le socle d’une figurine 
             ciblée et le centre du marqueur d’explosion sans passer par un mur ou une
-            porte fermé, alors cette figurine n’est pas touchée par l’attaque.
+            porte fermée, alors cette figurine n’est pas touchée par l’attaque.
           </p>
         </section>
 
@@ -104,7 +117,7 @@
             unités alliées fixées, sonnées ou neutralisées lorsqu’elles se déplacent à leur proximité.
           </p>
           <p>
-            Si une Figurine d’une Unité qui effectue un repli termine son mouvement ou passe à moins de 2'
+            Si une Figurine d’une Unité qui effectue un repli termine son mouvement ou passe à moins de 2″
             d'une unité alliée se trouvant sous l’effet d’un statut tactique autre que le statut en déroute, 
             alors un test de commandement doit être effectué pour chacune de ces unités durant la Sous-Phase
             de Moral suivante. Si l’un des tests pour une de ces unités échoue, elle devient en déroute.
@@ -155,13 +168,13 @@
           </p>
           <p>
             Aucune figurine ne peut effectuer de mouvement de mise en place
-            ou de mouvement de charge à travers une une porte si la figurine
+            ou de mouvement de charge à travers une porte si la figurine
             est dotée d’une variante de la règle spéciale Massif (X) dont la
             valeur de X est supérieure à la valeur de porte (X).
           </p>
           <p>
             De plus, si une unité débute un mouvement en dehors de toute porte, 
-            mais comprend des figurines Massif (X) susceptible de pénétrer dans 
+            mais comprend des figurines Massif (X) susceptibles de pénétrer dans 
             une porte, le joueur doit déclarer s’il souhaite que son unité 
             traverse une porte dans le cadre de son mouvement.
           </p>
@@ -171,7 +184,7 @@
             de porte. Si le joueur qui la contrôle choisit qu’une figurine Massif (X) 
             au sein de l’unité traverse une porte, alors la caractéristique de 
             mouvement de la figurine Massif (X) est réduite du montant par lequel 
-            sa valeur de Massif (X) dépasse la valeur de la porte (X), pour la 
+            sa valeur de Massif (X) dépasse la valeur de la porte (X), pour
             la phase de mouvement. Par exemple, une figurine dotée de la règle
             spéciale Massif (6) qui est déplacée à travers une porte dotée de la
             règle spéciale porte (4) verrait sa caractéristique de mouvement
@@ -196,9 +209,9 @@
 
           <h3>État</h3>
           <p>
-            Une porte peut-être soit fermée, soit ouverte. Sauf indication
+            Une porte peut être soit fermée, soit ouverte. Sauf indication
             contraire dans les règles de mission, toutes les Portes débutent la
-            bataille fermé.
+            bataille fermées.
           </p>
           <p>
             <strong>Ouverte :</strong> Les portes à l’état ouvert ne bloquent
@@ -217,7 +230,7 @@
             un mouvement avec au moins une figurine au contact socle à socle 
             d’une porte peut tenter d’en changer l’État, en effectuant un test 
             d’intelligence au moyen des caractéristiques de n’importe quelle 
-            figurine se trouvant à 2' ou moins de la porte. Si le test 
+            figurine se trouvant à 2″ ou moins de la porte. Si le test 
             d’Intelligence est réussi, l’état de la porte est immédiatement 
             modifié. Il ne peut être effectué plus d’un test par unité pour chaque porte.
           </p>
@@ -235,9 +248,9 @@
           </div>
         </section>
       </div>
-      <!-- /#content -->
+      <!-- /.rules-content -->
 
-      <nav class="page-nav">
+      <nav class="page-nav" aria-label="Pages précédente et suivante">
         <a href="core-rules.html">← Règles principales</a>
         <a href="reactions.html">réactions →</a>
       </nav>

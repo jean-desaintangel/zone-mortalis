@@ -8,7 +8,7 @@ Site statique regroupant la traduction française des règles **Zone Mortalis** 
 
 ```
 ├── index.html              # Page d'accueil (navigation par cards)
-├── css/style.css           # Thème sombre Horus Heresy, mobile-first
+├── css/style.css           # Thème parchemin Horus Heresy, mobile-first
 ├── js/main.js              # Menu hamburger, accordéon des règles, retour en haut
 └── pages/
     ├── core-rules.html     # Règles Principales
@@ -18,7 +18,7 @@ Site statique regroupant la traduction française des règles **Zone Mortalis** 
     └── mission-pack.html   # Pack de Missions « Protocole de Nettoyage »
 ```
 
-Pour ajouter une nouvelle section : dupliquer une page de `pages/`, remplacer le contenu, puis ajouter le lien dans le menu de chaque page.
+Pour ajouter une nouvelle section : dupliquer une page de `pages/`, remplacer le contenu, puis ajouter le lien dans le menu de chaque page. Le comportement des accordéons est piloté par l'attribut `data-accordion` sur `<body>` (`sections`, `h3` ou `sequence` — voir l'en-tête de `js/main.js`).
 
 ## Fonctionnalités
 
@@ -26,6 +26,7 @@ Pour ajouter une nouvelle section : dupliquer une page de `pages/`, remplacer le
 - Responsive mobile-first (breakpoints 375 / 768 / 1024 px), menu hamburger
 - Accordéon pour les règles spéciales, réactions et stratagèmes de réserves
 - Bouton « Retour en haut » flottant
+- Accessibilité : lien d'évitement, focus clavier visible, accordéons à vrais boutons (`aria-expanded`/`aria-controls`), contrastes AA, `prefers-reduced-motion` respecté
 - Google Fonts en `display=swap` avec polices de secours : le contenu reste lisible hors connexion
 
 ## Utilisation locale

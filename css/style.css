@@ -11,8 +11,9 @@
   --bg-card: #f8f2e6;       /* fond des cards */
   --text: #241c12;          /* texte principal sombre */
   --text-dim: #6d6147;      /* texte secondaire */
-  --gold: #b4872f;          /* accent or/ambre */
-  --gold-dim: #8e6f24;      /* or atténué (bordures) */
+  --gold: #8e6f24;          /* or texte : contraste AA (≈ 4,6:1) sur fond parchemin */
+  --gold-bright: #b4872f;   /* or vif : réservé aux bordures et décorations */
+  --gold-dim: #8e6f24;      /* or atténué (bordures discrètes) */
   --blood: #7a1f1f;         /* rouge sang */
   --blood-light: #a63131;   /* rouge clair (hover) */
   --border: #cdbb91;        /* bordures discrètes */
@@ -40,7 +41,24 @@ img { max-width: 100%; height: auto; }
 a { color: var(--gold); text-decoration: none; }
 a:hover, a:focus { color: var(--blood-light); text-decoration: underline; }
 
-::selection { background: var(--gold); color: #fff8ea; }
+::selection { background: var(--gold-bright); color: #fff8ea; }
+
+/* Lien d'évitement : invisible jusqu'au focus clavier (WCAG 2.4.1).
+   Il permet de sauter le menu et d'aller directement au contenu. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+  z-index: 200;
+  background: var(--bg-card);
+  color: var(--text);
+  padding: 8px 14px;
+  border: 1px solid var(--gold-dim);
+}
 
 /* ---------- Typographie et textes généraux ---------- */
 h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.2; }
@@ -50,7 +68,10 @@ h2 { font-size: 1.3rem; color: var(--gold); text-transform: uppercase; letter-sp
 h3 { font-size: 1.05rem; color: var(--text); text-transform: uppercase; letter-spacing: 0.04em; margin: 1.6rem 0 0.6rem; }
 h4 { font-size: 0.95rem; color: var(--gold); margin: 1.2rem 0 0.5rem; }
 
-p { margin: 0 0 1rem; text-align: justify; }
+/* Texte aligné à gauche par défaut : la justification sur colonnes étroites
+   (mobile) crée des "rivières" d'espaces peu lisibles (WCAG 1.4.8).
+   L'esthétique "livre de règles" est réservée au desktop, plus bas. */
+p { margin: 0 0 1rem; }
 ul, ol { margin: 0 0 1rem; padding-left: 1.4rem; }
 li { margin-bottom: 0.5rem; }
 strong { color: #3e3018; }
@@ -61,7 +82,7 @@ em { color: inherit; }
   font-weight: 700;
   color: var(--text);
   background: rgba(180, 135, 47, 0.12);
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--gold-bright);
   padding: 0.6rem 0.9rem;
   margin-bottom: 1rem;
 }
@@ -71,7 +92,16 @@ em { color: inherit; }
   margin-bottom: 2rem;
 }
 
-.rule-trigger {
+/* Le déclencheur est un vrai <button> injecté par JS dans le titre :
+   on neutralise le style natif du bouton, qui hérite alors de la
+   typographie du titre qui l'entoure. */
+button.rule-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -81,15 +111,21 @@ em { color: inherit; }
   user-select: none;
 }
 
-.rule-trigger:hover,
-.rule-trigger:focus-visible {
+button.rule-trigger:hover {
   color: var(--blood-light);
-  outline: none;
+}
+
+/* Focus clavier : indicateur toujours visible (WCAG 2.4.7).
+   Ne jamais poser outline: none sans indicateur de remplacement. */
+button.rule-trigger:focus-visible {
+  color: var(--blood-light);
+  outline: 2px solid var(--blood);
+  outline-offset: 3px;
 }
 
 .rule-trigger::after {
   content: "＋";
-  color: var(--gold);
+  color: var(--gold-bright);
   font-size: 1rem;
   transition: transform 0.2s ease;
 }
@@ -108,8 +144,9 @@ em { color: inherit; }
   display: block;
 }
 
-/* Stratagème de Réserves : les titres h3 accordéon sont mis en avant comme les h2. */
-h3.rule-trigger {
+/* Stratagème de Réserves : les titres h3 accordéon sont mis en avant comme les h2.
+   .rule-heading est posée par JS sur le titre qui contient le bouton. */
+h3.rule-heading {
   color: var(--gold);
   border-bottom: 1px solid var(--gold-dim);
   padding-bottom: 0.35rem;
@@ -197,7 +234,7 @@ section { margin-bottom: 2rem; }
 .nav-toggle span {
   display: block;
   width: 20px; height: 2px;
-  background: var(--gold);
+  background: var(--gold-bright);
   transition: transform 0.25s, opacity 0.25s;
 }
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -229,7 +266,7 @@ section { margin-bottom: 2rem; }
   color: var(--text);
   border-left: 3px solid transparent;
 }
-.nav-menu a:hover { color: var(--gold); border-left-color: var(--gold); text-decoration: none; background: rgba(201,168,76,0.06); }
+.nav-menu a:hover { color: var(--gold); border-left-color: var(--gold-bright); text-decoration: none; background: rgba(201,168,76,0.06); }
 .nav-menu a.active { color: var(--gold); border-left-color: var(--blood); }
 
 /* ---------- Encadrés de contenu ---------- */
@@ -248,7 +285,7 @@ section { margin-bottom: 2rem; }
 .callout--designer > h3, .callout--designer > h4 { color: var(--blood-light); text-align: center; }
 
 /* Encadré de mise en avant : sert à souligner une règle particulièrement importante. */
-.callout--rule { border-color: var(--gold); }
+.callout--rule { border-color: var(--gold-bright); }
 .callout--rule > h3, .callout--rule > h4 { color: var(--gold); text-align: center; }
 
 /* ---------- Tableaux de règles ---------- */
@@ -313,7 +350,7 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   color: var(--text);
   transition: border-color 0.2s, transform 0.15s;
 }
-.card:hover { border-top-color: var(--gold); text-decoration: none; color: var(--text); transform: translateY(-2px); }
+.card:hover { border-top-color: var(--gold-bright); text-decoration: none; color: var(--text); transform: translateY(-2px); }
 .card h2 { font-size: 1rem; border: none; margin: 0 0 0.35rem; padding: 0; }
 .card p { font-size: 0.88rem; color: var(--text-dim); margin: 0; }
 
@@ -338,7 +375,7 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   z-index: 90;
   width: 46px; height: 46px;
   border-radius: 50%;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--gold-bright);
   background: rgba(255, 248, 234, 0.96);
   color: var(--blood);
   font-size: 1.3rem;
@@ -368,6 +405,10 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 /* Tablette ≥ 768px */
 @media (min-width: 768px) {
   body { font-size: 17px; }
+  /* Esthétique "livre de règles" : justification réservée aux écrans larges,
+     avec césure française automatique (activée par lang="fr" sur <html>)
+     pour éviter les grands espaces entre les mots. */
+  p { text-align: justify; hyphens: auto; }
   h1 { font-size: 2.1rem; }
   .hero h1 { font-size: 2.5rem; }
   .card-grid { grid-template-columns: 1fr 1fr; }
@@ -378,9 +419,12 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 @media (min-width: 1024px) {
   .nav-toggle { display: none; }
   .site-nav { padding: 0 28px; }
-  .nav-menu {
+  /* Le sélecteur .nav-menu.open est répété ici pour battre la règle mobile
+     ".nav-menu.open { display: block }" par la spécificité, sans !important. */
+  .nav-menu,
+  .nav-menu.open {
     position: static;
-    display: flex !important;
+    display: flex;
     background: none;
     border: none;
     padding: 0;
@@ -395,7 +439,16 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
     font-size: 0.78rem;
     white-space: nowrap;
   }
-  .nav-menu a:hover { border-bottom-color: var(--gold); background: none; }
+  .nav-menu a:hover { border-bottom-color: var(--gold-bright); background: none; }
   .nav-menu a.active { border-bottom-color: var(--blood); }
   .card-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* ==========================================================================
+   Accessibilité : respecte le réglage système « réduire les animations »
+   (troubles vestibulaires — WCAG 2.3.3)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
 }

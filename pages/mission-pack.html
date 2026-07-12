@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSP : n'autorise que nos propres fichiers + Google Fonts (défense en profondeur) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"
+    />
     <title>Pack de Missions — Zone Mortalis VF</title>
     <meta
       name="description"
@@ -14,12 +19,20 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <!-- Favicon vectoriel embarqué : évite une requête 404 sur /favicon.ico -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='13'%3E⚔️%3C/text%3E%3C/svg%3E"
+    />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
-  <body>
+  <body data-accordion="sequence">
+    <!-- Lien d’évitement : premier élément focusable, il permet aux utilisateurs
+         clavier de sauter le menu et d’aller directement au contenu. -->
+    <a class="skip-link" href="#content">Aller au contenu</a>
     <!-- Cette page décrit le pack de missions avec ses objectifs, étapes et cas particuliers. -->
     <!-- Les commentaires aident à repérer rapidement la logique de chaque partie du document. -->
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Navigation principale">
       <a class="nav-brand" href="../index.html">Zone Mortalis</a>
       <button
         class="nav-toggle"
@@ -39,14 +52,14 @@
     </nav>
 
     <!-- Le contenu principal regroupe la présentation du scénario et les règles spécifiques à la mission. -->
-    <main>
+    <main id="content">
       <header class="page-header">
         <p class="kicker">Journal Tactica — Zone Mortalis</p>
         <h1>Pack de Missions « Protocole de Nettoyage »</h1>
         <hr class="rule-divider" />
       </header>
 
-      <div id="content">
+      <div class="rules-content">
         <section>
           <h2>1. Sélectionner la Mission du Protocole de Nettoyage</h2>
           <p>
@@ -411,9 +424,9 @@
           </p>
         </section>
       </div>
-      <!-- /#content -->
+      <!-- /.rules-content -->
 
-      <nav class="page-nav">
+      <nav class="page-nav" aria-label="Pages précédente et suivante">
         <a href="reserves.html">← Réserves</a>
         <a href="../index.html">Accueil →</a>
       </nav>

@@ -1,0 +1,2 @@
+# Réglages locaux propres à chaque poste : ne pas versionner
+.claude/settings.local.json

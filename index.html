@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Zone Mortalis</title>
+    <!-- CSP : n'autorise que nos propres fichiers + Google Fonts (défense en profondeur) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"
+    />
+    <title>Zone Mortalis VF — Règles Horus Heresy</title>
     <meta
       name="description"
       content="Règles Zone Mortalis du Journal Tactica pour Warhammer: The Horus Heresy, traduites en français. Site fan-made non officiel."
@@ -15,12 +20,22 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <!-- Favicon vectoriel embarqué : évite une requête 404 sur /favicon.ico -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='13'%3E⚔️%3C/text%3E%3C/svg%3E"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Lien d'évitement : premier élément focusable, il permet aux utilisateurs
+         clavier de sauter le menu et d'aller directement au contenu. -->
+    <a class="skip-link" href="#content">Aller au contenu</a>
+
     <!-- La structure du site est simple : la navigation en haut, le contenu principal au centre, et le pied de page en bas. -->
     <!-- Cette barre reste visible pendant le défilement pour faciliter la navigation entre les pages du guide. -->
-    <nav class="site-nav">
+    <!-- aria-label différencie les deux zones <nav> pour les lecteurs d'écran. -->
+    <nav class="site-nav" aria-label="Navigation principale">
       <a class="nav-brand" href="index.html">Zone Mortalis</a>
       <button
         class="nav-toggle"

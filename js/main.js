@@ -1,24 +1,31 @@
 /* ==========================================================================
    Zone Mortalis — main.js
-   Menu hamburger · Bouton retour en haut
-   JavaScript vanilla, aucune dépendance.
+   Menu hamburger · Accordéons des règles · Bouton retour en haut
+   JavaScript vanilla (ES6), aucune dépendance.
+
+   Le comportement des accordéons est piloté par l'attribut data-accordion
+   posé sur <body> dans chaque page HTML (et non par l'URL de la page,
+   qui pourrait changer avec un renommage ou une réécriture d'URL) :
+     - data-accordion="sections" : chaque <section> à résumé devient un tiroir
+     - data-accordion="h3"       : chaque titre <h3> ouvre son propre tiroir
+     - data-accordion="sequence" : seules les sections numérotées se replient
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 1. Menu hamburger (mobile) ---------- */
-  var toggle = document.querySelector('.nav-toggle');
-  var menu = document.querySelector('.nav-menu');
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.nav-menu');
 
   if (toggle && menu) {
-    toggle.addEventListener('click', function () {
-      var open = menu.classList.toggle('open');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
       // aria-expanded : accessibilité + pilote l'animation CSS du bouton
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
     // Ferme le menu quand on clique sur un lien (utile en navigation par ancres)
-    menu.addEventListener('click', function (e) {
+    menu.addEventListener('click', (e) => {
       if (e.target.tagName === 'A') {
         menu.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
@@ -26,183 +33,152 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---------- 2. Accordéon des règles affichées en version compacte ---------- */
-  if (window.location.pathname.toLowerCase().endsWith('special-rules.html') ||
-      window.location.pathname.toLowerCase().endsWith('core-rules.html') ||
-      window.location.pathname.toLowerCase().endsWith('reactions.html')) {
-    var ruleCards = document.querySelectorAll('#content > section');
+  /* ---------- 2. Accordéons ---------- */
 
-    ruleCards.forEach(function (card) {
-      card.classList.add('rule-card');
+  // Compteur global : garantit un id unique par tiroir pour aria-controls.
+  let accordionCount = 0;
 
-      var heading = card.querySelector('h2');
-      if (!heading) return;
+  /**
+   * Transforme un trio (carte, titre, tiroir) en accordéon accessible.
+   * Un vrai <button> est injecté DANS le titre : le h2/h3 conserve ainsi sa
+   * sémantique de titre pour les lecteurs d'écran (navigation par titres),
+   * et le bouton natif gère Entrée/Espace sans code clavier supplémentaire.
+   */
+  function makeAccordion(card, heading, details) {
+    card.classList.add('rule-card');
+    heading.classList.add('rule-heading');
 
-      heading.classList.add('rule-trigger');
-      heading.setAttribute('role', 'button');
-      heading.setAttribute('tabindex', '0');
-      heading.setAttribute('aria-expanded', 'false');
+    const btn = document.createElement('button');
+    btn.type = 'button'; // évite tout comportement "submit" si un jour dans un <form>
+    btn.className = 'rule-trigger';
+    btn.setAttribute('aria-expanded', 'false');
 
-      var details = document.createElement('div');
+    // On déplace le contenu du titre dans le bouton (le titre enveloppe le bouton).
+    while (heading.firstChild) {
+      btn.appendChild(heading.firstChild);
+    }
+    heading.appendChild(btn);
+
+    // Lien programmatique bouton → panneau (aria-controls exige un id).
+    accordionCount += 1;
+    details.id = `rule-details-${accordionCount}`;
+    btn.setAttribute('aria-controls', details.id);
+
+    card.appendChild(details);
+
+    btn.addEventListener('click', () => {
+      const open = card.classList.toggle('is-open');
+      // aria-expanded informe les lecteurs d'écran de l'état ouvert/fermé.
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  const mode = document.body.dataset.accordion;
+
+  /* --- Mode "sections" : règles principales, spéciales et réactions --- */
+  if (mode === 'sections') {
+    document.querySelectorAll('.rules-content > section').forEach((card) => {
+      const heading = card.querySelector(':scope > h2');
+      if (!heading) return; // section sans titre h2 direct (ex. encadré seul)
+
+      const details = document.createElement('div');
       details.className = 'rule-details';
 
-      // On ne déplace dans le tiroir "details" que ce qui vient APRES le résumé
-      // (.rule-summary) : le titre et le résumé restent donc toujours visibles,
-      // même carte fermée. Le drapeau "capture" bascule à true dès qu'on croise
-      // le résumé, et repasse à false si un nouveau H2 apparaît (sécurité).
-      var capture = false;
-      Array.prototype.slice.call(card.childNodes).forEach(function (node) {
-        if (node.nodeType !== 1) return;
-
+      // On ne déplace dans le tiroir que ce qui vient APRÈS le résumé
+      // (.rule-summary) : le titre et le résumé restent toujours visibles,
+      // même carte fermée. Le drapeau "capture" bascule à true dès qu'on
+      // croise le résumé, et repasse à false si un nouveau H2 apparaît.
+      let capture = false;
+      Array.from(card.children).forEach((node) => {
         if (node.tagName === 'H2') {
           capture = false;
           return;
         }
-
-        if (node.classList && node.classList.contains('rule-summary')) {
+        if (node.classList.contains('rule-summary')) {
           capture = true;
           return;
         }
-
         if (capture) {
           details.appendChild(node);
         }
       });
 
-      if (details.childNodes.length > 0) {
-        card.appendChild(details);
-      }
+      // Rien à replier (pas de résumé ou pas de détail) : pas d'accordéon.
+      if (details.childNodes.length === 0) return;
 
-      // "force" permet d'imposer un état (true/false) plutôt que de toujours
-      // basculer l'état courant ; pratique si on veut un jour ouvrir/fermer
-      // une carte depuis l'extérieur sans passer par un clic utilisateur.
-      function toggleCard(force) {
-        var shouldOpen = typeof force === 'boolean' ? force : !card.classList.contains('is-open');
-        card.classList.toggle('is-open', shouldOpen);
-        // aria-expanded informe les lecteurs d'écran de l'état ouvert/fermé.
-        heading.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
-      }
-
-      heading.addEventListener('click', function () {
-        toggleCard();
-      });
-
-      heading.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleCard();
-        }
-      });
+      makeAccordion(card, heading, details);
     });
   }
 
-  /* ---------- 2bis. Accordéon des Stratagèmes de Réserves (titres h3) ---------- */
-  if (window.location.pathname.toLowerCase().endsWith('reserves.html')) {
-    // Ici les H3 ne sont pas dans des <section> séparées : on exclut donc les
-    // titres qui se trouvent déjà dans un encadré .callout (ils ne doivent
-    // pas devenir des accordéons), et on garde ceux du texte courant.
-    var stratHeadings = Array.prototype.filter.call(document.querySelectorAll('#content h3'), function (heading) {
-      return !heading.closest('.callout');
-    });
+  /* --- Mode "h3" : stratagèmes de réserves --- */
+  if (mode === 'h3') {
+    // Les H3 ne sont pas dans des <section> séparées : on exclut ceux qui se
+    // trouvent dans un encadré .callout (ils ne doivent pas devenir des
+    // accordéons), et on garde ceux du texte courant.
+    const stratHeadings = Array.from(document.querySelectorAll('.rules-content h3'))
+      .filter((heading) => !heading.closest('.callout'));
 
-    stratHeadings.forEach(function (heading) {
-      var card = document.createElement('div');
-      card.className = 'rule-card';
+    stratHeadings.forEach((heading) => {
+      const card = document.createElement('div');
       heading.parentNode.insertBefore(card, heading);
       card.appendChild(heading);
 
-      heading.classList.add('rule-trigger');
-      heading.setAttribute('role', 'button');
-      heading.setAttribute('tabindex', '0');
-      heading.setAttribute('aria-expanded', 'false');
-
-      var details = document.createElement('div');
+      const details = document.createElement('div');
       details.className = 'rule-details';
 
       // Comme il n'y a pas de conteneur dédié par stratagème, on "aspire"
       // les éléments frères qui suivent le titre, un par un, jusqu'au H3
       // suivant (= le prochain stratagème) ou la fin du bloc.
-      var next = card.nextSibling;
+      let next = card.nextSibling;
       while (next && !(next.nodeType === 1 && next.tagName === 'H3')) {
-        var toMove = next;
+        const toMove = next;
         next = next.nextSibling;
         details.appendChild(toMove);
       }
 
-      card.appendChild(details);
-
-      function toggleCard() {
-        var shouldOpen = !card.classList.contains('is-open');
-        card.classList.toggle('is-open', shouldOpen);
-        heading.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
-      }
-
-      heading.addEventListener('click', toggleCard);
-      heading.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleCard();
-        }
-      });
+      makeAccordion(card, heading, details);
     });
   }
 
-  /* ---------- 2ter. Accordéon de la Séquence de Mission (mission-pack.html) ---------- */
-  if (window.location.pathname.toLowerCase().endsWith('mission-pack.html')) {
-    // Seules les sections numérotées ("1. Sélectionner...", "2. ...") forment
-    // la Séquence de Mission ; les sections d'objectifs, non numérotées, ne
+  /* --- Mode "sequence" : séquence de mission (sections numérotées) --- */
+  if (mode === 'sequence') {
+    // Seules les sections numérotées ("1. Sélectionner…", "2. …") forment la
+    // Séquence de Mission ; les sections d'objectifs, non numérotées, ne
     // doivent pas devenir des accordéons et sont donc ignorées par ce filtre.
-    var sequenceSections = Array.prototype.filter.call(document.querySelectorAll('#content > section'), function (section) {
-      var heading = section.querySelector('h2');
-      return heading && /^\d+\.\s/.test(heading.textContent.trim());
-    });
+    Array.from(document.querySelectorAll('.rules-content > section'))
+      .filter((section) => {
+        const heading = section.querySelector(':scope > h2');
+        return heading && /^\d+\.\s/.test(heading.textContent.trim());
+      })
+      .forEach((section) => {
+        const heading = section.querySelector(':scope > h2');
 
-    sequenceSections.forEach(function (section) {
-      section.classList.add('rule-card');
+        const details = document.createElement('div');
+        details.className = 'rule-details';
 
-      var heading = section.querySelector('h2');
-      heading.classList.add('rule-trigger');
-      heading.setAttribute('role', 'button');
-      heading.setAttribute('tabindex', '0');
-      heading.setAttribute('aria-expanded', 'false');
-
-      var details = document.createElement('div');
-      details.className = 'rule-details';
-
-      var next = heading.nextSibling;
-      while (next) {
-        var toMove = next;
-        next = next.nextSibling;
-        details.appendChild(toMove);
-      }
-      section.appendChild(details);
-
-      function toggleCard() {
-        var shouldOpen = !section.classList.contains('is-open');
-        section.classList.toggle('is-open', shouldOpen);
-        heading.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
-      }
-
-      heading.addEventListener('click', toggleCard);
-      heading.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleCard();
+        let next = heading.nextSibling;
+        while (next) {
+          const toMove = next;
+          next = next.nextSibling;
+          details.appendChild(toMove);
         }
+
+        makeAccordion(section, heading, details);
       });
-    });
   }
 
   /* ---------- 3. Bouton retour en haut ---------- */
-  var topBtn = document.querySelector('.back-to-top');
+  const topBtn = document.querySelector('.back-to-top');
   if (topBtn) {
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', () => {
       // Affiché après un écran de défilement
       topBtn.classList.toggle('visible', window.scrollY > window.innerHeight);
     }, { passive: true });
 
-    topBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    topBtn.addEventListener('click', () => {
+      // Respecte le réglage "réduire les animations" du système (a11y).
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   }
 
