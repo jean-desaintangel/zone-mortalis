@@ -454,21 +454,20 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 }
 
 /* ==========================================================================
-   Page « Règles avancées »
-   Composants propres à cette page : sous-règles, détachements principaux et
-   cartes de déploiement. Tout est en classes (aucun style en ligne) pour
-   respecter la Content-Security-Policy du site.
+   Pages « Règles avancées » et « Pack de Missions »
+   Composants propres à ces pages : sous-règles (Règles avancées),
+   détachements principaux et cartes de déploiement (Pack de Missions).
+   Tout est en classes (aucun style en ligne) pour respecter la
+   Content-Security-Policy du site.
    ========================================================================== */
 
-/* ---------- Sous-règle : titre + accroche « lore » + texte ---------- */
+/* ---------- Sous-règle : titre + texte ---------- */
 .subrule {
   border-left: 3px solid var(--gold-dim);
   padding-left: 0.9rem;
   margin: 1.3rem 0;
 }
 .subrule h4 { margin-top: 0; }
-/* Texte d'ambiance en italique : sert à distinguer le récit de la règle. */
-.lore { font-style: italic; color: var(--text-dim); }
 
 /* Fiche Déclencheur/Coût/Cible d'une réaction : étiquette + valeur, pour un
    repérage plus rapide que des paragraphes en gras noyés dans le texte. */
@@ -505,14 +504,6 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   text-align: center;
 }
 .detach-card h4 { color: var(--text); margin: 0 0 0.15rem; }
-.detach-tag {
-  font-family: var(--font-title);
-  font-size: 0.66rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin: 0 0 1rem;
-}
 
 /* Grille des emplacements de rôle (4 colonnes). */
 .role-grid {
