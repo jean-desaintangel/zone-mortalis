@@ -133,6 +133,49 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ---------- 2ter. Accordéon de la Séquence de Mission (mission-pack.html) ---------- */
+  if (window.location.pathname.toLowerCase().endsWith('mission-pack.html')) {
+    var sequenceSections = Array.prototype.filter.call(document.querySelectorAll('#content > section'), function (section) {
+      var heading = section.querySelector('h2');
+      return heading && /^\d+\.\s/.test(heading.textContent.trim());
+    });
+
+    sequenceSections.forEach(function (section) {
+      section.classList.add('rule-card');
+
+      var heading = section.querySelector('h2');
+      heading.classList.add('rule-trigger');
+      heading.setAttribute('role', 'button');
+      heading.setAttribute('tabindex', '0');
+      heading.setAttribute('aria-expanded', 'false');
+
+      var details = document.createElement('div');
+      details.className = 'rule-details';
+
+      var next = heading.nextSibling;
+      while (next) {
+        var toMove = next;
+        next = next.nextSibling;
+        details.appendChild(toMove);
+      }
+      section.appendChild(details);
+
+      function toggleCard() {
+        var shouldOpen = !section.classList.contains('is-open');
+        section.classList.toggle('is-open', shouldOpen);
+        heading.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      }
+
+      heading.addEventListener('click', toggleCard);
+      heading.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleCard();
+        }
+      });
+    });
+  }
+
   /* ---------- 3. Bouton retour en haut ---------- */
   var topBtn = document.querySelector('.back-to-top');
   if (topBtn) {
