@@ -1,237 +1,628 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pack de Missions — Zone Mortalis VF</title>
-<meta name="description" content="Pack de missions « Protocole de Nettoyage » : séquence de mission, objectifs principaux et secondaires, passages de porte.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pack de Missions — Zone Mortalis VF</title>
+    <meta
+      name="description"
+      content="Pack de missions « Protocole de Nettoyage » : séquence de mission, objectifs principaux et secondaires, passages de porte."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- Cette page décrit le pack de missions avec ses objectifs, étapes et cas particuliers. -->
+    <!-- Les commentaires aident à repérer rapidement la logique de chaque partie du document. -->
+    <nav class="site-nav">
+      <a class="nav-brand" href="../index.html">Zone Mortalis</a>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="core-rules.html">Règles Principales</a></li>
+        <li><a href="special-rules.html">Règles Spéciales</a></li>
+        <li><a href="reactions.html">Réactions</a></li>
+        <li><a href="reserves.html">Réserves</a></li>
+        <li><a href="mission-pack.html" class="active">Missions</a></li>
+      </ul>
+    </nav>
 
-<!-- Cette page décrit le pack de missions avec ses objectifs, étapes et cas particuliers. -->
-<!-- Les commentaires aident à repérer rapidement la logique de chaque partie du document. -->
-<nav class="site-nav">
-  <a class="nav-brand" href="../index.html">Zone Mortalis</a>
-  <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-menu">
-    <li><a href="../index.html">Accueil</a></li>
-    <li><a href="core-rules.html">Règles Principales</a></li>
-    <li><a href="special-rules.html">Règles Spéciales</a></li>
-    <li><a href="reactions.html">Réactions</a></li>
-    <li><a href="reserves.html">Réserves</a></li>
-    <li><a href="mission-pack.html" class="active">Missions</a></li>
-  </ul>
-</nav>
+    <!-- Le contenu principal regroupe la présentation du scénario et les règles spécifiques à la mission. -->
+    <main>
+      <header class="page-header">
+        <p class="kicker">Journal Tactica — Zone Mortalis</p>
+        <h1>Pack de Missions « Protocole de Nettoyage »</h1>
+        <hr class="rule-divider" />
+      </header>
 
-<!-- Le contenu principal regroupe la présentation du scénario et les règles spécifiques à la mission. -->
-<main>
+      <div id="content">
+        <section>
+          <p>
+            Ce Pack de Missions Zone Mortalis présente des Missions dont la
+            durée de Bataille est variable, pouvant aller jusqu’à six Tours, et
+            qui utilisent des Objectifs Principaux et des Objectifs Secondaires
+            du Protocole de Nettoyage. Ces derniers récompensent respectivement
+            les Joueurs de Points de Victoire pour l’élimination des Unités
+            ennemies et pour la domination du Champ de Bataille, non seulement
+            pendant la Bataille elle-même, mais aussi au moyen d’une multitude
+            de considérations alternatives durant le processus de sélection
+            d’Armée, présentant ainsi aux Joueurs un défi tactique différent.
+          </p>
+        </section>
 
-  <header class="page-header">
-    <p class="kicker">Journal Tactica — Zone Mortalis</p>
-    <h1>Pack de Missions « Protocole de Nettoyage »</h1>
-    <hr class="rule-divider">
-  </header>
+        <section>
+          <h2>Comment utiliser les Missions Zone Mortalis</h2>
+          <p>
+            Les Règles suivantes permettront aux Joueurs d’utiliser les Missions
+            Zone Mortalis lorsqu’ils jouent des Batailles, depuis la sélection
+            des Armées jusqu’à la résolution du résultat final de la Mission.
+          </p>
 
-  <div id="content">
+          <h3>Batailles utilisant les Missions du Protocole de Nettoyage</h3>
+          <p>
+            Que l’on utilise les Missions du Protocole de Nettoyage pour des
+            Batailles autonomes ou dans le cadre d’une campagne, tous les
+            Joueurs doivent suivre ces Étapes dans l’ordre afin de résoudre une
+            Mission du Protocole de Nettoyage. Chacune de ces Étapes doit être
+            menée à bien dans la séquence dans laquelle elle est présentée,
+            chaque Étape devant être entièrement achevée avant de passer à la
+            suivante.
+          </p>
 
-  <section>
-    <p>Ce Pack de Missions Zone Mortalis présente des Missions dont la durée de Bataille est variable, pouvant aller jusqu'à six Tours, et qui utilisent des Objectifs Principaux et des Objectifs Secondaires du Protocole de Nettoyage. Ces derniers récompensent respectivement les Joueurs de Points de Victoire pour l'élimination des Unités ennemies et pour la domination du Champ de Bataille, non seulement pendant la Bataille elle-même, mais aussi au moyen d'une multitude de considérations alternatives durant le processus de sélection d'Armée, présentant ainsi aux Joueurs un défi tactique différent.</p>
-  </section>
+          <div class="callout callout--rule">
+            <h3>Séquence de Mission du Protocole de Nettoyage</h3>
+            <ol>
+              <li>Sélectionner la Mission du Protocole de Nettoyage.</li>
+              <li>Sélectionner les Armées.</li>
+              <li>Préparer le Champ de Bataille.</li>
+              <li>Déployer les Objectifs.</li>
+              <li>Sélectionner la Carte de Déploiement (Étape optionnelle).</li>
+              <li>Déclarer les Réserves de Mission.</li>
+              <li>Déployer les Armées.</li>
+              <li>Jouer la Mission du Protocole de Nettoyage.</li>
+              <li>Désigner le Vainqueur.</li>
+            </ol>
+          </div>
+        </section>
 
-  <section>
-    <h2>Comment utiliser les Missions Zone Mortalis</h2>
-    <p>Les Règles suivantes permettront aux Joueurs d'utiliser les Missions Zone Mortalis lorsqu'ils jouent des Batailles, depuis la sélection des Armées jusqu'à la résolution du résultat final de la Mission.</p>
+        <section>
+          <h2>1. Sélectionner la Mission du Protocole de Nettoyage</h2>
+          <p>
+            La première Étape pour résoudre une Mission du Protocole de
+            Nettoyage consiste à sélectionner une Mission pour la Bataille. Les
+            Joueurs peuvent soit sélectionner l’une des Missions du Protocole de
+            Nettoyage sur laquelle ils s’accordent tous les deux, soit lancer un
+            seul Dé sur la table ci-dessous pour décider quelle Mission du
+            Protocole de Nettoyage sera jouée.
+          </p>
 
-    <h3>Batailles utilisant les Missions du Protocole de Nettoyage</h3>
-    <p>Que l'on utilise les Missions du Protocole de Nettoyage pour des Batailles autonomes ou dans le cadre d'une campagne, tous les Joueurs doivent suivre ces Étapes dans l'ordre afin de résoudre une Mission du Protocole de Nettoyage. Chacune de ces Étapes doit être menée à bien dans la séquence dans laquelle elle est présentée, chaque Étape devant être entièrement achevée avant de passer à la suivante.</p>
+          <div class="table-wrap">
+            <table class="rule-table">
+              <caption>
+                Table des Missions du Protocole de Nettoyage
+              </caption>
+              <thead>
+                <tr>
+                  <th>Dé</th>
+                  <th>Résultat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Assaut de Secteur</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Sans Quartier</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Terre Ensanglantée</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Prise de Contrôle</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Nexus de Ruine</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Domination Totale</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-    <div class="callout callout--rule">
-      <h3>Séquence de Mission du Protocole de Nettoyage</h3>
-      <ol>
-        <li>Sélectionner la Mission du Protocole de Nettoyage.</li>
-        <li>Sélectionner les Armées.</li>
-        <li>Préparer le Champ de Bataille.</li>
-        <li>Déployer les Objectifs.</li>
-        <li>Sélectionner la Carte de Déploiement (Étape optionnelle).</li>
-        <li>Déclarer les Réserves de Mission.</li>
-        <li>Déployer les Armées.</li>
-        <li>Jouer la Mission du Protocole de Nettoyage.</li>
-        <li>Désigner le Vainqueur.</li>
-      </ol>
-    </div>
-  </section>
+        <section>
+          <h2>2. Sélectionner les Armées</h2>
+          <p>
+            La deuxième Étape pour résoudre une Mission du Protocole de
+            Nettoyage consiste, pour tous les Joueurs, à créer une Feuille
+            d’Armée, une liste de toutes les Figurines, Unités et options à
+            inclure dans leur Armée. Toutes les Armées utilisées dans une
+            Mission du Protocole de Nettoyage doivent respecter une Limite de
+            Points de 1&nbsp;500 Points et sont par ailleurs sélectionnées
+            conformément à l’Étape « Sélectionner les Armées » de la Séquence de
+            Mission de base (voir page 304 du livre de règles
+            <em>Warhammer : The Horus Heresy — Age of Darkness</em>).
+          </p>
+        </section>
 
-  <section>
-    <h2>1. Sélectionner la Mission du Protocole de Nettoyage</h2>
-    <p>La première Étape pour résoudre une Mission du Protocole de Nettoyage consiste à sélectionner une Mission pour la Bataille. Les Joueurs peuvent soit sélectionner l'une des Missions du Protocole de Nettoyage sur laquelle ils s'accordent tous les deux, soit lancer un seul Dé sur la table ci-dessous pour décider quelle Mission du Protocole de Nettoyage sera jouée.</p>
+        <section>
+          <h2>3. Préparer le Champ de Bataille</h2>
+          <p>
+            Au début de l’Étape 3, les Joueurs doivent aménager une zone qui
+            servira de Champ de Bataille Zone Mortalis. Il doit s’agir d’une
+            zone plane de 4 x 3 pieds avec des Bords de Champ de Bataille
+            clairement définis. Avant de placer le Terrain, les Joueurs doivent
+            décider quel Terrain sera disponible pour être placé lors de cette
+            Bataille. Le Zone Mortalis Floor Tile Set de Citadel Miniatures
+            constitue la base parfaite pour les Champs de Bataille Zone
+            Mortalis, car il permet aux Joueurs de disposer des tuiles à
+            configuration fixe de 12″ x 12″ pour couvrir la zone de Champ de
+            Bataille. Si de telles tuiles sont utilisées, les Joueurs les
+            traitent comme des Éléments de Terrain individuels qui s’assemblent
+            pour former le Champ de Bataille. Pour ajouter de la variété, les
+            Joueurs pourront trouver utile d’utiliser des éléments de Terrain
+            séparés supplémentaires aux côtés des tuiles à configuration fixe.
+          </p>
 
-    <div class="table-wrap">
-      <table class="rule-table">
-        <caption>Table des Missions du Protocole de Nettoyage</caption>
-        <thead>
-          <tr><th>Dé</th><th>Résultat</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>Assaut de Secteur</td></tr>
-          <tr><td>2</td><td>Sans Quartier</td></tr>
-          <tr><td>3</td><td>Terre Ensanglantée</td></tr>
-          <tr><td>4</td><td>Prise de Contrôle</td></tr>
-          <tr><td>5</td><td>Nexus de Ruine</td></tr>
-          <tr><td>6</td><td>Domination Totale</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+          <div class="callout callout--designer">
+            <h3>Note du Concepteur : Sections et Secteurs</h3>
+            <p>
+              Bien que leurs noms soient similaires, les Sections et les
+              Secteurs désignent des zones différentes du Champ de Bataille Zone
+              Mortalis. Les Sections désignent les tuiles de 12″ x 12″, ou
+              chaque zone de la grille de 12″ x 12″ dans laquelle le Champ de
+              Bataille est divisé, comme détaillé en page 4. Les Secteurs sont
+              définis sur la Carte de Déploiement de chaque Mission « Protocole
+              de Nettoyage » Zone Mortalis et sont utilisés principalement dans
+              le cadre de l’Objectif Secondaire « Domination de Secteur (X) ».
+            </p>
+          </div>
 
-  <section>
-    <h2>2. Sélectionner les Armées</h2>
-    <p>La deuxième Étape pour résoudre une Mission du Protocole de Nettoyage consiste, pour tous les Joueurs, à créer une Feuille d'Armée, une liste de toutes les Figurines, Unités et options à inclure dans leur Armée. Toutes les Armées utilisées dans une Mission du Protocole de Nettoyage doivent respecter une Limite de Points de 1&nbsp;500 Points et sont par ailleurs sélectionnées conformément à l'Étape « Sélectionner les Armées » de la Séquence de Mission de base (voir page 304 du livre de règles <em>Warhammer: The Horus Heresy – Age of Darkness</em>).</p>
-  </section>
+          <p>
+            Une fois qu’une zone a été réservée pour le Champ de Bataille, les
+            Joueurs doivent placer le Terrain sur le Champ de Bataille
+            conformément aux règles de l’Étape « Préparer le Champ de Bataille »
+            de la Séquence de Mission de base (voir page 304 du livre de règles
+            <em>Warhammer : The Horus Heresy — Age of Darkness</em>). Si des
+            tuiles à configuration fixe sont utilisées, celles-ci doivent toutes
+            être placées en premier, avant le Terrain de Zone, puis les Passages
+            de Porte, puis les Barricades, suivis de tous les Éléments de
+            Terrain restants à utiliser. Les Joueurs peuvent également avoir
+            besoin d’espace supplémentaire pour placer les accessoires, les Dés,
+            les Réserves et toutes les Figurines retirées du jeu.
+          </p>
 
-  <section>
-    <h2>3. Préparer le Champ de Bataille</h2>
-    <p>Au début de l'Étape 3, les Joueurs doivent aménager une zone qui servira de Champ de Bataille Zone Mortalis. Il doit s'agir d'une zone plane de 4 x 3 pieds avec des Bords de Champ de Bataille clairement définis. Avant de placer le Terrain, les Joueurs doivent décider quel Terrain sera disponible pour être placé lors de cette Bataille. Le Zone Mortalis Floor Tile Set de Citadel Miniatures constitue la base parfaite pour les Champs de Bataille Zone Mortalis, car il permet aux Joueurs de disposer des tuiles à configuration fixe de 12" x 12" pour couvrir la zone de Champ de Bataille. Si de telles tuiles sont utilisées, les Joueurs les traitent comme des Éléments de Terrain individuels qui s'assemblent pour former le Champ de Bataille. Pour ajouter de la variété, les Joueurs pourront trouver utile d'utiliser des éléments de Terrain séparés supplémentaires aux côtés des tuiles à configuration fixe.</p>
+          <p>
+            Voici un guide de la quantité de Terrain utilisée pour peupler un
+            Champ de Bataille Zone Mortalis :
+          </p>
+          <ul>
+            <li>
+              <strong>Murs</strong> — Pour trois Sections sur quatre dont le
+              Champ de Bataille est composé, placez au moins un Élément de
+              Terrain de Mur. Chaque Élément de Terrain de Mur doit mesurer au
+              moins 2″ de longueur et 2″ de largeur, et ne doit pas dépasser 12″
+              de longueur ni environ 3″ de largeur.
+            </li>
+            <li>
+              <strong>Passages de Porte</strong> — Pour chaque Section dont le
+              Champ de Bataille est composé, placez un Passage de Porte. La
+              moitié des Passages de Porte utilisés doivent être des portes
+              standard, d’une largeur maximale de 2″, et l’autre moitié doivent
+              être de larges Passages de Porte, d’une largeur supérieure à 2″.
+              Les Joueurs pourront trouver utile de permettre au Terrain de
+              Passage de Porte d’être positionné de façon à indiquer les États
+              Ouvert ou Fermé durant la Bataille. Le Terrain de Passage de Porte
+              est positionné de manière à combler les espaces entre deux
+              Éléments de Terrain de Mur.
+            </li>
+            <li>
+              <strong>Barricades</strong> — Pour chaque Section dont le Champ de
+              Bataille est composé, placez jusqu’à deux Éléments de Terrain de
+              Barricade.
+            </li>
+            <li>
+              <strong>Terrain de Zone</strong> — Jusqu’à deux éléments de
+              Terrain de Zone Léger ne dépassant pas 6″ x 6″ par Champ de
+              Bataille.
+            </li>
+          </ul>
+          <p>
+            Les suggestions de Terrain ci-dessus doivent être considérées comme
+            des recommandations. En raison de la variété des situations que ces
+            Règles Zone Mortalis sont destinées à représenter, il est prévu que
+            les Joueurs puissent avoir à s’en écarter dans une certaine mesure,
+            en fonction de la sélection de Terrain dont ils disposent.
+          </p>
+        </section>
 
-    <div class="callout callout--designer">
-      <h3>Note du Concepteur : Sections et Secteurs</h3>
-      <p>Bien que leurs noms soient similaires, les Sections et les Secteurs désignent des zones différentes du Champ de Bataille Zone Mortalis. Les Sections désignent les tuiles de 12" x 12", ou chaque zone de la grille de 12" x 12" dans laquelle le Champ de Bataille est divisé, comme détaillé en page 4. Les Secteurs sont définis sur la Carte de Déploiement de chaque Mission « Protocole de Nettoyage » Zone Mortalis et sont utilisés principalement dans le cadre de l'Objectif Secondaire « Domination de Secteur (X) ».</p>
-    </div>
+        <section>
+          <h2>4. Déployer les Objectifs</h2>
+          <p>
+            Bien que les Missions du Protocole de Nettoyage n’utilisent pas de
+            Marqueurs d’Objectif, d’autres Missions Zone Mortalis peuvent
+            nécessiter leur déploiement et, le cas échéant, ils doivent être
+            déployés durant cette Étape. Si la Mission utilisée requiert le
+            déploiement de Terminaux ou d’autres éléments, ceux-ci doivent être
+            déployés lors de cette étape, mais avant que tout Objectif ne soit
+            déployé.
+          </p>
+        </section>
 
-    <p>Une fois qu'une zone a été réservée pour le Champ de Bataille, les Joueurs doivent placer le Terrain sur le Champ de Bataille conformément aux règles de l'Étape « Préparer le Champ de Bataille » de la Séquence de Mission de base (voir page 304 du livre de règles <em>Warhammer: The Horus Heresy – Age of Darkness</em>). Si des tuiles à configuration fixe sont utilisées, celles-ci doivent toutes être placées en premier, avant le Terrain de Zone, puis les Passages de Porte, puis les Barricades, suivis de tous les Éléments de Terrain restants à utiliser. Les Joueurs peuvent également avoir besoin d'espace supplémentaire pour placer les accessoires, les Dés, les Réserves et toutes les Figurines retirées du jeu.</p>
+        <section>
+          <h2>
+            5. Sélectionner la Carte de Déploiement
+            <span class="vo">Étape optionnelle</span>
+          </h2>
+          <p>
+            Chaque Mission du Protocole de Nettoyage utilise une Carte de
+            Déploiement par défaut&nbsp;; toutefois, si les Joueurs souhaitent
+            ajouter davantage de variété à leurs Batailles, une Carte de
+            Déploiement alternative peut être sélectionnée. Dans ce cas, les
+            Joueurs peuvent soit sélectionner l’une des Cartes de Déploiement du
+            Protocole de Nettoyage sur laquelle ils s’accordent tous les deux,
+            soit lancer un seul Dé sur la table ci-dessous pour décider quelle
+            Carte de Déploiement du Protocole de Nettoyage sera utilisée.
+          </p>
 
-    <p>Voici un guide de la quantité de Terrain utilisée pour peupler un Champ de Bataille Zone Mortalis&nbsp;:</p>
-    <ul>
-      <li><strong>Murs</strong> – Pour trois Sections sur quatre dont le Champ de Bataille est composé, placez au moins un Élément de Terrain de Mur. Chaque Élément de Terrain de Mur doit mesurer au moins 2" de longueur et 2" de largeur, et ne doit pas dépasser 12" de longueur ni environ 3" de largeur.</li>
-      <li><strong>Passages de Porte</strong> – Pour chaque Section dont le Champ de Bataille est composé, placez un Passage de Porte. La moitié des Passages de Porte utilisés doivent être des portes standard, d'une largeur maximale de 2", et l'autre moitié doivent être de larges Passages de Porte, d'une largeur supérieure à 2". Les Joueurs pourront trouver utile de permettre au Terrain de Passage de Porte d'être positionné de façon à indiquer les États Ouvert ou Fermé durant la Bataille. Le Terrain de Passage de Porte est positionné de manière à combler les espaces entre deux Éléments de Terrain de Mur.</li>
-      <li><strong>Barricades</strong> – Pour chaque Section dont le Champ de Bataille est composé, placez jusqu'à deux Éléments de Terrain de Barricade.</li>
-      <li><strong>Terrain de Zone</strong> – Jusqu'à deux éléments de Terrain de Zone Léger ne dépassant pas 6" x 6" par Champ de Bataille.</li>
-    </ul>
-    <p>Les suggestions de Terrain ci-dessus doivent être considérées comme des recommandations. En raison de la variété des situations que ces Règles Zone Mortalis sont destinées à représenter, il est prévu que les Joueurs puissent avoir à s'en écarter dans une certaine mesure, en fonction de la sélection de Terrain dont ils disposent.</p>
-  </section>
+          <div class="table-wrap">
+            <table class="rule-table">
+              <caption>
+                Cartes de Déploiement du Protocole de Nettoyage
+              </caption>
+              <thead>
+                <tr>
+                  <th>Dé</th>
+                  <th>Résultat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1—2</td>
+                  <td>Configuration Primus</td>
+                </tr>
+                <tr>
+                  <td>3—4</td>
+                  <td>Configuration Secundus</td>
+                </tr>
+                <tr>
+                  <td>5—6</td>
+                  <td>Configuration Tertius</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-  <section>
-    <h2>4. Déployer les Objectifs</h2>
-    <p>Bien que les Missions du Protocole de Nettoyage n'utilisent pas de Marqueurs d'Objectif, d'autres Missions Zone Mortalis peuvent nécessiter leur déploiement et, le cas échéant, ils doivent être déployés durant cette Étape. Si la Mission utilisée requiert le déploiement de Terminaux ou d'autres éléments, ceux-ci doivent être déployés lors de cette étape, mais avant que tout Objectif ne soit déployé.</p>
-  </section>
+        <section>
+          <h2>6. Déclarer les Réserves de Mission</h2>
+          <p>
+            Lors de cette Étape, les deux Joueurs doivent effectuer un jet de
+            départage. Le Joueur qui perd le départage doit alors déclarer s’il
+            a l’intention de placer certaines de ses Unités en Réserves. Une
+            fois que ces Unités ont été notées sur la Feuille d’Armée de ce
+            Joueur, le Joueur qui a remporté le départage doit déclarer s’il a
+            l’intention de placer certaines de ses Unités en Réserves. Notez que
+            tous les Joueurs doivent déployer au moins une Unité sur le Champ de
+            Bataille au début du jeu, à moins qu’une autre Règle Spéciale n’en
+            dispose autrement, et que les Unités placées en Réserves lors de la
+            résolution d’une Mission du Protocole de Nettoyage doivent se voir
+            assigner un Stratagème de Réserves du Protocole de Nettoyage chaque
+            fois qu’un Test de Réserves est effectué pour cette Unité.
+          </p>
+          <p>
+            Durant l’Étape 7, des Unités supplémentaires ne peuvent être
+            ajoutées aux Réserves que s’il n’existe aucune position où le Joueur
+            contrôleur peut légitimement les déployer selon les Règles de
+            Déploiement de la Mission de base jouée. Lorsque c’est le cas, les
+            Unités qui ne peuvent pas être déployées sont immédiatement placées
+            en Réserves.
+          </p>
+        </section>
 
-  <section>
-    <h2>5. Sélectionner la Carte de Déploiement <span class="vo">Étape optionnelle</span></h2>
-    <p>Chaque Mission du Protocole de Nettoyage utilise une Carte de Déploiement par défaut&nbsp;; toutefois, si les Joueurs souhaitent ajouter davantage de variété à leurs Batailles, une Carte de Déploiement alternative peut être sélectionnée. Dans ce cas, les Joueurs peuvent soit sélectionner l'une des Cartes de Déploiement du Protocole de Nettoyage sur laquelle ils s'accordent tous les deux, soit lancer un seul Dé sur la table ci-dessous pour décider quelle Carte de Déploiement du Protocole de Nettoyage sera utilisée.</p>
+        <section>
+          <h2>7. Déployer les Armées</h2>
+          <p>
+            Lors de cette Étape, les deux Joueurs doivent effectuer un jet de
+            départage. Le Joueur qui remporte le départage doit alors
+            sélectionner soit la Zone de Déploiement A, soit la Zone de
+            Déploiement B, puis déployer dans la Zone de Déploiement
+            sélectionnée toutes les Unités de son Armée qui n’ont pas été
+            placées en Réserves lors de l’Étape 6. Une fois que ce Joueur a
+            achevé cette étape, le Joueur adverse doit déployer son armée dans
+            la Zone de Déploiement restante. S’il n’existe aucune position où le
+            Joueur contrôleur peut légitimement déployer une ou plusieurs de ses
+            Unités dans la Zone de Déploiement requise, ces Unités doivent être
+            placées en Réserves à la place — si la Règle Spéciale de Mission « Réserves » n’est pas utilisée, alors ces Unités sont placées de côté
+            et ne peuvent pas être utilisées dans la Mission, mais ne comptent
+            pas comme ayant été retirées en tant que Pertes.
+          </p>
 
-    <div class="table-wrap">
-      <table class="rule-table">
-        <caption>Cartes de Déploiement du Protocole de Nettoyage</caption>
-        <thead>
-          <tr><th>Dé</th><th>Résultat</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1-2</td><td>Configuration Primus</td></tr>
-          <tr><td>3-4</td><td>Configuration Secundus</td></tr>
-          <tr><td>5-6</td><td>Configuration Tertius</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+          <div class="callout callout--rule">
+            <h3>Déploiement</h3>
+            <p>
+              Les Règles de Mission du Protocole de Nettoyage feront souvent
+              référence au « déploiement » de Figurines, d’Unités et d’Armées.
+              Lorsqu’il leur est demandé de déployer une Figurine, une Unité ou
+              une Armée, les Joueurs doivent utiliser les règles de Déploiement
+              telles qu’elles figurent dans le Pack de Mission de base, en page 306 du livre de règles
+              <em>Warhammer : The Horus Heresy — Age of Darkness</em>.
+            </p>
+          </div>
+        </section>
 
-  <section>
-    <h2>6. Déclarer les Réserves de Mission</h2>
-    <p>Lors de cette Étape, les deux Joueurs doivent effectuer un jet de départage. Le Joueur qui perd le départage doit alors déclarer s'il a l'intention de placer certaines de ses Unités en Réserves. Une fois que ces Unités ont été notées sur la Feuille d'Armée de ce Joueur, le Joueur qui a remporté le départage doit déclarer s'il a l'intention de placer certaines de ses Unités en Réserves. Notez que tous les Joueurs doivent déployer au moins une Unité sur le Champ de Bataille au début du jeu, à moins qu'une autre Règle Spéciale n'en dispose autrement, et que les Unités placées en Réserves lors de la résolution d'une Mission du Protocole de Nettoyage doivent se voir assigner un Stratagème de Réserves du Protocole de Nettoyage chaque fois qu'un Test de Réserves est effectué pour cette Unité.</p>
-    <p>Durant l'Étape 7, des Unités supplémentaires ne peuvent être ajoutées aux Réserves que s'il n'existe aucune position où le Joueur contrôleur peut légitimement les déployer selon les Règles de Déploiement de la Mission de base jouée. Lorsque c'est le cas, les Unités qui ne peuvent pas être déployées sont immédiatement placées en Réserves.</p>
-  </section>
+        <section>
+          <h2>8. Jouer la Mission du Protocole de Nettoyage</h2>
+          <p>
+            Le Joueur qui a déployé en premier lors de l’Étape 7 prend le
+            premier Tour de Joueur. Toutes les Missions du Protocole de
+            Nettoyage se jouent sur au moins cinq Tours de Bataille. À la fin du
+            cinquième Tour de Bataille, le Joueur qui a pris le premier tour
+            doit lancer un Dé. Sur un résultat de 1 ou 2, la Bataille prend fin.
+            Sur un résultat de 3 à 6, un sixième et dernier Tour de Bataille est
+            joué avant que la Bataille ne prenne fin.
+          </p>
 
-  <section>
-    <h2>7. Déployer les Armées</h2>
-    <p>Lors de cette Étape, les deux Joueurs doivent effectuer un jet de départage. Le Joueur qui remporte le départage doit alors sélectionner soit la Zone de Déploiement A, soit la Zone de Déploiement B, puis déployer dans la Zone de Déploiement sélectionnée toutes les Unités de son Armée qui n'ont pas été placées en Réserves lors de l'Étape 6. Une fois que ce Joueur a achevé cette étape, le Joueur adverse doit déployer son armée dans la Zone de Déploiement restante. S'il n'existe aucune position où le Joueur contrôleur peut légitimement déployer une ou plusieurs de ses Unités dans la Zone de Déploiement requise, ces Unités doivent être placées en Réserves à la place – si la Règle Spéciale de Mission « Réserves » n'est pas utilisée, alors ces Unités sont placées de côté et ne peuvent pas être utilisées dans la Mission, mais ne comptent pas comme ayant été retirées en tant que Pertes.</p>
+          <div class="callout callout--designer">
+            <h3>Mort Subite</h3>
+            <p>
+              Si, à la fin d’un Tour de Bataille quelconque, un Joueur n’a plus
+              aucune Figurine sur le Champ de Bataille, la Bataille prend
+              immédiatement fin, quel que soit le nombre de Tours joués. Les
+              Figurines en Réserves ne comptent pas comme étant « sur le Champ
+              de Bataille »&nbsp;; en revanche, les Figurines d’une Unité qui
+              comprend des Figurines ayant le Statut Tactique « En Déroute », ou
+              embarquées dans une Figurine possédant le Sous-Type Transport, ou
+              dans un Bâtiment ou une Fortification, y comptent. Si une Bataille
+              prend fin en raison de la Règle « Mort Subite », le vainqueur est
+              tout de même désigné selon les Points de Victoire marqués jusqu’à
+              ce moment de la Bataille, mais le Joueur qui possède encore des
+              Figurines sur le Champ de Bataille marque 3 Points de Victoire
+              supplémentaires.
+            </p>
+          </div>
+        </section>
 
-    <div class="callout callout--rule">
-      <h3>Déploiement</h3>
-      <p>Les Règles de Mission du Protocole de Nettoyage feront souvent référence au « déploiement » de Figurines, d'Unités et d'Armées. Lorsqu'il leur est demandé de déployer une Figurine, une Unité ou une Armée, les Joueurs doivent utiliser les règles de Déploiement telles qu'elles figurent dans le Pack de Mission de base, en page 306 du livre de règles <em>Warhammer: The Horus Heresy – Age of Darkness</em>.</p>
-    </div>
-  </section>
+        <section>
+          <h2>9. Désigner le Vainqueur</h2>
+          <p>
+            Une fois la Bataille terminée, le vainqueur est désigné en fonction
+            du nombre de Points de Victoire que chaque Joueur a marqués. Les
+            Points de Victoire sont marqués à la fois par l’Objectif Principal
+            et par les Objectifs Secondaires&nbsp;; ceux-ci offrent des défis
+            tactiques différents aux Joueurs et, en général, ce sont les
+            Objectifs Principaux qui offrent la plus grande récompense.
+          </p>
+        </section>
 
-  <section>
-    <h2>8. Jouer la Mission du Protocole de Nettoyage</h2>
-    <p>Le Joueur qui a déployé en premier lors de l'Étape 7 prend le premier Tour de Joueur. Toutes les Missions du Protocole de Nettoyage se jouent sur au moins cinq Tours de Bataille. À la fin du cinquième Tour de Bataille, le Joueur qui a pris le premier tour doit lancer un Dé. Sur un résultat de 1 ou 2, la Bataille prend fin. Sur un résultat de 3 à 6, un sixième et dernier Tour de Bataille est joué avant que la Bataille ne prenne fin.</p>
+        <section>
+          <h2>Objectif Principal du Protocole de Nettoyage</h2>
+          <p>
+            L’Objectif Principal de chaque Mission du Protocole de Nettoyage est
+            d’éliminer la force ennemie, tout en équilibrant ce but avec vos
+            propres pertes.
+          </p>
 
-    <div class="callout callout--designer">
-      <h3>Mort Subite</h3>
-      <p>Si, à la fin d'un Tour de Bataille quelconque, un Joueur n'a plus aucune Figurine sur le Champ de Bataille, la Bataille prend immédiatement fin, quel que soit le nombre de Tours joués. Les Figurines en Réserves ne comptent pas comme étant « sur le Champ de Bataille »&nbsp;; en revanche, les Figurines d'une Unité qui comprend des Figurines ayant le Statut Tactique « En Déroute », ou embarquées dans une Figurine possédant le Sous-Type Transport, ou dans un Bâtiment ou une Fortification, y comptent. Si une Bataille prend fin en raison de la Règle « Mort Subite », le vainqueur est tout de même désigné selon les Points de Victoire marqués jusqu'à ce moment de la Bataille, mais le Joueur qui possède encore des Figurines sur le Champ de Bataille marque 3 Points de Victoire supplémentaires.</p>
-    </div>
-  </section>
+          <h3>Sang pour Sang</h3>
+          <p>
+            Chaque Joueur marque 1 Point de Victoire lorsque la dernière
+            Figurine d’une Unité ennemie est Retirée en tant que Perte en dehors
+            de la Sous-Phase de Défi.
+          </p>
+          <p>
+            Si l’attaque ayant entraîné le retrait de l’Unité ennemie en tant
+            que Perte a été effectuée par une Unité dont la majorité des
+            Figurines possédaient la Règle Spéciale « Avant-Garde (X) », ce
+            Joueur marque à la place un nombre de Points de Victoire égal à la
+            plus grande valeur de X apposée à toute instance de la Règle
+            Spéciale « Avant-Garde (X) » que possède une Figurine de cette
+            Unité.
+          </p>
 
-  <section>
-    <h2>9. Désigner le Vainqueur</h2>
-    <p>Une fois la Bataille terminée, le vainqueur est désigné en fonction du nombre de Points de Victoire que chaque Joueur a marqués. Les Points de Victoire sont marqués à la fois par l'Objectif Principal et par les Objectifs Secondaires&nbsp;; ceux-ci offrent des défis tactiques différents aux Joueurs et, en général, ce sont les Objectifs Principaux qui offrent la plus grande récompense.</p>
-  </section>
+          <h2>Objectifs Secondaires du Protocole de Nettoyage</h2>
+          <p>
+            Le Pack de Missions du Protocole de Nettoyage utilise un certain
+            nombre d’Objectifs Secondaires.
+          </p>
 
-  <section>
-    <h2>Objectif Principal du Protocole de Nettoyage</h2>
-    <p>L'Objectif Principal de chaque Mission du Protocole de Nettoyage est d'éliminer la force ennemie, tout en équilibrant ce but avec vos propres pertes.</p>
+          <h3>Domination de Secteur (X)</h3>
+          <p>
+            Lorsque cet Objectif Secondaire est utilisé, le Joueur Réactif peut
+            marquer un nombre de Points de Victoire égal à la valeur de X,
+            durant chacune des Sous-Phases de Victoire de son adversaire, pour
+            chaque Secteur du Champ de Bataille qu’il domine. Un Secteur est
+            dominé par un Joueur si le nombre d’Unités présentes dans ce Secteur
+            est supérieur au nombre d’Unités ennemies dans ce même Secteur, sans
+            compter les Unités subissant l’effet d’un quelconque Statut
+            Tactique, appartenant à l’un ou l’autre Joueur.
+          </p>
+          <p>
+            Lors du calcul du nombre d’Unités sous le contrôle de l’un ou
+            l’autre Joueur, chaque Unité dont la majorité des Figurines
+            possèdent la Règle Spéciale « Ligne (X) » compte comme un nombre
+            d’Unités supplémentaire égal à la plus grande valeur de X apposée à
+            toute instance de la Règle Spéciale « Ligne (X) » que possède une
+            Figurine de cette Unité. Si une Unité possède des Figurines dans
+            plus d’un Secteur du Champ de Bataille, le Joueur contrôleur de
+            cette Unité doit décider dans quelle section elle sera comptée
+            durant chaque Sous-Phase de Victoire. Aucune Unité ne peut être
+            comptée comme étant présente dans plus d’un Secteur lors d’un Tour
+            donné.
+          </p>
 
-    <h3>Sang pour Sang</h3>
-    <p>Chaque Joueur marque 1 Point de Victoire lorsque la dernière Figurine d'une Unité ennemie est Retirée en tant que Perte en dehors de la Sous-Phase de Défi.</p>
-    <p>Si l'attaque ayant entraîné le retrait de l'Unité ennemie en tant que Perte a été effectuée par une Unité dont la majorité des Figurines possédaient la Règle Spéciale « Avant-Garde (X) », ce Joueur marque à la place un nombre de Points de Victoire égal à la plus grande valeur de X apposée à toute instance de la Règle Spéciale « Avant-Garde (X) » que possède une Figurine de cette Unité.</p>
+          <h3>Tueur de Champions (X)</h3>
+          <p>
+            Chaque fois qu’une Figurine est le Vainqueur d’un Défi, et que
+            l’Unité à laquelle cette Figurine est renvoyée lors de la Sous-Phase
+            de Résolution suivante est déclarée vainqueur de ce Combat, le
+            Joueur contrôleur gagne un nombre de Points de Victoire égal à la
+            valeur de X apposée à l’instance de cet Objectif Secondaire. Un
+            Point de Victoire supplémentaire (+1) est marqué si la Figurine
+            Retirée en tant que Perte possède le Type Parangon.
+          </p>
+        </section>
 
-    <h2>Objectifs Secondaires du Protocole de Nettoyage</h2>
-    <p>Le Pack de Missions du Protocole de Nettoyage utilise un certain nombre d'Objectifs Secondaires.</p>
+        <section>
+          <h2>Passage de Porte (X)</h2>
+          <p class="flavor">
+            La largeur et la hauteur restreintes des ouvertures de porte
+            contraignent nombre de guerriers de grande taille, ou les
+            dreadnoughts, à manœuvrer leur masse avec précaution pour les
+            franchir.
+          </p>
+          <p class="rule-summary">
+            Les Passages de Porte peuvent ralentir le mouvement des Figurines si
+            celles-ci possèdent la Règle Spéciale « Encombrant (X) ».
+          </p>
+          <p>
+            Aucune Figurine ne peut effectuer un Mouvement de Mise en Place ni
+            un Mouvement de Charge à travers une zone de Terrain de Passage de
+            Porte (parfois désignée sous le terme de « Passage de Porte ») si la
+            Figurine possède une variante de la Règle Spéciale « Encombrant (X) » dont la valeur de X est supérieure à la valeur de X de la Règle
+            Spéciale « Passage de Porte (X) » assignée à ce Passage de Porte.
+            Dans le cas contraire, un Passage de Porte ne réduit pas la distance
+            des Mouvements de Mise en Place ou des Mouvements de Charge. Chaque
+            Passage de Porte compte comme un Terrain Infranchissable pour les
+            Figurines de Type Véhicule, quel que soit l’État du Passage de
+            Porte.
+          </p>
+          <p>
+            De plus, si une Unité commence un Mouvement en dehors de toute zone
+            de Terrain de Passage de Porte, mais comprend des Figurines
+            possédant la Règle Spéciale « Encombrant (X) » susceptibles d’entrer
+            dans une zone de Terrain de Passage de Porte, le Joueur doit
+            déclarer s’il souhaite que son Unité traverse une quelconque zone de
+            Terrain de Passage de Porte dans le cadre de son Mouvement.
+          </p>
+          <p>
+            Si le Joueur contrôleur choisit de ne traverser aucune zone de
+            Terrain de Passage de Porte, l’Unité se déplace normalement, mais
+            aucune Figurine de l’Unité ne peut traverser de zone de Terrain de
+            Passage de Porte. Si le Joueur contrôleur choisit qu’une Figurine
+            possédant la Règle Spéciale « Encombrant (X) » au sein de l’Unité
+            traverse une zone de Terrain de Passage de Porte, alors la
+            Caractéristique de Mouvement de la Figurine possédant la Règle
+            Spéciale « Encombrant (X) » est réduite de la valeur par laquelle sa
+            variante de la Règle Spéciale « Encombrant (X) » dépasse la variante
+            de la Règle Spéciale « Passage de Porte (X) », pour la durée de
+            cette Phase de Mouvement. Par exemple, une Figurine possédant la
+            Règle Spéciale « Encombrant (6) » qui est déplacée à travers un
+            Passage de Porte doté de la Règle Spéciale « Passage de Porte (4) »
+            verrait sa Caractéristique de Mouvement réduite de 2".
+          </p>
+          <p>
+            Si l’application de ce modificateur devait empêcher l’Unité
+            d’atteindre une zone de Terrain de Passage de Porte, il est tout de
+            même appliqué, même si le Joueur contrôleur modifie le mouvement de
+            l’Unité et n’a plus l’intention de lui faire traverser le Passage de
+            Porte.
+          </p>
+          <p>
+            Les Figurines possédant la variante « Encombrant (X) » peuvent se
+            déplacer normalement à travers un Passage de Porte si la valeur de « Encombrant (X) » est inférieure ou égale à la valeur de la Règle
+            Spéciale « Passage de Porte (X) » assignée au Passage de Porte
+            qu’elles ont l’intention de franchir.
+          </p>
+          <p>
+            Si la variante de la Règle Spéciale « Encombrant (X) » que possède
+            une Figurine est supérieure au double du nombre représenté par le X
+            dans une variante de la Règle Spéciale « Passage de Porte (X) », cet
+            Élément de Terrain compte comme un Terrain Infranchissable pour
+            cette Figurine.
+          </p>
 
-    <h3>Domination de Secteur (X)</h3>
-    <p>Lorsque cet Objectif Secondaire est utilisé, le Joueur Réactif peut marquer un nombre de Points de Victoire égal à la valeur de X, durant chacune des Sous-Phases de Victoire de son adversaire, pour chaque Secteur du Champ de Bataille qu'il domine. Un Secteur est dominé par un Joueur si le nombre d'Unités présentes dans ce Secteur est supérieur au nombre d'Unités ennemies dans ce même Secteur, sans compter les Unités subissant l'effet d'un quelconque Statut Tactique, appartenant à l'un ou l'autre Joueur.</p>
-    <p>Lors du calcul du nombre d'Unités sous le contrôle de l'un ou l'autre Joueur, chaque Unité dont la majorité des Figurines possèdent la Règle Spéciale « Ligne (X) » compte comme un nombre d'Unités supplémentaire égal à la plus grande valeur de X apposée à toute instance de la Règle Spéciale « Ligne (X) » que possède une Figurine de cette Unité. Si une Unité possède des Figurines dans plus d'un Secteur du Champ de Bataille, le Joueur contrôleur de cette Unité doit décider dans quelle section elle sera comptée durant chaque Sous-Phase de Victoire. Aucune Unité ne peut être comptée comme étant présente dans plus d'un Secteur lors d'un Tour donné.</p>
+          <h3>État</h3>
+          <p>
+            Un Passage de Porte peut être soit Fermé, soit Ouvert. Sauf
+            indication contraire dans les Règles de Mission, tous les Passages
+            de Porte commencent la Bataille dans l’État Fermé.
+          </p>
+          <p>
+            <strong>Ouvert :</strong> Les Passages de Porte dans l’État
+            Ouvert ne bloquent pas la Ligne de Vue et les Figurines peuvent se
+            déplacer à travers le Passage de Porte conformément à la Règle
+            Spéciale « Passage de Porte (X) ».
+          </p>
+          <p>
+            <strong>Fermé :</strong> Un Passage de Porte dans l’État Fermé
+            est un Terrain Infranchissable. Les Figurines ne peuvent ni se
+            déplacer ni tracer de Ligne de Vue à travers un Passage de Porte
+            dans l’État Fermé.
+          </p>
 
-    <h3>Tueur de Champions (X)</h3>
-    <p>Chaque fois qu'une Figurine est le Vainqueur d'un Défi, et que l'Unité à laquelle cette Figurine est renvoyée lors de la Sous-Phase de Résolution suivante est déclarée vainqueur de ce Combat, le Joueur contrôleur gagne un nombre de Points de Victoire égal à la valeur de X apposée à l'instance de cet Objectif Secondaire. Un Point de Victoire supplémentaire (+1) est marqué si la Figurine Retirée en tant que Perte possède le Type Parangon.</p>
-  </section>
+          <h3>Actionner les Passages de Porte</h3>
+          <p>
+            Durant la Phase de Mouvement, le Joueur contrôleur d’une Unité qui a
+            commencé ou terminé un Mouvement avec au moins une Figurine en
+            Contact Socle à Socle avec un Passage de Porte peut tenter d’en
+            changer l’État, soit en ouvrant un Passage de Porte Fermé, soit en
+            fermant un Passage de Porte Ouvert, en effectuant un Test
+            d’Intelligence en utilisant les Caractéristiques de n’importe quelle
+            Figurine unique se trouvant dans un rayon de 2″ du Passage de Porte.
+            Si le Test d’Intelligence est réussi, l’État du Passage de Porte est
+            immédiatement modifié. Si le Test d’Intelligence est échoué, l’État
+            demeure inchangé. Il ne peut être effectué qu’un seul Test par Unité
+            pour chaque Passage de Porte durant chaque Tour de Joueur.
+          </p>
 
-  <section>
-    <h2>Passage de Porte (X)</h2>
-    <p class="flavor">La largeur et la hauteur restreintes des ouvertures de porte contraignent nombre de guerriers de grande taille, ou les dreadnoughts, à manœuvrer leur masse avec précaution pour les franchir.</p>
-    <p class="rule-summary">Les Passages de Porte peuvent ralentir le mouvement des Figurines si celles-ci possèdent la Règle Spéciale « Encombrant (X) ».</p>
-    <p>Aucune Figurine ne peut effectuer un Mouvement de Mise en Place ni un Mouvement de Charge à travers une zone de Terrain de Passage de Porte (parfois désignée sous le terme de « Passage de Porte ») si la Figurine possède une variante de la Règle Spéciale « Encombrant (X) » dont la valeur de X est supérieure à la valeur de X de la Règle Spéciale « Passage de Porte (X) » assignée à ce Passage de Porte. Dans le cas contraire, un Passage de Porte ne réduit pas la distance des Mouvements de Mise en Place ou des Mouvements de Charge. Chaque Passage de Porte compte comme un Terrain Infranchissable pour les Figurines de Type Véhicule, quel que soit l'État du Passage de Porte.</p>
-    <p>De plus, si une Unité commence un Mouvement en dehors de toute zone de Terrain de Passage de Porte, mais comprend des Figurines possédant la Règle Spéciale « Encombrant (X) » susceptibles d'entrer dans une zone de Terrain de Passage de Porte, le Joueur doit déclarer s'il souhaite que son Unité traverse une quelconque zone de Terrain de Passage de Porte dans le cadre de son Mouvement.</p>
-    <p>Si le Joueur contrôleur choisit de ne traverser aucune zone de Terrain de Passage de Porte, l'Unité se déplace normalement, mais aucune Figurine de l'Unité ne peut traverser de zone de Terrain de Passage de Porte. Si le Joueur contrôleur choisit qu'une Figurine possédant la Règle Spéciale « Encombrant (X) » au sein de l'Unité traverse une zone de Terrain de Passage de Porte, alors la Caractéristique de Mouvement de la Figurine possédant la Règle Spéciale « Encombrant (X) » est réduite de la valeur par laquelle sa variante de la Règle Spéciale « Encombrant (X) » dépasse la variante de la Règle Spéciale « Passage de Porte (X) », pour la durée de cette Phase de Mouvement. Par exemple, une Figurine possédant la Règle Spéciale « Encombrant (6) » qui est déplacée à travers un Passage de Porte doté de la Règle Spéciale « Passage de Porte (4) » verrait sa Caractéristique de Mouvement réduite de 2".</p>
-    <p>Si l'application de ce modificateur devait empêcher l'Unité d'atteindre une zone de Terrain de Passage de Porte, il est tout de même appliqué, même si le Joueur contrôleur modifie le mouvement de l'Unité et n'a plus l'intention de lui faire traverser le Passage de Porte.</p>
-    <p>Les Figurines possédant la variante « Encombrant (X) » peuvent se déplacer normalement à travers un Passage de Porte si la valeur de « Encombrant (X) » est inférieure ou égale à la valeur de la Règle Spéciale « Passage de Porte (X) » assignée au Passage de Porte qu'elles ont l'intention de franchir.</p>
-    <p>Si la variante de la Règle Spéciale « Encombrant (X) » que possède une Figurine est supérieure au double du nombre représenté par le X dans une variante de la Règle Spéciale « Passage de Porte (X) », cet Élément de Terrain compte comme un Terrain Infranchissable pour cette Figurine.</p>
+          <div class="callout callout--designer">
+            <h3>Écrasé</h3>
+            <p class="flavor">
+              La fermeture soudaine des cloisons et des portes de sas représente
+              en soi une menace pour ceux qui sont pris au dépourvu, piégeant et
+              broyant leurs membres sous leur poids tandis que les servomoteurs
+              de la porte s’activent en boucle jusqu’à leur défaillance.
+            </p>
+            <p>
+              Si une Figurine se trouve sur un Élément de Terrain de Passage de
+              Porte lorsque celui-ci passe de l’État Ouvert à l’État Fermé, ou
+              si cela entraîne qu’une ou plusieurs Figurines d’une Unité ne
+              soient plus positionnées en Cohésion d’Unité, l’Unité dont la
+              Figurine fait partie, ou l’Unité qui n’est plus en Cohésion
+              d’Unité, subit immédiatement une Touche d’une Force de 8, d’une PA
+              de « — » et d’une Caractéristique de Dégâts de 2. Le Terrain de
+              Passage de Porte compte alors comme un Terrain Découvert pour le
+              reste de la Bataille, et l’Élément de Terrain de Passage de Porte
+              doit être retiré du Champ de Bataille si possible.
+            </p>
+          </div>
+        </section>
+      </div>
+      <!-- /#content -->
 
-    <h3>État</h3>
-    <p>Un Passage de Porte peut être soit Fermé, soit Ouvert. Sauf indication contraire dans les Règles de Mission, tous les Passages de Porte commencent la Bataille dans l'État Fermé.</p>
-    <p><strong>Ouvert&nbsp;:</strong> Les Passages de Porte dans l'État Ouvert ne bloquent pas la Ligne de Vue et les Figurines peuvent se déplacer à travers le Passage de Porte conformément à la Règle Spéciale « Passage de Porte (X) ».</p>
-    <p><strong>Fermé&nbsp;:</strong> Un Passage de Porte dans l'État Fermé est un Terrain Infranchissable. Les Figurines ne peuvent ni se déplacer ni tracer de Ligne de Vue à travers un Passage de Porte dans l'État Fermé.</p>
+      <nav class="page-nav">
+        <a href="reserves.html">← Réserves</a>
+        <a href="../index.html">Accueil →</a>
+      </nav>
+    </main>
 
-    <h3>Actionner les Passages de Porte</h3>
-    <p>Durant la Phase de Mouvement, le Joueur contrôleur d'une Unité qui a commencé ou terminé un Mouvement avec au moins une Figurine en Contact Socle à Socle avec un Passage de Porte peut tenter d'en changer l'État, soit en ouvrant un Passage de Porte Fermé, soit en fermant un Passage de Porte Ouvert, en effectuant un Test d'Intelligence en utilisant les Caractéristiques de n'importe quelle Figurine unique se trouvant dans un rayon de 2" du Passage de Porte. Si le Test d'Intelligence est réussi, l'État du Passage de Porte est immédiatement modifié. Si le Test d'Intelligence est échoué, l'État demeure inchangé. Il ne peut être effectué qu'un seul Test par Unité pour chaque Passage de Porte durant chaque Tour de Joueur.</p>
+    <button class="back-to-top" aria-label="Retour en haut">↑</button>
 
-    <div class="callout callout--designer">
-      <h3>Écrasé</h3>
-      <p class="flavor">La fermeture soudaine des cloisons et des portes de sas représente en soi une menace pour ceux qui sont pris au dépourvu, piégeant et broyant leurs membres sous leur poids tandis que les servomoteurs de la porte s'activent en boucle jusqu'à leur défaillance.</p>
-      <p>Si une Figurine se trouve sur un Élément de Terrain de Passage de Porte lorsque celui-ci passe de l'État Ouvert à l'État Fermé, ou si cela entraîne qu'une ou plusieurs Figurines d'une Unité ne soient plus positionnées en Cohésion d'Unité, l'Unité dont la Figurine fait partie, ou l'Unité qui n'est plus en Cohésion d'Unité, subit immédiatement une Touche d'une Force de 8, d'une PA de « - » et d'une Caractéristique de Dégâts de 2. Le Terrain de Passage de Porte compte alors comme un Terrain Découvert pour le reste de la Bataille, et l'Élément de Terrain de Passage de Porte doit être retiré du Champ de Bataille si possible.</p>
-    </div>
-  </section>
+    <!-- Le pied de page clôt le dossier avec les informations de traduction et de diffusion. -->
+    <footer class="site-footer">
+      Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br />
+      Traduction française à usage personnel — d’après « Zone Mortalis :
+      Clearance Protocol Mission Pack » (édition anglaise 2026).
+    </footer>
 
-  </div><!-- /#content -->
-
-  <nav class="page-nav">
-    <a href="reserves.html">← Réserves</a>
-    <a href="../index.html">Accueil →</a>
-  </nav>
-
-</main>
-
-<button class="back-to-top" aria-label="Retour en haut">↑</button>
-
-<!-- Le pied de page clôt le dossier avec les informations de traduction et de diffusion. -->
-<footer class="site-footer">
-  Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br>
-  Traduction française à usage personnel — d'après « Zone Mortalis: Clearance Protocol Mission Pack » (édition anglaise 2026).
-</footer>
-
-<script src="../js/main.js"></script>
-</body>
+    <script src="../js/main.js"></script>
+  </body>
 </html>

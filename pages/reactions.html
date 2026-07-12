@@ -1,101 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Réactions</title>
-<meta name="description" content="Réactions Avancées de Zone Mortalis : À l'Abri ! (Take Cover) et Contourner le Cogitateur (Bypass Cogitator).">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Réactions</title>
+    <meta
+      name="description"
+      content="Réactions Avancées de Zone Mortalis : À l'Abri ! (Take Cover) et Contourner le Cogitateur (Bypass Cogitator)."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- Cette page récapitule les réactions particulières de Zone Mortalis avec une lecture simple et directe. -->
+    <!-- Les commentaires aident à comprendre la logique des sections sans surcharger le contenu. -->
+    <nav class="site-nav">
+      <a class="nav-brand" href="../index.html">Zone Mortalis</a>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="core-rules.html">Règles principales</a></li>
+        <li><a href="special-rules.html">Règles spéciales</a></li>
+        <li><a href="reactions.html" class="active">Réactions</a></li>
+        <li><a href="reserves.html">Réserves</a></li>
+        <li><a href="mission-pack.html">Missions</a></li>
+      </ul>
+    </nav>
 
-<!-- Cette page récapitule les réactions particulières de Zone Mortalis avec une lecture simple et directe. -->
-<!-- Les commentaires aident à comprendre la logique des sections sans surcharger le contenu. -->
-<nav class="site-nav">
-  <a class="nav-brand" href="../index.html">Zone Mortalis</a>
-  <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-menu">
-    <li><a href="../index.html">Accueil</a></li>
-    <li><a href="core-rules.html">Règles Principales</a></li>
-    <li><a href="special-rules.html">Règles Spéciales</a></li>
-    <li><a href="reactions.html" class="active">Réactions</a></li>
-    <li><a href="reserves.html">Réserves</a></li>
-    <li><a href="mission-pack.html">Missions</a></li>
-  </ul>
-</nav>
+    <!-- Le contenu principal rassemble les règles de réactions et leur contexte d'utilisation. -->
+    <main>
+      <header class="page-header">
+        <p class="kicker">Journal Tactica — Zone Mortalis</p>
+        <h1>Réactions avancées</h1>
+        <hr class="rule-divider" />
+      </header>
 
-<!-- Le contenu principal rassemble les règles de réactions et leur contexte d'utilisation. -->
-<main>
+      <div id="content">
+        <section>
+          <h2>À l’Abri&nbsp;! <span class="vo"></span></h2>
 
-  <header class="page-header">
-    <p class="kicker">Journal Tactica — Zone Mortalis</p>
-    <h1>Réactions Avancées</h1>
-    <hr class="rule-divider">
-  </header>
+          <p class="rule-summary">
+            Cette réaction avancée permet à des Figurines de tenter de sortir de
+            la ligne de tir ennemie.
+          </p>
 
-  <div id="content">
+          <p>
+            <strong>Déclencheur :</strong> Le joueur réactif peut déclarer
+            une Réaction À l’Abri&nbsp;! lors de la Phase de Tir, pendant
+            l’Étape 1 de la séquence d’Attaque de Tir de toute Attaque de Tir
+            effectuée par le Joueur Actif.
+          </p>
 
-  <section>
-    <h2>À l'Abri&nbsp;! <span class="vo">Take Cover</span></h2>
+          <p>
+            <strong>Coût :</strong> Le Joueur réactif doit dépenser 1 point
+            de sa Dotation de Réactions pour déclarer une Réaction avancée À
+            l’Abri&nbsp;! — ce coût est payé dès que la déclaration est faite.</p>
 
-    <p class="rule-summary">Cette Réaction Avancée permet à des Figurines de tenter de sortir de la ligne de tir ennemie.</p>
+          <p>
+            <strong>Cible :</strong> L’unité cible est toujours l’unité
+            dont l’attaque de tir a déclenché la réaction. L’unité réactive est
+            toujours l’unité qui était la cible de l’attaque de tir ayant
+            déclenché la réaction.
+          </p>
 
-    <p><strong>Déclencheur&nbsp;:</strong> Le Joueur Réactif peut déclarer une Réaction À l'Abri&nbsp;! lors de la Phase de Tir, pendant l'Étape 1 de la séquence d'Attaque de Tir de toute Attaque de Tir effectuée par le Joueur Actif.</p>
+          <h3>Procédure</h3>
+          <ol>
+            <li>
+              Une fois qu’une réaction avancée À l’Abri&nbsp;! a été déclarée,
+              le Joueur réactif doit lancer un dé. Chaque figurine de l’unité
+              réactive peut être déplacée d’une distance, en pouces, égale au
+              résultat du jet de Dé.
+            </li>
+            <li>
+              Une fois l’unité réactive déplacée, toutes les figurines de
+              l’unité gagnent la règle spéciale
+              <strong>Occulté (6+)</strong> jusqu’à ce que l’attaque de tir
+              ayant déclenché cette réaction soit entièrement résolue.
+            </li>
+            <li>
+              Le joueur actif doit résoudre les étapes restantes, en reprenant à
+              l’étape 2. Vérifier la cible, de l’attaque de tir ayant déclenché
+              cette réaction.
+            </li>
+          </ol>
+        </section>
 
-    <p><strong>Coût&nbsp;:</strong> Le Joueur Réactif doit dépenser 1 point de sa Dotation de Réactions pour déclarer une Réaction Avancée À l'Abri&nbsp;! — ce coût est payé dès que la déclaration est faite.</p>
+        <section>
+          <h2>
+            Contourner le Cogitateur <span class="vo">B</span>
+          </h2>
 
-    <p><strong>Cible&nbsp;:</strong> L'Unité Cible est toujours l'Unité dont l'Attaque de Tir a déclenché la Réaction. L'Unité Réactive est toujours l'Unité qui était la cible de l'Attaque de Tir ayant déclenché la Réaction.</p>
+          <p class="rule-summary">
+            Cette réaction avancée permet aux figurines dotées de la règle
+            spéciale Forgeron de Guerre (X) de modifier l’État des Portes du
+            champ de bataille de Zone Mortalis.
+          </p>
 
-    <h3>Procédure</h3>
-    <ol>
-      <li>Une fois qu'une Réaction Avancée À l'Abri&nbsp;! a été déclarée, le Joueur Réactif doit lancer un Dé. Chaque Figurine de l'Unité Réactive peut être déplacée d'une distance, en pouces, égale au résultat du jet de Dé.</li>
-      <li>Une fois l'Unité Réactive déplacée, toutes les Figurines de l'Unité gagnent la Règle Spéciale <strong>Occulté (6+)</strong> jusqu'à ce que l'Attaque de Tir ayant déclenché cette Réaction soit entièrement résolue.</li>
-      <li>Le Joueur Actif doit résoudre les étapes restantes, en reprenant à l'Étape 2. Vérifier la Cible, de l'Attaque de Tir ayant déclenché cette Réaction.</li>
-    </ol>
-  </section>
+          <p>
+            <strong>Déclencheur :</strong> Le joueur réactif peut déclarer
+            une réaction avancée Contourner le Cogitateur lors de l’Étape 2 du
+            processus de la sous-phase de mouvement si une unité ennemie termine
+            un mouvement à plus de 8″ d’une figurine amie dotée de la règle
+            spéciale Forgeron de Guerre (X).
+          </p>
 
-  <section>
-    <h2>Contourner le Cogitateur <span class="vo">Bypass Cogitator</span></h2>
+          <p>
+            <strong>Coût :</strong> Le joueur réactif doit dépenser 1 point
+            de sa dotation de réactions pour déclarer une réaction avancée
+            Contourner le Cogitateur — ce coût est payé dès que la déclaration
+            est faite.
+          </p>
 
-    <p class="rule-summary">Cette Réaction Avancée permet aux Figurines dotées de la Règle Spéciale Forgeron de Guerre (X) de modifier l'État des Portes du Champ de Bataille de Zone Mortalis.</p>
+          <p>
+            <strong>Cible :</strong> L’unité cible est toujours l’unité
+            dont le mouvement a déclenché la réaction. Une fois le coût payé, le
+            joueur réactif doit choisir une unité sous son contrôle comptant au
+            moins une figurine dotée de la règle spéciale Forgeron de Guerre (X)
+            et n’ayant aucune figurine à moins de 8″ d’une quelconque figurine
+            ennemie — cette unité est l’unité réactive.
+          </p>
 
-    <p><strong>Déclencheur&nbsp;:</strong> Le Joueur Réactif peut déclarer une Réaction Avancée Contourner le Cogitateur lors de l'Étape 2 du processus de la Sous-Phase de Mouvement si une Unité ennemie termine un mouvement à plus de 8" d'une Figurine amie dotée de la Règle Spéciale Forgeron de Guerre (X).</p>
+          <h3>Procédure</h3>
+          <ol>
+            <li>
+              Une fois qu’une Réaction avancée Contourner le Cogitateur a été
+              déclarée, le Joueur actif doit résoudre entièrement le mouvement
+              de l’unité cible.
+            </li>
+            <li>
+              Une fois que l’unité cible a terminé son mouvement, le joueur
+              réactif peut sélectionner un nombre de portes égal au maximum à la
+              valeur de la règle spéciale Forgeron de Guerre (X) que possède
+              l’une des figurines de l’unité réactive.
+            </li>
+            <li>
+              Le joueur réactif doit effectuer un test d’intelligence pour
+              chaque porte sélectionnée, dans l’ordre de son choix, en utilisant
+              la caractéristique de la figurine choisie à l’étape 2 de ce
+              processus. Si le test d’intelligence est réussi, l’état de la
+              porte sélectionnée doit être modifié, soit d’ouvert à fermé, soit
+              de fermé à ouvert, selon le cas. Résolvez les effets du changement
+              d’état de la porte avant de passer à la porte sélectionnée
+              suivante. Si le test d’intelligence est échoué, rien ne se produit
+              et le joueur réactif doit effectuer un test pour la porte
+              sélectionnée suivante, ou passer à l’étape 4 de ce processus si
+              toutes les portes sélectionnées ont été résolues.
+            </li>
+            <li>
+              Une fois que le joueur réactif a résolu toutes les portes
+              sélectionnées, la phase de mouvement se poursuit normalement.
+            </li>
+          </ol>
+        </section>
+      </div>
+      <!-- /#content -->
 
-    <p><strong>Coût&nbsp;:</strong> Le Joueur Réactif doit dépenser 1 point de sa Dotation de Réactions pour déclarer une Réaction Avancée Contourner le Cogitateur — ce coût est payé dès que la déclaration est faite.</p>
+      <nav class="page-nav">
+        <a href="special-rules.html">← Règles spéciales</a>
+        <a href="reserves.html">réserves →</a>
+      </nav>
+    </main>
 
-    <p><strong>Cible&nbsp;:</strong> L'Unité Cible est toujours l'Unité dont le mouvement a déclenché la Réaction. Une fois le coût payé, le Joueur Réactif doit choisir une Unité sous son contrôle comptant au moins une Figurine dotée de la Règle Spéciale Forgeron de Guerre (X) et n'ayant aucune Figurine à moins de 8" d'une quelconque Figurine Ennemie — cette Unité est l'Unité Réactive.</p>
+    <button class="back-to-top" aria-label="Retour en haut">↑</button>
 
-    <h3>Procédure</h3>
-    <ol>
-      <li>Une fois qu'une Réaction Avancée Contourner le Cogitateur a été déclarée, le Joueur Actif doit résoudre entièrement le mouvement de l'Unité Cible.</li>
-      <li>Une fois que l'Unité Cible a terminé son mouvement, le Joueur Réactif peut sélectionner un nombre de Portes égal au maximum à la valeur de la Règle Spéciale Forgeron de Guerre (X) que possède l'une des Figurines de l'Unité Réactive.</li>
-      <li>Le Joueur Réactif doit effectuer un Test d'Intelligence pour chaque Porte sélectionnée, dans l'ordre de son choix, en utilisant la Caractéristique de la Figurine choisie à l'Étape 2 de ce processus. Si le Test d'Intelligence est Réussi, l'État de la Porte sélectionnée doit être modifié, soit d'Ouvert à Fermé, soit de Fermé à Ouvert, selon le cas. Résolvez les effets du changement d'État de la Porte avant de passer à la Porte sélectionnée suivante. Si le Test d'Intelligence est Échoué, rien ne se produit et le Joueur Réactif doit effectuer un Test pour la Porte sélectionnée suivante, ou passer à l'Étape 4 de ce processus si toutes les Portes sélectionnées ont été résolues.</li>
-      <li>Une fois que le Joueur Réactif a résolu toutes les Portes sélectionnées, la Phase de Mouvement se poursuit normalement.</li>
-    </ol>
-  </section>
+    <!-- Le pied de page clôt la page avec les informations de licence et de traduction. -->
+    <footer class="site-footer">
+      Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br />
+      Traduction française à usage personnel du Journal Tactica : Zone Mortalis
+      (édition anglaise 2026).
+    </footer>
 
-  </div><!-- /#content -->
-
-  <nav class="page-nav">
-    <a href="special-rules.html">← Règles Spéciales</a>
-    <a href="reserves.html">Réserves →</a>
-  </nav>
-
-</main>
-
-<button class="back-to-top" aria-label="Retour en haut">↑</button>
-
-<!-- Le pied de page clôt la page avec les informations de licence et de traduction. -->
-<footer class="site-footer">
-  Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br>
-  Traduction française à usage personnel du Journal Tactica : Zone Mortalis (édition anglaise 2026).
-</footer>
-
-<script src="../js/main.js"></script>
-</body>
+    <script src="../js/main.js"></script>
+  </body>
 </html>

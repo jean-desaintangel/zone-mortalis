@@ -1,126 +1,303 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Règles Spéciales</title>
-<meta name="description" content="Règles spéciales de Zone Mortalis : armes de barrage, zone d'interdiction de vol, Espace Confiné (X), Porte (X), écrasement.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Règles Spéciales</title>
+    <meta
+      name="description"
+      content="Règles spéciales de Zone Mortalis : armes de barrage, zone d'interdiction de vol, Espace Confiné (X), Porte (X), écrasement."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- Cette page présente les règles spéciales sous forme compacte, puis les détaille au clic. -->
+    <!-- La structure reste simple pour garder la lecture fluide et lisible. -->
+    <nav class="site-nav">
+      <a class="nav-brand" href="../index.html">Zone Mortalis</a>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="core-rules.html">Règles Principales</a></li>
+        <li>
+          <a href="special-rules.html" class="active">Règles Spéciales</a>
+        </li>
+        <li><a href="reactions.html">Réactions</a></li>
+        <li><a href="reserves.html">Réserves</a></li>
+        <li><a href="mission-pack.html">Missions</a></li>
+      </ul>
+    </nav>
 
-<!-- Cette page présente les règles spéciales sous forme compacte, puis les détaille au clic. -->
-<!-- La structure reste simple pour garder la lecture fluide et lisible. -->
-<nav class="site-nav">
-  <a class="nav-brand" href="../index.html">Zone Mortalis</a>
-  <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-menu">
-    <li><a href="../index.html">Accueil</a></li>
-    <li><a href="core-rules.html">Règles Principales</a></li>
-    <li><a href="special-rules.html" class="active">Règles Spéciales</a></li>
-    <li><a href="reactions.html">Réactions</a></li>
-    <li><a href="reserves.html">Réserves</a></li>
-    <li><a href="mission-pack.html">Missions</a></li>
-  </ul>
-</nav>
+    <!-- Le contenu principal contient l'introduction et la liste des règles spéciales à explorer. -->
+    <main>
+      <header class="page-header">
+        <p class="kicker">Journal Tactica — Zone Mortalis</p>
+        <h1>Règles spéciales</h1>
+        <hr class="rule-divider" />
+      </header>
 
-<!-- Le contenu principal contient l'introduction et la liste des règles spéciales à explorer. -->
-<main>
+      <div id="content">
+        <section>
+          <h2>Armes de Barrage en Zone Mortalis</h2>
+          <p class="rule-summary">
+            Les armes dotées de la règle spéciale Barrage (X) ne peuvent pas
+            effectuer d’attaque sans ligne de vue.
+          </p>
+          <p>
+            Les armes dotées de la règle spéciale Barrage (X) ne peuvent pas
+            être employées pour effectuer des attaques de tir visant des Unités
+            envers lesquelles elles n’ont pas de lignes de vue, mais peuvent
+            effectuer des attaques de tir normalement en visant des unités
+            envers lesquelles elles disposent d’une ligne de vue.
+          </p>
+        </section>
 
-  <header class="page-header">
-    <p class="kicker">Journal Tactica — Zone Mortalis</p>
-    <h1>Règles Spéciales</h1>
-    <hr class="rule-divider">
-  </header>
+        <section>
+          <h2>Zone d’interdiction de vol</h2>
+          <p class="rule-summary">
+            Les aéronefs ne peuvent pas être utilisés dans les batailles en Zone
+            Mortalis.
+          </p>
+          <p>
+            Les Figurines dotées du Sous-Type Aéronef ne peuvent pas
+            être utilisées dans les Missions Zone Mortalis.</p>
+        </section>
 
-  <div id="content">
+        <section>
+          <h2>Tempête de feu &amp; shrapnel</h2>
+          <p class="rule-summary">
+            La distance de déviation des explosions est limitée par les murs et
+            les portes.
+          </p>
+          <p>
+            Les marqueurs d’Explosion ne peuvent pas dévier à travers un terrain
+            de type mûr ni à travers une porte à l’État fermé. Si un jet de
+            déviation amène le point central d’un marqueur d’explosion au
+            contact d’un mur ou d’une porte à l’état fermé, le marqueur
+            d’Explosion ne dévie que jusqu’au point où son centre touche le bord
+            du mur ou de la porte à l’état fermé. Résolvez l’effet de l’arme à
+            partir de cet emplacement.
+          </p>
+          <p>
+            Si aucune ligne ne peut être tracée entre un point quelconque du
+            socle d’une figurine touchée par un marqueur d’explosion ou un
+            gabarit et le centre du marqueur d’explosion (ou un point quelconque
+            du Socle de la Figurine effectuant l’attaque dans le cas d’une arme
+            dotée de la règle spéciale Gabarit) sans passer par un mur ou une
+            Porte à l’état fermé, alors cette figurine n’est pas touchée par
+            l’attaque.
+          </p>
+        </section>
 
-  <section>
-    <h2>Armes de Barrage en Zone Mortalis</h2>
-    <p class="rule-summary">Les armes dotées de la règle spéciale Barrage (X) ne peuvent pas effectuer d'attaques sans Ligne de Vue.</p>
-    <p>Les armes dotées de la règle spéciale Barrage (X) ne peuvent pas être employées pour effectuer des Attaques de Tir visant des Unités envers lesquelles elles n'ont pas de Ligne de Vue, mais peuvent effectuer des Attaques de Tir normalement en visant des Unités envers lesquelles elles disposent d'une Ligne de Vue.</p>
-  </section>
+        <section>
+          <h2>Panique aveugle</h2>
+          <p class="rule-summary">
+            Les unités en déroute peuvent provoquer la déroute d’autres
+            unités alliées clouées, sonnées ou neutralisées lorsqu’elles se déplacent à leur proximité.
+          </p>
+          <p>
+            Si une Figurine quelconque d’une Unité qui effectue un repli termine son mouvement ou passe à moins de 2 ps de
+            figurines quelconques appartenant à d’autres unités alliées se
+            trouvant sous l’effet d’un statut tactique autre que le statut
+            déroute, alors un test de commandement doit être effectué pour
+            chacune de ces unités durant la Sous-Phase de Moral suivante. Si l’un des tests pour une de ces unités échoue, toutes les figurines de cette unité deviennent en déroute.
+          </p>
+        </section>
 
-  <section>
-    <h2>Zone d'Interdiction de Vol</h2>
-    <p class="rule-summary">Les Aéronefs ne peuvent pas être utilisés dans les batailles en Zone Mortalis.</p>
-    <p>Les Figurines dotées du Sous-Type Aéronef (Flyer) ne peuvent pas être utilisées dans les Missions Zone Mortalis. Si l'un ou l'autre des Joueurs a inclus une Figurine dotée du Sous-Type Aéronef dans sa Liste d'Armée, cette Figurine ne peut être Déployée sur le Champ de Bataille à aucun moment durant la Bataille, mais n'est pas considérée comme ayant été Retirée en tant que Perte ou détruite de quelque autre manière pour les besoins de la résolution de la Mission.</p>
-  </section>
+        <section>
+          <h2 id="espace-confine">Espace confiné (X)</h2>
+          <p class="rule-summary">
+            Les espaces confinés sont infranchissables pour les Figurines dotées
+            de la règle spéciale Massif (X).
+          </p>
+          <p>
+            Des salles, corridors ou sections spécifiques du champ de Bataille
+            Zone Mortalis sont définis comme étant dotés de différentes versions
+            de la règle spéciale Espace confiné (X), selon la Mission jouée. Les
+            joueurs devraient prendre note de la façon dont la règle spéciale
+            espace confinée (X) est appliquée dans la mission qu’ils comptent
+            jouer lors de la sélection de leur armée.
+          </p>
+          <p>
+            Chaque zone définie comme étant dotée de la règle spéciale espace
+            confiné (X) (parfois désignée sous le terme « espaces confinés »)
+            est considérée comme un terrain infranchissable pour toutes les
+            figurines du type véhicule possédant une caractéristique de points
+            de coque de base de 3 ou plus, ou pour les figurines dotées d’une
+            variante de la règle spéciale Massif (X) égale ou supérieure à la
+            variante de la règle spéciale espace confiné (X). Par exemple, une
+            zone définie comme étant dotée d’espace confiné (4) est un Terrain
+            infranchissable pour toutes les Figurines dotées de Massif (4) et
+            plus.
+          </p>
+          <p>
+            Notez que les figurines dotées du sous-type Antigrav qui
+            possèdent la règle spéciale Massif (X) ne peuvent pas être déplacées
+            au-dessus ou à travers un espace confiné qui compte comme un terrain
+            infranchissable pour cette figurine.
+          </p>
+          <p>
+            Les espaces confinés comptent par ailleurs comme du terrain
+            découvert et, à ce titre, ne confèrent pas de
+            sauvegarde de couvert, à moins qu’un autre terrain de zone ne soit également défini dans la même zone.
+          </p>
 
-  <section>
-    <h2>Tempête de Feu &amp; Shrapnel</h2>
-    <p class="rule-summary">La distance de Déviation des Explosions est limitée par les Murs et les Portes.</p>
-    <p>Les Marqueurs d'Explosion ne peuvent pas dévier à travers un Terrain de type Mur, ni à travers une Porte à l'État Fermé. Si un jet de Déviation amène le point central d'un Marqueur d'Explosion au contact d'un Mur ou d'une Porte à l'État Fermé, le Marqueur d'Explosion ne dévie que jusqu'au point où son centre touche le bord du Mur ou de la Porte à l'État Fermé. Résolvez l'effet de l'arme à partir de cet emplacement.</p>
-    <p>Si aucune ligne ne peut être tracée entre un point quelconque du Socle d'une Figurine touchée par un Marqueur d'Explosion ou un Gabarit et le centre du Marqueur d'Explosion (ou un point quelconque du Socle de la Figurine effectuant l'attaque dans le cas d'une arme dotée de la règle spéciale Gabarit) sans passer par un Mur ou une Porte à l'État Fermé, alors cette Figurine n'est pas touchée par l'attaque.</p>
-  </section>
+          <div class="callout callout--designer">
+            <h3>Note du concepteur : Largeur des corridors</h3>
+            <p>
+              Pour une expérience de bataille particulièrement claustrophobe,
+              les joueurs peuvent souhaiter définir les corridors comme étant
+              dotés d’une règle spéciale espace confinée (X) dont la valeur X est
+              égale à la largeur du corridor en pouces, ce qui facilite le suivi
+              des zones accessibles à chaque type de figurine.
+            </p>
+          </div>
+        </section>
 
-  <section>
-    <h2>Panique Aveugle</h2>
-    <p class="rule-summary">Les Unités en Déroute (Routed) peuvent provoquer la Déroute d'autres Unités alliées Clouées (Pinned), Sonnées (Stunned) ou Neutralisées (Suppressed) lorsqu'elles se déplacent à leur proximité.</p>
-    <p>Si une Figurine quelconque d'une Unité qui effectue un Repli (Falling Back) termine son mouvement ou passe à moins de 2 ps de Figurines quelconques appartenant à d'autres Unités alliées se trouvant sous l'effet d'un Statut Tactique autre que le Statut Déroute, alors un Test de Commandement doit être effectué pour chacune de ces Unités durant la Sous-Phase de Moral suivante. Si le Test effectué pour l'une quelconque de ces Unités est échoué, toutes les Figurines de cette Unité acquièrent le Statut Déroute.</p>
-  </section>
+        <section>
+          <h2>Porte (X)</h2>
+          <p class="rule-summary">
+            Les portes peuvent ralentir le mouvement des figurines si ces
+            figurines sont dotées de la règle spéciale Massif (X).
+          </p>
+          <p>
+            Aucune figurine ne peut effectuer de mouvement de mise en place
+            ou de mouvement de charge à travers une
+            zone de terrain de type porte (parfois désignée sous le terme « porte ») si la figurine est dotée d’une variante de la règle
+            spéciale Massif (X) dont la valeur de X est supérieure à la valeur de
+            X de la règle spéciale Porte (X) assignée à cette porte. Dans le cas
+            contraire, une porte ne réduit pas la distance des mouvements de
+            mise en place ou des mouvements de charge. Chaque porte compte comme
+            un terrain infranchissable pour les figurines du type véhicule, quel
+            que soit l’état de la porte.
+          </p>
+          <p>
+            De plus, si une unité débute un mouvement en dehors de toute zone de
+            terrain de type porte, mais comprend des figurines dotées de la
+            règle spéciale Massif (X) susceptible de pénétrer dans une zone de
+            terrain de type porte, le Joueur doit déclarer s’il souhaite que son
+            unité traverse une quelconque zone de terrain de type porte dans le
+            cadre de son mouvement.
+          </p>
+          <p>
+            Si le Joueur qui la contrôle choisit de ne traverser aucune zone de
+            terrain de type porte, l’unité se déplace normalement, mais aucune
+            figurine de l’unité ne peut traverser de zone de terrain de type
+            porte. Si le Joueur qui la contrôle choisit qu’une figurine dotée de
+            la règle spéciale Massif (X) au sein de l’unité traverse une zone de
+            terrain de type porte, alors la caractéristique de mouvement de la
+            figurine dotée de la règle spéciale Massif (X) est réduite du montant
+            par lequel sa variante de la règle spéciale Massif (X) dépasse la
+            variante de la règle spéciale porte (X), pour la durée de cette
+            phase de mouvement. Par exemple, une figurine dotée de la règle
+            spéciale Massif (6) qui est déplacée à travers une porte dotée de la
+            règle spéciale porte (4) verrait sa caractéristique de mouvement
+            réduite de 2 ps.
+          </p>
+          <p>
+            Si l’application de ce modificateur devait empêcher l’Unité
+            d’atteindre une zone de Terrain de type Porte, il est tout de même
+            appliqué, même si le Joueur qui la contrôle modifie le mouvement de
+            l’Unité et n’a plus l’intention de lui faire franchir la Porte.
+          </p>
+          <p>
+            Les Figurines dotées de la variante Massif (X) peuvent se déplacer
+            normalement à travers une Porte si la valeur de Massif (X) est égale
+            ou inférieure à la valeur de la règle spéciale porte (X) assignée à
+            la porte qu’elles comptent franchir.
+          </p>
+          <p>
+            Si la variante de la règle spéciale Massif (X) dont une Figurine est
+            dotée est supérieure au double du nombre X figurant dans une
+            variante de la règle spéciale porte (X), cet élément de Terrain
+            compte comme un Terrain infranchissable pour cette Figurine.
+          </p>
 
-  <section>
-    <h2 id="espace-confine">Espace Confiné (X)</h2>
-    <p class="rule-summary">Les Espaces Confinés sont Infranchissables pour les Figurines dotées de la règle spéciale Bulky (X).</p>
-    <p>Des salles, corridors ou sections spécifiques du Champ de Bataille Zone Mortalis sont définis comme étant dotés de différentes versions de la règle spéciale Espace Confiné (X), selon la Mission jouée. Les Joueurs devraient prendre note de la façon dont la règle spéciale Espace Confiné (X) est appliquée dans la Mission qu'ils comptent jouer lors de la sélection de leur Armée.</p>
-    <p>Chaque zone définie comme étant dotée de la règle spéciale Espace Confiné (X) (parfois désignée sous le terme « Espaces Confinés ») est considérée comme un Terrain Infranchissable pour toutes les Figurines du Type Véhicule possédant une caractéristique de Points de Coque de Base de 3 ou plus, ou pour les Figurines dotées d'une variante de la règle spéciale Bulky (X) égale ou supérieure à la variante de la règle spéciale Espace Confiné (X). Par exemple, une zone définie comme étant dotée d'Espace Confiné (4) est un Terrain Infranchissable pour toutes les Figurines dotées de Bulky (4) et plus.</p>
-    <p>Notez que les Figurines dotées du Sous-Type Antigrav (Antigrav) qui possèdent la règle spéciale Bulky (X) ne peuvent pas être déplacées au-dessus ou à travers un Espace Confiné qui compte comme un Terrain Infranchissable pour cette Figurine.</p>
-    <p>Les Espaces Confinés comptent par ailleurs comme du Terrain Découvert (Open Terrain) et, à ce titre, ne confèrent pas de Sauvegarde de Couvert, à moins qu'un autre Terrain de Zone (Area Terrain) ne soit également défini dans la même zone.</p>
+          <h3>État</h3>
+          <p>
+            Une Porte peut-être soit fermée, soit ouverte. Sauf indication
+            contraire dans les règles de mission, toutes les Portes débutent la
+            Bataille à l’État fermé.
+          </p>
+          <p>
+            <strong>Ouverte :</strong> Les portes à l’état ouvert ne bloquent
+            pas la ligne de vue et les figurines peuvent se déplacer à travers
+            la porte conformément à la règle spéciale porte (X).
+          </p>
+          <p>
+            <strong>Fermée :</strong> Une Porte à l’État fermé est un terrain
+            infranchissable. Les figurines ne peuvent ni se déplacer ni tracer
+            de ligne de vue à travers une porte à l’état fermé.
+          </p>
 
-    <div class="callout callout--designer">
-      <h3>Note du Concepteur : Largeur des Corridors</h3>
-      <p>Pour une expérience de Bataille particulièrement claustrophobe, les Joueurs peuvent souhaiter définir les Corridors comme étant dotés d'une règle spéciale Espace Confiné (X) dont la valeur X est égale à la largeur du Corridor en pouces, ce qui facilite le suivi des zones accessibles à chaque type de Figurine.</p>
-    </div>
-  </section>
+          <h3>Actionner les Portes</h3>
+          <p>
+            Durant la phase de mouvement, le joueur qui contrôle une unité ayant
+            débuté ou terminé un mouvement avec au moins une figurine au contact
+            socle à socle d’une porte peut tenter d’en changer l’État, en
+            ouvrant une porte fermée ou en fermant une porte ouverte, en
+            effectuant un test d’intelligence au moyen des
+            caractéristiques de n’importe quelle figurine unique se trouvant à 2
+            ps ou moins de la porte. Si le test d’Intelligence est réussi,
+            l’état de la porte est immédiatement modifié. Si le test
+            d’intelligence est échoué, l’état demeure inchangé. Il ne peut être
+            effectué plus d’un test par unité pour chaque porte durant chaque
+            tour de joueur.
+          </p>
 
-  <section>
-    <h2>Porte (X)</h2>
-    <p class="rule-summary">Les Portes peuvent ralentir le mouvement des Figurines si ces Figurines sont dotées de la règle spéciale Bulky (X).</p>
-    <p>Aucune Figurine ne peut effectuer de Mouvement de Mise en Place (Set-up Move) ou de Mouvement de Charge (Charge Move) à travers une zone de Terrain de type Porte (parfois désignée sous le terme « Porte ») si la Figurine est dotée d'une variante de la règle spéciale Bulky (X) dont la valeur de X est supérieure à la valeur de X de la règle spéciale Porte (X) assignée à cette Porte. Dans le cas contraire, une Porte ne réduit pas la distance des Mouvements de Mise en Place ou des Mouvements de Charge. Chaque Porte compte comme un Terrain Infranchissable pour les Figurines du Type Véhicule, quel que soit l'État de la Porte.</p>
-    <p>De plus, si une Unité débute un Mouvement en dehors de toute zone de Terrain de type Porte, mais comprend des Figurines dotées de la règle spéciale Bulky (X) susceptibles de pénétrer dans une zone de Terrain de type Porte, le Joueur doit déclarer s'il souhaite que son Unité traverse une quelconque Zone de Terrain de type Porte dans le cadre de son Mouvement.</p>
-    <p>Si le Joueur qui la Contrôle choisit de ne traverser aucune zone de Terrain de type Porte, l'Unité se déplace normalement, mais aucune Figurine de l'Unité ne peut traverser de zone de Terrain de type Porte. Si le Joueur qui la Contrôle choisit qu'une Figurine dotée de la règle spéciale Bulky (X) au sein de l'Unité traverse une zone de Terrain de type Porte, alors la caractéristique de Mouvement de la Figurine dotée de la règle spéciale Bulky (X) est réduite du montant par lequel sa variante de la règle spéciale Bulky (X) dépasse la variante de la règle spéciale Porte (X), pour la durée de cette Phase de Mouvement. Par exemple, une Figurine dotée de la règle spéciale Bulky (6) qui est déplacée à travers une Porte dotée de la règle spéciale Porte (4) verrait sa caractéristique de Mouvement réduite de 2 ps.</p>
-    <p>Si l'application de ce modificateur devait empêcher l'Unité d'atteindre une zone de Terrain de type Porte, il est tout de même appliqué, même si le Joueur qui la Contrôle modifie le mouvement de l'Unité et n'a plus l'intention de lui faire franchir la Porte.</p>
-    <p>Les Figurines dotées de la variante Bulky (X) peuvent se déplacer normalement à travers une Porte si la valeur de Bulky (X) est égale ou inférieure à la valeur de la règle spéciale Porte (X) assignée à la Porte qu'elles comptent franchir.</p>
-    <p>Si la variante de la règle spéciale Bulky (X) dont une Figurine est dotée est supérieure au double du nombre X figurant dans une variante de la règle spéciale Porte (X), cet élément de Terrain compte comme un Terrain Infranchissable pour cette Figurine.</p>
+          <div class="callout callout--designer">
+            <h3>Écrasement</h3>
+            <p class="flavor">
+              La fermeture soudaine des cloisons et des portes de sas représente
+              en soi une menace pour ceux qui sont pris au dépourvu, coinçant et
+              broyant les membres sous leur poids tandis que les servomoteurs de
+              la porte s’actionnent en boucle jusqu’à griller.
+            </p>
+            <p>
+              Si une Figurine quelconque se trouve sur un élément de Terrain de
+              type Porte au moment où celui-ci passe de l’état ouvert à l’état
+              fermé, ou si cela a pour conséquence qu’une ou plusieurs figurines
+              d’une unité quelconque ne sont plus positionnées en cohérence
+              d’unité, l’unité dont la Figurine fait partie, ou
+              l’unité qui n’est plus en cohérence d’Unité, subit immédiatement
+              une touche d’une force de 8, d’une VP (AP) de « - » et d’une
+              caractéristique de dégâts de 2. Le Terrain de type Porte compte
+              ensuite comme un terrain découvert pour le reste de la Bataille,
+              et l’élément de Terrain de type Porte doit être retiré du champ de
+              Bataille si possible.
+            </p>
+          </div>
+        </section>
+      </div>
+      <!-- /#content -->
 
-    <h3>État</h3>
-    <p>Une Porte peut être soit Fermée, soit Ouverte. Sauf indication contraire dans les Règles de Mission, toutes les Portes débutent la Bataille à l'État Fermé.</p>
-    <p><strong>Ouverte :</strong> Les Portes à l'État Ouvert ne bloquent pas la Ligne de Vue et les Figurines peuvent se déplacer à travers la Porte conformément à la règle spéciale Porte (X).</p>
-    <p><strong>Fermée :</strong> Une Porte à l'État Fermé est un Terrain Infranchissable. Les Figurines ne peuvent ni se déplacer, ni tracer de Ligne de Vue à travers une Porte à l'État Fermé.</p>
+      <nav class="page-nav">
+        <a href="core-rules.html">← Règles principales</a>
+        <a href="reactions.html">réactions →</a>
+      </nav>
+    </main>
 
-    <h3>Actionner les Portes</h3>
-    <p>Durant la Phase de Mouvement, le Joueur qui Contrôle une Unité ayant débuté ou terminé un Mouvement avec au moins une Figurine au Contact Socle à Socle d'une Porte peut tenter d'en changer l'État, en ouvrant une Porte Fermée ou en fermant une Porte Ouverte, en effectuant un Test d'Intelligence (Intelligence Check) au moyen des Caractéristiques de n'importe quelle Figurine unique se trouvant à 2 ps ou moins de la Porte. Si le Test d'Intelligence est réussi, l'État de la Porte est immédiatement modifié. Si le Test d'Intelligence est échoué, l'État demeure inchangé. Il ne peut être effectué plus d'un Test par Unité pour chaque Porte durant chaque Tour de Joueur.</p>
+    <button class="back-to-top" aria-label="Retour en haut">↑</button>
 
-    <div class="callout callout--designer">
-      <h3>Écrasement</h3>
-      <p class="flavor">La fermeture soudaine des cloisons et des portes de sas représente en soi une menace pour ceux qui sont pris au dépourvu, coinçant et broyant les membres sous leur poids tandis que les servomoteurs de la porte s'actionnent en boucle jusqu'à griller.</p>
-      <p>Si une Figurine quelconque se trouve sur un élément de Terrain de type Porte au moment où celui-ci passe de l'État Ouvert à l'État Fermé, ou si cela a pour conséquence qu'une ou plusieurs Figurines d'une Unité quelconque ne sont plus positionnées en Cohérence d'Unité (Unit Coherency), l'Unité dont la Figurine fait partie, ou l'Unité qui n'est plus en Cohérence d'Unité, subit immédiatement une Touche d'une Force de 8, d'une VP (AP) de « - » et d'une caractéristique de Dégâts de 2. Le Terrain de type Porte compte ensuite comme un Terrain Découvert pour le reste de la Bataille, et l'Élément de Terrain de type Porte doit être retiré du Champ de Bataille si possible.</p>
-    </div>
-  </section>
+    <!-- Le pied de page termine la page avec les informations de publication et de traduction. -->
+    <footer class="site-footer">
+      Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br />
+      Traduction française à usage personnel du Journal Tactica : Zone Mortalis
+      (édition anglaise 2026).
+    </footer>
 
-  </div><!-- /#content -->
-
-  <nav class="page-nav">
-    <a href="core-rules.html">← Règles Principales</a>
-    <a href="reactions.html">Réactions →</a>
-  </nav>
-
-</main>
-
-<button class="back-to-top" aria-label="Retour en haut">↑</button>
-
-<!-- Le pied de page termine la page avec les informations de publication et de traduction. -->
-<footer class="site-footer">
-  Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br>
-  Traduction française à usage personnel du Journal Tactica : Zone Mortalis (édition anglaise 2026).
-</footer>
-
-<script src="../js/main.js"></script>
-</body>
+    <script src="../js/main.js"></script>
+  </body>
 </html>

@@ -1,80 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zone Mortalis</title>
-<meta name="description" content="Règles Zone Mortalis du Journal Tactica pour Warhammer: The Horus Heresy, traduites en français. Site fan-made non officiel.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Google Fonts : chargées avec display=swap ; le site reste lisible hors connexion grâce aux polices de secours -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zone Mortalis</title>
+    <meta
+      name="description"
+      content="Règles Zone Mortalis du Journal Tactica pour Warhammer: The Horus Heresy, traduites en français. Site fan-made non officiel."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts : chargées avec display=swap ; le site reste lisible hors connexion grâce aux polices de secours -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- La structure du site est simple : la navigation en haut, le contenu principal au centre, et le pied de page en bas. -->
+    <!-- Cette barre reste visible pendant le défilement pour faciliter la navigation entre les pages du guide. -->
+    <nav class="site-nav">
+      <a class="nav-brand" href="index.html">Zone Mortalis</a>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="pages/core-rules.html">Règles Principales</a></li>
+        <li><a href="pages/special-rules.html">Règles Spéciales</a></li>
+        <li><a href="pages/reactions.html">Réactions</a></li>
+        <li><a href="pages/reserves.html">Réserves</a></li>
+        <li><a href="pages/mission-pack.html">Missions</a></li>
+      </ul>
+    </nav>
 
-<!-- La structure du site est simple : la navigation en haut, le contenu principal au centre, et le pied de page en bas. -->
-<!-- Cette barre reste visible pendant le défilement pour faciliter la navigation entre les pages du guide. -->
-<nav class="site-nav">
-  <a class="nav-brand" href="index.html">Zone Mortalis</a>
-  <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-menu">
-    <li><a href="index.html" class="active">Accueil</a></li>
-    <li><a href="pages/core-rules.html">Règles Principales</a></li>
-    <li><a href="pages/special-rules.html">Règles Spéciales</a></li>
-    <li><a href="pages/reactions.html">Réactions</a></li>
-    <li><a href="pages/reserves.html">Réserves</a></li>
-    <li><a href="pages/mission-pack.html">Missions</a></li>
-  </ul>
-</nav>
+    <!-- Le contenu principal regroupe l'introduction du site et les cartes vers les différentes sections de règles. -->
+    <main id="content">
+      <header class="hero">
+        <p class="kicker">Horus Heresy · Zone Mortalis</p>
+        <h1>Zone Mortalis</h1>
+        <p class="subtitle">Journal Tactica</p>
+      </header>
 
-<!-- Le contenu principal regroupe l'introduction du site et les cartes vers les différentes sections de règles. -->
-<main id="content">
+      <hr class="rule-divider" />
 
-  <header class="hero">
-    <p class="kicker">Horus Heresy · Zone Mortalis</p>
-    <h1>Zone Mortalis</h1>
-    <p class="subtitle">Journal Tactica</p>
-  </header>
+      <!-- ===== Sections disponibles ===== -->
+      <div class="card-grid">
+        <a class="card" href="pages/core-rules.html">
+          <h2>Règles principales</h2>
+          <p>
+            Le champ de bataille Zone Mortalis : plafond, couloirs &amp;
+            chambres, murs, portes, échelles, barricades, charges de sape et
+            mesure des portées.
+          </p>
+        </a>
+        <a class="card" href="pages/special-rules.html">
+          <h2>Règles spéciales</h2>
+          <p>
+            Armes de barrage, zone d’interdiction de vol, tempête de feu &amp;
+            shrapnel, panique aveugle, espace confiné (X), porte (X) et
+            écrasement.
+          </p>
+        </a>
+        <a class="card" href="pages/reactions.html">
+          <h2>Réactions</h2>
+          <p>
+            Les réactions avancées de Zone Mortalis : « À l’Abri ! » et « Contourner le cogitateur ».
+          </p>
+        </a>
+        <a class="card" href="pages/reserves.html">
+          <h2>Réserves</h2>
+          <p>
+            Les stratagèmes de réserves : renforts, marche forcée, encerclement,
+            force de flanc, ascenseur de masse, frappe par téléportation.
+          </p>
+        </a>
+        <a class="card" href="pages/mission-pack.html">
+          <h2>Pack de Missions</h2>
+          <p>
+            Le pack « Protocole de nettoyage » : séquence de mission en 9
+            étapes, objectifs principaux et secondaires, passages de porte.
+          </p>
+        </a>
+      </div>
+    </main>
 
-  <hr class="rule-divider">
+    <button class="back-to-top" aria-label="Retour en haut">↑</button>
 
-  <!-- ===== Sections disponibles ===== -->
-  <div class="card-grid">
-    <a class="card" href="pages/core-rules.html">
-      <h2>Règles Principales</h2>
-      <p>Le champ de bataille Zone Mortalis : plafond, couloirs &amp; chambres, murs, portes, échelles, barricades, charges de sape et mesure des portées.</p>
-    </a>
-    <a class="card" href="pages/special-rules.html">
-      <h2>Règles Spéciales</h2>
-      <p>Armes de barrage, zone d'interdiction de vol, tempête de feu &amp; shrapnel, panique aveugle, Espace Confiné (X), Porte (X) et écrasement.</p>
-    </a>
-    <a class="card" href="pages/reactions.html">
-      <h2>Réactions</h2>
-      <p>Les Réactions Avancées de Zone Mortalis : « À l'Abri ! » (Take Cover) et « Contourner le Cogitateur » (Bypass Cogitator).</p>
-    </a>
-    <a class="card" href="pages/reserves.html">
-      <h2>Réserves</h2>
-      <p>Les Stratagèmes de Réserves : Renforts, Marche Forcée, Encerclement, Force de Flanc, Ascenseur de Masse, Frappe par Téléportation.</p>
-    </a>
-    <a class="card" href="pages/mission-pack.html">
-      <h2>Pack de Missions</h2>
-      <p>Le pack « Protocole de Nettoyage » : séquence de mission en 9 étapes, objectifs principaux et secondaires, passages de porte.</p>
-    </a>
-  </div>
+    <!-- Le pied de page affiche les informations de licence et la source de la traduction du contenu. -->
+    <footer class="site-footer">
+      Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br />
+      Traduction française à usage personnel du Journal Tactica : Zone Mortalis
+      (édition anglaise 2026).
+    </footer>
 
-</main>
-
-<button class="back-to-top" aria-label="Retour en haut">↑</button>
-
-<!-- Le pied de page affiche les informations de licence et la source de la traduction du contenu. -->
-<footer class="site-footer">
-  Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br>
-  Traduction française à usage personnel du Journal Tactica : Zone Mortalis (édition anglaise 2026).
-</footer>
-
-<script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
