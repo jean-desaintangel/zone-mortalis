@@ -259,8 +259,7 @@ section { margin-bottom: 2rem; }
 
 /* Encadré de mise en avant : sert à souligner une règle particulièrement importante. */
 .callout--rule { border-color: var(--gold); }
-.callout--rule > h3, .callout--rule > h4 { color: var(--gold); }
-.callout--rule > h3::before, .callout--rule > h4::before { content: "✦ "; }
+.callout--rule > h3, .callout--rule > h4 { color: var(--gold); text-align: center; }
 #ceiling-heading::before { content: none; }
 
 /* ---------- Tableaux de règles ---------- */
