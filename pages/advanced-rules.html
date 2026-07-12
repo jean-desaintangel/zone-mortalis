@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSP : n'autorise que nos propres fichiers + Google Fonts (défense en profondeur) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"
+    />
+    <title>Règles avancées — Zone Mortalis VF</title>
+    <meta
+      name="description"
+      content="Règles avancées de Zone Mortalis : règles spéciales de mission (Ténèbres Abyssales, Action de Percée), réactions avancées (À l'Abri !, Contourner le Cogitateur), Terminal Cogitateur, jeu de campagne, détachements principaux et cartes de déploiement."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicon vectoriel embarqué : évite une requête 404 sur /favicon.ico -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='13'%3E⚔️%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body data-accordion="sections">
+    <!-- Lien d’évitement : premier élément focusable, il permet aux utilisateurs
+         clavier de sauter le menu et d’aller directement au contenu. -->
+    <a class="skip-link" href="#content">Aller au contenu</a>
+    <!-- Cette page rassemble les règles avancées et optionnelles de Zone Mortalis, -->
+    <!-- présentées sous forme d'accordéon pour rester lisibles sur smartphone. -->
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a class="nav-brand" href="../index.html">Zone Mortalis</a>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="core-rules.html">Règles Principales</a></li>
+        <li><a href="special-rules.html">Règles Spéciales</a></li>
+        <li><a href="reserves.html">Réserves</a></li>
+        <li><a href="mission-pack.html">Missions</a></li>
+        <li><a href="advanced-rules.html" class="active">Règles Avancées</a></li>
+      </ul>
+    </nav>
+
+    <!-- Le contenu principal contient l'introduction et les règles avancées à explorer. -->
+    <main id="content">
+      <header class="page-header">
+        <p class="kicker">Journal Tactica — Zone Mortalis</p>
+        <h1>Règles avancées</h1>
+        <hr class="rule-divider" />
+      </header>
+
+      <div class="rules-content">
+        <!-- ===== 1. Règles spéciales de mission ===== -->
+        <section>
+          <h2>Règles spéciales de mission</h2>
+          <p class="rule-summary">
+            Ces règles ne s’appliquent que pendant les missions qui les
+            mentionnent : elles supplantent certains aspects des règles
+            fondamentales ou ajoutent de nouvelles options de jeu.
+          </p>
+          <p>
+            Les Missions Zone Mortalis font appel à un certain nombre de Règles
+            Spéciales de Mission, détaillées ici. Les Missions Zone Mortalis
+            peuvent également faire appel à d’autres Règles Spéciales de Mission,
+            par exemple <em>Ravir l’Initiative</em>
+            (<em>Seize the Initiative</em>), et dans ces cas, elles indiqueront
+            où ces Règles peuvent être trouvées.
+          </p>
+
+          <div class="duo-grid">
+            <div class="subrule">
+              <h4>Ténèbres Abyssales</h4>
+              <p class="lore">
+                En l’absence de lumière naturelle, les guerriers peuvent être
+                plongés dans une obscurité absolue lorsque les réseaux d’énergie
+                tombent en panne ou sont sabotés.
+              </p>
+              <p>
+                <strong
+                  >Si cette Règle Spéciale de Mission est en vigueur, aucune
+                  Ligne de Vue ne peut être tracée à travers plus de 6 ps d’une
+                  zone (ou de zones) définie comme possédant la Règle Spéciale
+                  Ténèbres Abyssales.</strong
+                >
+              </p>
+            </div>
+            <div class="subrule">
+              <h4>Action de Percée</h4>
+              <p class="lore">
+                À l’aide de charges explosives ou de lourds outils de découpe,
+                des troupes spécialisées font sauter ou percent les obstacles et
+                ouvrent la voie à leurs frères d’armes.
+              </p>
+              <p>
+                <strong
+                  >Pendant la Sous-Phase de Réserves de leur premier Tour de
+                  Joueur, chaque Joueur peut changer l’État de D3 Portes situées
+                  dans sa Zone de Déploiement de Fermé à Ouvert. Ces Portes
+                  restent ouvertes pour toute la durée de la Bataille, et leur
+                  État ne peut être changé pour quelque raison que ce
+                  soit.</strong
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== 2. Terminal Cogitateur ===== -->
+        <section>
+          <h2>Terminal Cogitateur</h2>
+          <p class="rule-summary">
+            Une figurine au contact d’un Terminal Cogitateur peut tenter un Test
+            d’Interface : lancez 2D6, soustrayez-les de l’Intelligence de la
+            figurine, puis consultez la table des effets.
+          </p>
+          <p class="lore">
+            Les secteurs de ruche et les hab-zones sont parsemés de points
+            d’interface. L’usage furtif de tels terminaux peut mettre à nu bon
+            nombre des sous-systèmes qui régissent la sécurité du secteur, mais
+            une fouille trop peu subtile risque de déclencher des protocoles de
+            réponse encodés.
+          </p>
+          <p>
+            Toute Figurine qui termine son Mouvement en Contact Socle à Socle
+            avec un Terminal Cogitateur peut tenter de le manipuler en effectuant
+            un Test d’Interface, avant qu’une autre Unité ne soit sélectionnée
+            pour se Déplacer, ou avant que le Joueur Réactif ne résolve toute
+            Réaction pouvant être déclenchée par ce Mouvement.
+          </p>
+
+          <div class="table-wrap">
+            <table class="rule-table">
+              <caption>
+                Table du Test d’Interface (résultat = 2D6 − Intelligence)
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Résultat</th>
+                  <th scope="col">Effet</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>−2 ou moins</strong></td>
+                  <td>Entrée Malveillante Détectée&nbsp;!</td>
+                  <td>
+                    <p class="lore">
+                      Les systèmes du cogitateur détectent la tentative
+                      d’accès, déclenchant une réponse de sécurité de niveau
+                      lethalis.
+                    </p>
+                    <p>
+                      <strong>Échec.</strong> La Figurine subit trois Touches de
+                      Force 4, PA «&nbsp;-&nbsp;», Dégâts 1. Aucun autre Test
+                      d’Interface ne peut être effectué sur ce Terminal pour le
+                      reste de la Bataille.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>−1</strong></td>
+                  <td>Interface Échouée</td>
+                  <td>
+                    <p class="lore">
+                      L’encodage du terminal bloque l’accès et ses protocoles
+                      sont renforcés.
+                    </p>
+                    <p>
+                      <strong>Échec.</strong> Toutes les Portes du Champ de
+                      Bataille passent immédiatement à l’État Fermé, et tout Test
+                      d’Interface ultérieur sur ce Terminal subit un modificateur
+                      supplémentaire de −2.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>0</strong></td>
+                  <td>Interfaçage…</td>
+                  <td>
+                    <p class="lore">
+                      L’interface du terminal refuse l’accès et ses routines de
+                      verrouillage sont éveillées.
+                    </p>
+                    <p>
+                      <strong>Échec.</strong> Aucun effet, mais tout Test
+                      d’Interface ultérieur sur ce Terminal subit un modificateur
+                      supplémentaire de −2.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>1</strong></td>
+                  <td>Accès Autorisé</td>
+                  <td>
+                    <p class="lore">
+                      Un accès de niveau civitas-labourer est accordé à
+                      l’utilisateur.
+                    </p>
+                    <p>
+                      <strong>Réussite.</strong> Le Joueur qui Contrôle peut
+                      sélectionner une Porte Fermée et la passer à l’État Ouvert.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>2</strong></td>
+                  <td>Bienvenue, Adepte</td>
+                  <td>
+                    <p class="lore">
+                      Des contournements de sécurité de niveau Adeptus sont
+                      accordés.
+                    </p>
+                    <p>
+                      <strong>Réussite.</strong> Le Joueur qui Contrôle peut
+                      changer l’État d’une Porte pour n’importe quel État, et
+                      octroyer (ou retirer) la Règle Spéciale Ténèbres Abyssales
+                      à une Section du Champ de Bataille.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>3 et plus</strong></td>
+                  <td>Protocoles de Débogage en Ligne</td>
+                  <td>
+                    <p class="lore">
+                      Tous les verrous sécurisés sont déverrouillés, donnant un
+                      accès complet aux sous-routines du secteur.
+                    </p>
+                    <p>
+                      <strong>Réussite.</strong> Le Joueur qui Contrôle peut
+                      changer l’État de jusqu’à 3 Portes et octroyer (ou retirer)
+                      Ténèbres Abyssales à jusqu’à 3 Sections. De plus, ses Tests
+                      d’Interface sont modifiés de +1 jusqu’à ce qu’il en échoue
+                      un, et ceux de l’Adversaire de −2 jusqu’à ce qu’il en
+                      réussisse un.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== 3. Réactions ===== -->
+        <section>
+          <h2>Réactions</h2>
+          <p class="rule-summary">
+            Deux réactions avancées propres à Zone Mortalis&nbsp;: se mettre à
+            l’abri d’une attaque de tir, ou manipuler les portes du champ de
+            bataille par le biais d’un Terminal Cogitateur.
+          </p>
+
+          <h3>À l’Abri&nbsp;!</h3>
+
+          <p>
+            Cette réaction avancée permet à des Figurines de tenter de sortir de
+            la ligne de tir ennemie.
+          </p>
+
+          <dl class="reaction-meta">
+            <dt>Déclencheur</dt>
+            <dd>
+              Le joueur réactif peut déclarer une Réaction À l’Abri&nbsp;! lors
+              de la Phase de Tir, pendant l’Étape 1 de la séquence d’Attaque de
+              Tir de toute Attaque de Tir effectuée par le Joueur Actif.
+            </dd>
+
+            <dt>Coût</dt>
+            <dd>
+              Le Joueur réactif doit dépenser 1 point de sa Dotation de
+              Réactions pour déclarer une Réaction avancée À l’Abri&nbsp;! — ce
+              coût est payé dès que la déclaration est faite.
+            </dd>
+
+            <dt>Cible</dt>
+            <dd>
+              L’unité cible est toujours l’unité dont l’attaque de tir a
+              déclenché la réaction. L’unité réactive est toujours l’unité qui
+              était la cible de l’attaque de tir ayant déclenché la réaction.
+            </dd>
+          </dl>
+
+          <h4>Procédure</h4>
+          <ol>
+            <li>
+              Une fois qu’une réaction avancée À l’Abri&nbsp;! a été déclarée,
+              le Joueur réactif doit lancer un dé. Chaque figurine de l’unité
+              réactive peut être déplacée d’une distance, en pouces, égale au
+              résultat du jet de Dé.
+            </li>
+            <li>
+              Une fois l’unité réactive déplacée, toutes les figurines de
+              l’unité gagnent la règle spéciale
+              <strong>Occulté (6+)</strong> jusqu’à ce que l’attaque de tir
+              ayant déclenché cette réaction soit entièrement résolue.
+            </li>
+            <li>
+              Le joueur actif doit résoudre les étapes restantes, en reprenant à
+              l’étape 2. Vérifier la cible, de l’attaque de tir ayant déclenché
+              cette réaction.
+            </li>
+          </ol>
+
+          <h3>Contourner le Cogitateur</h3>
+
+          <p>
+            Cette réaction avancée permet aux figurines dotées de la règle
+            spéciale Forgeron de Guerre (X) de modifier l’État des Portes du
+            champ de bataille de Zone Mortalis.
+          </p>
+
+          <dl class="reaction-meta">
+            <dt>Déclencheur</dt>
+            <dd>
+              Le joueur réactif peut déclarer une réaction avancée Contourner
+              le Cogitateur lors de l’Étape 2 du processus de la sous-phase de
+              mouvement si une unité ennemie termine un mouvement à plus de 8″
+              d’une figurine amie dotée de la règle spéciale Forgeron de Guerre
+              (X).
+            </dd>
+
+            <dt>Coût</dt>
+            <dd>
+              Le joueur réactif doit dépenser 1 point de sa dotation de
+              réactions pour déclarer une réaction avancée Contourner le
+              Cogitateur — ce coût est payé dès que la déclaration est faite.
+            </dd>
+
+            <dt>Cible</dt>
+            <dd>
+              L’unité cible est toujours l’unité dont le mouvement a déclenché
+              la réaction. Une fois le coût payé, le joueur réactif doit
+              choisir une unité sous son contrôle comptant au moins une
+              figurine dotée de la règle spéciale Forgeron de Guerre (X) et
+              n’ayant aucune figurine à moins de 8″ d’une quelconque figurine
+              ennemie — cette unité est l’unité réactive.
+            </dd>
+          </dl>
+
+          <h4>Procédure</h4>
+          <ol>
+            <li>
+              Une fois qu’une Réaction avancée Contourner le Cogitateur a été
+              déclarée, le Joueur actif doit résoudre entièrement le mouvement
+              de l’unité cible.
+            </li>
+            <li>
+              Une fois que l’unité cible a terminé son mouvement, le joueur
+              réactif peut sélectionner un nombre de portes égal au maximum à la
+              valeur de la règle spéciale Forgeron de Guerre (X) que possède
+              l’une des figurines de l’unité réactive.
+            </li>
+            <li>
+              Le joueur réactif doit effectuer un test d’intelligence pour
+              chaque porte sélectionnée, dans l’ordre de son choix, en utilisant
+              la caractéristique de la figurine choisie à l’étape 2 de ce
+              processus. Si le test d’intelligence est réussi, l’état de la
+              porte sélectionnée doit être modifié, soit d’ouvert à fermé, soit
+              de fermé à ouvert, selon le cas. Résolvez les effets du changement
+              d’état de la porte avant de passer à la porte sélectionnée
+              suivante. Si le test d’intelligence est échoué, rien ne se produit
+              et le joueur réactif doit effectuer un test pour la porte
+              sélectionnée suivante, ou passer à l’étape 4 de ce processus si
+              toutes les portes sélectionnées ont été résolues.
+            </li>
+            <li>
+              Une fois que le joueur réactif a résolu toutes les portes
+              sélectionnées, la phase de mouvement se poursuit normalement.
+            </li>
+          </ol>
+        </section>
+
+        <!-- ===== 4. Règles de bataille avancées ===== -->
+        <section>
+          <h2>Règles de bataille avancées</h2>
+          <p class="rule-summary">
+            Règles optionnelles pour le jeu organisé, en campagne continue ou en
+            parties ponctuelles menées par le récit.
+          </p>
+
+          <div class="subrule">
+            <h4>Effets de campagne et champ de bataille en ruine</h4>
+            <p>
+              Les Batailles Zone Mortalis peuvent constituer tout ou partie
+              d’une campagne, une série de Batailles liées résolue à l’aide des
+              Missions « Protocole de Nettoyage ». Au cours d’une telle série,
+              les dommages infligés à la structure de la ruche — fusillades
+              intenses, détonations de munitions, irruption d’engins de guerre —
+              peuvent tous être représentés.
+            </p>
+            <p>
+              L’effondrement progressif d’une ruche, ou l’accumulation de corps
+              et de débris, peut être représenté en réduisant la valeur de la
+              Règle Spéciale Espace Confiné (X) de chaque Section. Les joueurs
+              peuvent par exemple lancer un D6+3 par Section (hors Zones de
+              Déploiement) pour déterminer aléatoirement sa valeur d’Espace
+              Confiné (X) au début de la Bataille.
+            </p>
+            <p>
+              Alternativement, au début de chaque Tour de Jeu, les Joueurs
+              lancent un D6 par Section : sur un 1, cette Section reçoit la Règle
+              Spéciale Ténèbres Abyssales pour la durée du Tour, représentant les
+              conduits d’énergie défaillants qui traversent la ruche.
+            </p>
+          </div>
+
+          <div class="subrule">
+            <h4>Ennemis Inconnus</h4>
+            <p>
+              Le champ de bataille Zone Mortalis est un environnement oppressant
+              et claustrophobe, par endroits dépourvu de lumière et caractérisé
+              par des couloirs étroits et des angles morts. Les guerriers doivent
+              souvent s’en remettre à des scanners ou des auspex pour détecter le
+              mouvement ou la signature thermique des menaces.
+            </p>
+            <p>
+              Les joueurs peuvent utiliser des pions numérotés, ou
+              «&nbsp;Blips&nbsp;» (des socles vierges de 25 à 40&nbsp;mm), pour
+              représenter les contacts. Avant le déploiement, chaque Blip est
+              marqué en correspondance avec une Unité de l’Armée, y compris toute
+              Figurine l’ayant rejointe. Il est recommandé de ne marquer qu’une
+              seule face, ou d’utiliser une numérotation qui ne révèle pas
+              quelle Unité chaque Blip représente. Au déploiement, chaque Joueur
+              place le Blip à la place de son Unité respective.
+            </p>
+            <p>
+              Pendant la Bataille, un Blip se déplace au maximum de la plus
+              faible Caractéristique de Mouvement de son Unité ; les autres
+              actions (comme changer l’État des Portes) utilisent la
+              Caractéristique pertinente de n’importe quelle Figurine de l’Unité.
+              Dès qu’un Blip entre dans la Ligne de Vue d’une Figurine ennemie,
+              il est remplacé par une Figurine de l’Unité, puis les autres
+              Figurines sont placées en respectant la Cohérence d’Unité, sans se
+              rapprocher davantage de l’Unité ennemie ayant déclenché le
+              placement.
+            </p>
+          </div>
+        </section>
+
+        <!-- ===== 5. Détachements principaux ===== -->
+        <section>
+          <h2>Détachements principaux Zone Mortalis</h2>
+          <p class="rule-summary">
+            Trois Tableaux d’Organisation de Détachement Principal optionnels,
+            utilisables à la place du Détachement Principal de Croisade.
+          </p>
+          <p>
+            Lors de la sélection d’une Armée pour une Mission Zone Mortalis, les
+            Joueurs peuvent choisir l’un des Détachements Principaux suivants au
+            lieu du Détachement Principal de Croisade. Le processus d’ajout de
+            Détachements supplémentaires (Auxiliaires, Apex, Alliés) reste
+            inchangé par rapport à la page 278 du livre de règles
+            <em>Warhammer: The Horus Heresy — Age of Darkness</em>.
+          </p>
+
+          <div class="detach-grid">
+            <div class="detach-card">
+              <h4>Zone Mortalis Strike Force</h4>
+              <p class="detach-tag">Détachement Principal</p>
+              <div class="role-grid">
+                <span class="role-slot is-required"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c1.8 0 3 1.8 3 4l-1 1h-4l-1-1c0-2.2 1.2-4 3-4z"/><path d="M8 9h8l-1 2 1 1v3l-1 1 1 5H8l1-5-1-1v-3l1-1z"/></svg></span>
+                <span class="role-slot is-required"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c1.8 0 3 1.8 3 4l-1 1h-4l-1-1c0-2.2 1.2-4 3-4z"/><path d="M8 9h8l-1 2 1 1v3l-1 1 1 5H8l1-5-1-1v-3l1-1z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+              </div>
+            </div>
+
+            <div class="detach-card">
+              <h4>Zone Mortalis Bulwark</h4>
+              <p class="detach-tag">Détachement Principal</p>
+              <div class="role-grid">
+                <span class="role-slot is-required"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c1.8 0 3 1.8 3 4l-1 1h-4l-1-1c0-2.2 1.2-4 3-4z"/><path d="M8 9h8l-1 2 1 1v3l-1 1 1 5H8l1-5-1-1v-3l1-1z"/></svg></span>
+                <span class="role-slot is-required"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c1.8 0 3 1.8 3 4l-1 1h-4l-1-1c0-2.2 1.2-4 3-4z"/><path d="M8 9h8l-1 2 1 1v3l-1 1 1 5H8l1-5-1-1v-3l1-1z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 5h12l-1 3 2 2v5l-2 1 1 5H4l1-5-2-1v-5l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 5h12l-1 3 2 2v5l-2 1 1 5H4l1-5-2-1v-5l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="10" width="18" height="6"/><rect x="9" y="7" width="7" height="4"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="10" width="18" height="6"/><rect x="9" y="7" width="7" height="4"/></svg></span>
+                <span class="role-slot is-required"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+              </div>
+            </div>
+
+            <div class="detach-card detach-card--wide">
+              <h4>Zone Mortalis Linebreaker</h4>
+              <p class="detach-tag">Détachement Principal</p>
+              <div class="role-grid">
+                <span class="role-slot is-required"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c1.8 0 3 1.8 3 4l-1 1h-4l-1-1c0-2.2 1.2-4 3-4z"/><path d="M8 9h8l-1 2 1 1v3l-1 1 1 5H8l1-5-1-1v-3l1-1z"/></svg></span>
+                <span class="role-slot is-required"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2c1.8 0 3 1.8 3 4l-1 1h-4l-1-1c0-2.2 1.2-4 3-4z"/><path d="M8 9h8l-1 2 1 1v3l-1 1 1 5H8l1-5-1-1v-3l1-1z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8l-1 3 2 2v4l-2 1 1 7H8l1-7-2-1V8l2-2z"/></svg></span>
+                <span class="role-slot is-required"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 8l4 3-3 1zM21 8l-4 3 3 1z"/><path d="M9 4h6l-1 3 1 1v3l-1 1 1 6H9l1-6-1-1V8l1-1z"/></svg></span>
+                <span class="role-slot"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 8l4 3-3 1zM21 8l-4 3 3 1z"/><path d="M9 4h6l-1 3 1 1v3l-1 1 1 6H9l1-6-1-1V8l1-1z"/></svg></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout--designer">
+            <h3>Note du traducteur</h3>
+            <p>
+              Les pictogrammes ci-dessus représentent schématiquement les
+              emplacements de Rôle sur le Champ de Bataille de chaque Tableau
+              d’Organisation. Un emplacement cerclé d’un liseré épais (halo) est
+              <strong>obligatoire</strong> ; un emplacement à liseré fin est
+              <strong>optionnel</strong>. Reportez-vous à la page d’origine pour
+              l’attribution exacte des rôles à chaque icône.
+            </p>
+            <div class="role-legend">
+              <span><span class="dot is-required"></span> Emplacement obligatoire</span>
+              <span><span class="dot"></span> Emplacement optionnel</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== 6. Cartes de déploiement ===== -->
+        <section>
+          <h2>Cartes de déploiement</h2>
+          <p class="rule-summary">
+            Trois configurations de Zones de Déploiement, à utiliser en plus des
+            Secteurs définis par la Mission employée.
+          </p>
+
+          <div class="deploy-row">
+            <figure class="deploy-fig">
+              <div class="deploy-map deploy-map--primus" role="img"
+                aria-label="Configuration Primus : zone de déploiement A en haut, zone B en bas, champ de 48 sur 36 pouces.">
+                <div class="zone zone-a">Zone A</div>
+                <div class="zone zone-b">Zone B</div>
+              </div>
+              <figcaption class="deploy-caption">
+                Champ&nbsp;: 48&nbsp;×&nbsp;36&nbsp;ps — Zones de 8&nbsp;ps de
+                profondeur, opposées haut/bas.
+              </figcaption>
+            </figure>
+            <div>
+              <h4>1. Configuration Primus</h4>
+              <p>
+                Avec la Carte de Déploiement Configuration Primus, les Zones de
+                Déploiement illustrées ci-contre sont utilisées, en plus des
+                Secteurs définis dans la Mission employée.
+              </p>
+            </div>
+          </div>
+
+          <div class="deploy-row">
+            <figure class="deploy-fig">
+              <div class="deploy-map deploy-map--secundus" role="img"
+                aria-label="Configuration Secundus : zone de déploiement A à gauche, zone B à droite, champ de 48 sur 36 pouces.">
+                <div class="zone zone-a">Zone A</div>
+                <div class="zone zone-b">Zone B</div>
+              </div>
+              <figcaption class="deploy-caption">
+                Champ&nbsp;: 48&nbsp;×&nbsp;36&nbsp;ps — Zones de 12&nbsp;ps de
+                largeur, opposées gauche/droite.
+              </figcaption>
+            </figure>
+            <div>
+              <h4>2. Configuration Secundus</h4>
+              <p>
+                Avec la Carte de Déploiement Configuration Secundus, les Zones de
+                Déploiement illustrées ci-contre sont utilisées, en plus des
+                Secteurs définis dans la Mission employée.
+              </p>
+            </div>
+          </div>
+
+          <div class="deploy-row">
+            <figure class="deploy-fig">
+              <div class="deploy-map deploy-map--tertius" role="img"
+                aria-label="Configuration Tertius : zones de déploiement A et B dans des coins diagonalement opposés, champ de 48 sur 36 pouces.">
+                <div class="zone zone-a"></div>
+                <div class="zone zone-b"></div>
+                <span class="zone-tag zone-tag--a">Zone A</span>
+                <span class="zone-tag zone-tag--b">Zone B</span>
+              </div>
+              <figcaption class="deploy-caption">
+                Champ&nbsp;: 48&nbsp;×&nbsp;36&nbsp;ps — Zones diagonalement
+                opposées (24&nbsp;ps le long de chaque bord).
+              </figcaption>
+            </figure>
+            <div>
+              <h4>3. Configuration Tertius</h4>
+              <p>
+                Avec la Carte de Déploiement Configuration Tertius, les Zones de
+                Déploiement illustrées ci-contre sont utilisées, en plus des
+                Secteurs définis dans la Mission employée.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- /.rules-content -->
+
+      <nav class="page-nav" aria-label="Pages précédente et suivante">
+        <a href="mission-pack.html">← Missions</a>
+        <a href="../index.html">Accueil →</a>
+      </nav>
+    </main>
+
+    <button class="back-to-top" aria-label="Retour en haut">↑</button>
+
+    <!-- Le pied de page termine la page avec les informations de publication et de traduction. -->
+    <footer class="site-footer">
+      Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br />
+      Traduction française à usage personnel du Journal Tactica : Zone Mortalis
+      (édition anglaise 2026).
+    </footer>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

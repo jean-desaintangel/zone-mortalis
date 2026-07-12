@@ -13,9 +13,9 @@ Site statique regroupant la traduction française des règles **Zone Mortalis** 
 └── pages/
     ├── core-rules.html     # Règles Principales
     ├── special-rules.html  # Règles Spéciales
-    ├── reactions.html      # Réactions
     ├── reserves.html       # Réserves
-    └── mission-pack.html   # Pack de Missions « Protocole de Nettoyage »
+    ├── mission-pack.html   # Pack de Missions « Protocole de Nettoyage »
+    └── advanced-rules.html # Règles Avancées (dont réactions avancées)
 ```
 
 Pour ajouter une nouvelle section : dupliquer une page de `pages/`, remplacer le contenu, puis ajouter le lien dans le menu de chaque page. Le comportement des accordéons est piloté par l'attribut `data-accordion` sur `<body>` (`sections`, `h3` ou `sequence` — voir l'en-tête de `js/main.js`).

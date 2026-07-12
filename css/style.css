@@ -452,3 +452,193 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+/* ==========================================================================
+   Page « Règles avancées »
+   Composants propres à cette page : sous-règles, détachements principaux et
+   cartes de déploiement. Tout est en classes (aucun style en ligne) pour
+   respecter la Content-Security-Policy du site.
+   ========================================================================== */
+
+/* ---------- Sous-règle : titre + accroche « lore » + texte ---------- */
+.subrule {
+  border-left: 3px solid var(--gold-dim);
+  padding-left: 0.9rem;
+  margin: 1.3rem 0;
+}
+.subrule h4 { margin-top: 0; }
+/* Texte d'ambiance en italique : sert à distinguer le récit de la règle. */
+.lore { font-style: italic; color: var(--text-dim); }
+
+/* Fiche Déclencheur/Coût/Cible d'une réaction : étiquette + valeur, pour un
+   repérage plus rapide que des paragraphes en gras noyés dans le texte. */
+.reaction-meta { margin: 0 0 1.3rem; }
+.reaction-meta dt {
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.9rem;
+}
+.reaction-meta dt:first-child { margin-top: 0; }
+.reaction-meta dd { margin: 0.2rem 0 0; }
+
+/* Deux sous-règles côte à côte sur écran large, empilées sur mobile. */
+.duo-grid { display: grid; grid-template-columns: 1fr; gap: 0 2rem; }
+@media (min-width: 768px) { .duo-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Détachements principaux ---------- */
+.detach-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 1.4rem 0;
+}
+.detach-card {
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold-dim);
+  background: #f9f4e8;
+  border-radius: 3px;
+  padding: 1.1rem 1.2rem 1.3rem;
+  text-align: center;
+}
+.detach-card h4 { color: var(--text); margin: 0 0 0.15rem; }
+.detach-tag {
+  font-family: var(--font-title);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+
+/* Grille des emplacements de rôle (4 colonnes). */
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px 10px;
+  max-width: 260px;
+  margin: 0 auto;
+}
+.role-slot {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+/* Emplacement obligatoire : liseré épais + halo (outline). */
+.role-slot.is-required {
+  border: 2px solid var(--gold);
+  outline: 1px solid var(--gold-dim);
+  outline-offset: 3px;
+}
+.role-slot svg { fill: #3e3018; }
+
+/* Légende des pictogrammes. */
+.role-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+.role-legend > span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.role-legend .dot {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+.role-legend .dot.is-required {
+  border: 2px solid var(--gold);
+  outline: 1px solid var(--gold-dim);
+  outline-offset: 2px;
+}
+
+/* Sur écran large : deux détachements par ligne, le 3e centré. */
+@media (min-width: 768px) {
+  .detach-grid { grid-template-columns: 1fr 1fr; }
+  .detach-card--wide {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 8px);
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* ---------- Cartes de déploiement ---------- */
+.deploy-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 2rem;
+  align-items: center;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.deploy-row:last-child { border-bottom: none; }
+@media (min-width: 768px) {
+  .deploy-row { grid-template-columns: minmax(0, 360px) 1fr; }
+}
+
+.deploy-fig { margin: 0; }
+.deploy-caption {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* Plateau de jeu : grille imprimée sur fond parchemin. */
+.deploy-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1.5px solid var(--gold-dim);
+  background-color: var(--bg-alt);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(142,111,36,0.18) 0 1px, transparent 1px 25%),
+    repeating-linear-gradient(0deg,  rgba(142,111,36,0.18) 0 1px, transparent 1px 33.333%);
+}
+/* Zones de déploiement colorées. */
+.deploy-map .zone {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 4px;
+}
+.deploy-map .zone-a { background: rgba(142, 111, 36, 0.16); }
+.deploy-map .zone-b { background: rgba(122, 31, 31, 0.16); }
+
+/* Primus : zones opposées haut / bas. */
+.deploy-map--primus .zone-a { top: 0; left: 0; right: 0; height: 22%; border-bottom: 1px dashed var(--gold-dim); }
+.deploy-map--primus .zone-b { bottom: 0; left: 0; right: 0; height: 22%; border-top: 1px dashed var(--gold-dim); }
+
+/* Secundus : zones opposées gauche / droite. */
+.deploy-map--secundus .zone-a { top: 0; bottom: 0; left: 0; width: 25%; border-right: 1px dashed var(--gold-dim); }
+.deploy-map--secundus .zone-b { top: 0; bottom: 0; right: 0; width: 25%; border-left: 1px dashed var(--gold-dim); }
+
+/* Tertius : zones triangulaires diagonalement opposées + étiquettes. */
+.deploy-map--tertius .zone-a { inset: 0; clip-path: polygon(50% 0, 100% 0, 100% 66.7%); }
+.deploy-map--tertius .zone-b { inset: 0; clip-path: polygon(0 33.3%, 0 100%, 50% 100%); }
+.deploy-map .zone-tag {
+  position: absolute;
+  font-family: var(--font-title);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.deploy-map .zone-tag--a { top: 12%; right: 8%; }
+.deploy-map .zone-tag--b { bottom: 12%; left: 8%; }
