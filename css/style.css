@@ -50,7 +50,7 @@ h2 { font-size: 1.3rem; color: var(--gold); text-transform: uppercase; letter-sp
 h3 { font-size: 1.05rem; color: var(--text); text-transform: uppercase; letter-spacing: 0.04em; margin: 1.6rem 0 0.6rem; }
 h4 { font-size: 0.95rem; color: var(--gold); margin: 1.2rem 0 0.5rem; }
 
-p { margin: 0 0 1rem; }
+p { margin: 0 0 1rem; text-align: justify; }
 ul, ol { margin: 0 0 1rem; padding-left: 1.4rem; }
 li { margin-bottom: 0.5rem; }
 strong { color: #3e3018; }
@@ -255,13 +255,13 @@ section { margin-bottom: 2rem; }
 
 /* Encadré d'alerte : utilisé pour les notes du concepteur ou les avertissements importants. */
 .callout--designer { border-color: var(--blood); background: rgba(139, 0, 0, 0.08); }
-.callout--designer > h3, .callout--designer > h4 { color: var(--blood-light); }
-.callout--designer > h3::before, .callout--designer > h4::before { content: "⚠ "; }
+.callout--designer > h3, .callout--designer > h4 { color: var(--blood-light); text-align: center; }
 
 /* Encadré de mise en avant : sert à souligner une règle particulièrement importante. */
 .callout--rule { border-color: var(--gold); }
 .callout--rule > h3, .callout--rule > h4 { color: var(--gold); }
 .callout--rule > h3::before, .callout--rule > h4::before { content: "✦ "; }
+#ceiling-heading::before { content: none; }
 
 /* ---------- Tableaux de règles ---------- */
 .table-wrap { overflow-x: auto; margin: 1.2rem 0; -webkit-overflow-scrolling: touch; }
