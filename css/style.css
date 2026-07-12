@@ -189,7 +189,6 @@ section { margin-bottom: 2rem; }
   white-space: nowrap;
 }
 .nav-brand:hover { color: var(--gold); text-decoration: none; }
-.nav-brand .skull { color: var(--blood-light); margin-right: 6px; }
 
 /* Bouton hamburger */
 .nav-toggle {
@@ -325,7 +324,6 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   transition: border-color 0.2s, transform 0.15s;
 }
 .card:hover { border-top-color: var(--gold); text-decoration: none; color: var(--text); transform: translateY(-2px); }
-.card .card-icon { font-size: 1.4rem; display: block; margin-bottom: 0.4rem; }
 .card h2 { font-size: 1rem; border: none; margin: 0 0 0.35rem; padding: 0; }
 .card p { font-size: 0.88rem; color: var(--text-dim); margin: 0; }
 

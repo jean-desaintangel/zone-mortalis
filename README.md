@@ -11,11 +11,11 @@ Site statique regroupant la traduction française des règles **Zone Mortalis** 
 ├── css/style.css           # Thème sombre Horus Heresy, mobile-first
 ├── js/main.js              # Menu hamburger, accordéon des règles, retour en haut
 └── pages/
-    ├── core-rules.html     # ⚙️ Règles Principales
-    ├── special-rules.html  # ✦ Règles Spéciales
-    ├── reactions.html      # ⚡ Réactions
-    ├── reserves.html       # 🔄 Réserves
-    └── mission-pack.html   # 🎯 Pack de Missions « Protocole de Nettoyage »
+    ├── core-rules.html     # Règles Principales
+    ├── special-rules.html  # Règles Spéciales
+    ├── reactions.html      # Réactions
+    ├── reserves.html       # Réserves
+    └── mission-pack.html   # Pack de Missions « Protocole de Nettoyage »
 ```
 
 Pour ajouter une nouvelle section : dupliquer une page de `pages/`, remplacer le contenu, puis ajouter le lien dans le menu de chaque page.
