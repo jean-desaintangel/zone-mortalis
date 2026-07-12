@@ -9,7 +9,7 @@ Site statique regroupant la traduction française des règles **Zone Mortalis** 
 ```
 ├── index.html              # Page d'accueil (navigation par cards)
 ├── css/style.css           # Thème sombre Horus Heresy, mobile-first
-├── js/main.js              # Menu hamburger, recherche, retour en haut
+├── js/main.js              # Menu hamburger, accordéon des règles, retour en haut
 └── pages/
     ├── core-rules.html     # ⚙️ Règles Principales
     ├── special-rules.html  # ✦ Règles Spéciales
@@ -18,13 +18,13 @@ Site statique regroupant la traduction française des règles **Zone Mortalis** 
     └── mission-pack.html   # 🎯 Pack de Missions « Protocole de Nettoyage »
 ```
 
-Sections prévues (badge « Bientôt disponible ») : Armurerie, Listes d'armées, FAQ / Errata. Pour en ajouter une : dupliquer une page de `pages/`, remplacer le contenu, puis activer le lien dans le menu de chaque page.
+Pour ajouter une nouvelle section : dupliquer une page de `pages/`, remplacer le contenu, puis ajouter le lien dans le menu de chaque page.
 
 ## Fonctionnalités
 
 - 100 % statique : HTML + CSS + JS vanilla, aucun framework
 - Responsive mobile-first (breakpoints 375 / 768 / 1024 px), menu hamburger
-- Recherche par mot-clé dans la page courante (surlignage + navigation entre résultats)
+- Accordéon pour les règles spéciales, réactions et stratagèmes de réserves
 - Bouton « Retour en haut » flottant
 - Google Fonts en `display=swap` avec polices de secours : le contenu reste lisible hors connexion
 
