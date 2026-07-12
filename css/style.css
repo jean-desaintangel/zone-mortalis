@@ -56,15 +56,6 @@ li { margin-bottom: 0.5rem; }
 strong { color: #3e3018; }
 em { color: inherit; }
 
-/* Texte d'ambiance : le « flavor text » qui donne l'atmosphère de la règle. */
-.flavor {
-  font-style: italic;
-  color: var(--text-dim);
-  border-left: 2px solid var(--gold-dim);
-  padding-left: 0.9rem;
-  margin-bottom: 1rem;
-}
-
 /* Résumé de règle : la phrase clé, mise en valeur pour repérer rapidement l'idée principale. */
 .rule-summary {
   font-weight: 700;
@@ -75,7 +66,7 @@ em { color: inherit; }
   margin-bottom: 1rem;
 }
 
-/* Accordéon des règles spéciales : au départ, on voit seulement le titre et le flavor ; le détail s'affiche au clic. */
+/* Accordéon des règles spéciales : au départ, on voit seulement le titre et le résumé ; le détail s'affiche au clic. */
 .rule-card {
   margin-bottom: 2rem;
 }
@@ -155,8 +146,6 @@ main {
   color: var(--blood-light);
   margin-bottom: 0.4rem;
 }
-
-.page-header .subtitle { color: var(--text-dim); font-size: 0.9rem; margin-top: 0.4rem; }
 
 .rule-divider {
   height: 2px;
@@ -261,7 +250,6 @@ section { margin-bottom: 2rem; }
 /* Encadré de mise en avant : sert à souligner une règle particulièrement importante. */
 .callout--rule { border-color: var(--gold); }
 .callout--rule > h3, .callout--rule > h4 { color: var(--gold); text-align: center; }
-#ceiling-heading::before { content: none; }
 
 /* ---------- Tableaux de règles ---------- */
 .table-wrap { overflow-x: auto; margin: 1.2rem 0; -webkit-overflow-scrolling: touch; }
