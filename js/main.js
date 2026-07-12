@@ -88,10 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // (.rule-summary) : le titre et le résumé restent toujours visibles,
       // même carte fermée. Le drapeau "capture" bascule à true dès qu'on
       // croise le résumé, et repasse à false si un nouveau H2 apparaît.
-      let capture = false;
+      // Si la section ne contient aucun résumé, il n'y a rien à garder
+      // visible en permanence : tout ce qui suit le H2 se replie.
+      const hasSummary = !!card.querySelector(':scope > .rule-summary');
+      let capture = !hasSummary;
       Array.from(card.children).forEach((node) => {
         if (node.tagName === 'H2') {
-          capture = false;
+          capture = !hasSummary;
           return;
         }
         if (node.classList.contains('rule-summary')) {

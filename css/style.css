@@ -423,7 +423,11 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
      ".nav-menu.open { display: block }" par la spécificité, sans !important. */
   .nav-menu,
   .nav-menu.open {
-    position: static;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: var(--nav-height);
     display: flex;
     background: none;
     border: none;
