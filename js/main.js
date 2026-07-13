@@ -185,4 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- 4. Bouton de téléchargement (impression / PDF) ---------- */
+  // Ouvre la boîte de dialogue d'impression du navigateur ; la mise en page
+  // est adaptée par la règle @media print de css/style.css (nav et boutons
+  // flottants masqués, fond blanc). L'utilisateur choisit "Enregistrer en PDF"
+  // dans cette boîte de dialogue : aucune génération de PDF côté site.
+  const downloadBtn = document.querySelector('.download-page');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', () => window.print());
+  }
+
 });
