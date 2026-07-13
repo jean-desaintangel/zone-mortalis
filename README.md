@@ -15,10 +15,15 @@ Site statique regroupant la traduction française des règles **Zone Mortalis** 
     ├── rules-special.html  # Règles Spéciales
     ├── reserves.html       # Réserves
     ├── mission-pack.html   # Pack de Missions « Protocole de Nettoyage » (dont détachements et cartes de déploiement)
-    └── rules-advanced.html # Règles Avancées (dont réactions avancées)
+    ├── missions/            # Une page par mission du protocole de nettoyage
+    ├── rules-advanced.html  # Règles Avancées (dont réactions avancées)
+    ├── units.html           # Unités spéciales (sommaire)
+    └── units/               # Une fiche technique par unité additionnelle
 ```
 
 Pour ajouter une nouvelle section : dupliquer une page de `pages/`, remplacer le contenu, puis ajouter le lien dans le menu de chaque page. Le comportement des accordéons est piloté par l'attribut `data-accordion` sur `<body>` (`sections`, `h3` ou `sequence` — voir l'en-tête de `js/main.js`).
+
+Pour ajouter une nouvelle fiche d'unité : dupliquer une page de `pages/units/`, remplacer le contenu (le composant `.datasheet` et les tableaux `.rule-table` sont définis dans `css/style.css`), puis ajouter une carte vers la nouvelle fiche dans `pages/units.html`.
 
 ## Fonctionnalités
 
