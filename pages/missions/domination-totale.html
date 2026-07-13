@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSP : n'autorise que nos propres fichiers + Google Fonts (défense en profondeur) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"
+    />
+    <title>Mission 6 : Domination totale — Zone Mortalis VF</title>
+    <meta
+      name="description"
+      content="Mission 6 du protocole de nettoyage : Domination totale. Règle spéciale Domination totale, objectifs Domination de secteur (10), Tueur de champions (2)."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../../assets/img/eye-of-horus.png" />
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body>
+    <!-- Lien d’évitement : premier élément focusable, il permet aux utilisateurs
+         clavier de sauter le menu et d’aller directement au contenu. -->
+    <a class="skip-link" href="#content">Aller au contenu</a>
+    <!-- Cette page présente la Mission 6 du pack de missions « Protocole de nettoyage ». -->
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a class="nav-brand" href="../../index.html">Zone Mortalis</a>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="../../index.html">Accueil</a></li>
+        <li><a href="../rules-core.html">Règles Principales</a></li>
+        <li><a href="../rules-special.html">Règles Spéciales</a></li>
+        <li><a href="../rules-advanced.html">Règles Avancées</a></li>
+        <li><a href="../reserves.html">Réserves</a></li>
+        <li><a href="../mission-pack.html" class="active">Missions</a></li>
+      </ul>
+    </nav>
+
+    <main id="content">
+      <header class="page-header">
+        <p class="kicker">
+          Journal Tactica — Zone Mortalis · Protocole d’assainissement,
+          Mission 6
+        </p>
+        <h1>Domination totale</h1>
+        <p class="mission-flavor">
+          Tandis que la guerre engloutit la ruche, l’importance des objectifs
+          stratégiques décline. Une soif de sang et de vengeance submerge
+          tout, à mesure que les guerriers de chaque secteur sombrent dans
+          une frénésie meurtrière. Pour les vainqueurs, le prix est la
+          survie ; pour les vaincus, il ne restera que la mort.
+        </p>
+        <hr class="rule-divider" />
+      </header>
+
+      <div class="rules-content">
+        <section>
+          <h2>Conditions de victoire : Seule subsiste la rancœur</h2>
+          <p>
+            Les objectifs de mission suivants sont utilisés dans cette
+            mission :
+          </p>
+
+          <h3>Objectifs de mission principaux</h3>
+          <ul>
+            <li>Aucun</li>
+          </ul>
+
+          <h3>Objectifs de mission secondaires</h3>
+          <ul>
+            <li>Domination de secteur (10)<sup>*</sup></li>
+            <li>Tueur de champions (2)</li>
+          </ul>
+          <p class="mission-footnote">
+            * Voir la règle spéciale de mission Zone Mortalis Domination
+            totale (Total Domination).
+          </p>
+        </section>
+
+        <section>
+          <h2>Règles spéciales de mission</h2>
+          <p>
+            Cette mission utilise les règles spéciales de mission Zone
+            Mortalis <strong>Domination totale</strong> et
+            <strong>Action de percée</strong>, ainsi que les règles spéciales
+            de mission <strong>Réserves</strong> et
+            <strong>Saisir l’initiative</strong> telles que définies dans les
+            règles spéciales de mission de base (Core).
+          </p>
+
+          <h3>Domination totale</h3>
+          <p>
+            Lorsque cette règle spéciale de mission est en vigueur,
+            l’objectif secondaire Domination de secteur (X) ne peut être
+            accompli que durant le dernier tour de jeu, mais les autres
+            objectifs secondaires sont accomplis normalement. Notez qu’à la
+            fin du tour de jeu cinq, les joueurs doivent déterminer si un
+            sixième et dernier tour de jeu sera joué, avant de calculer si
+            des points de victoire sont marqués grâce à l’objectif secondaire
+            Domination de secteur (X).
+          </p>
+        </section>
+
+        <section>
+          <h2>Cartes de déploiement &amp; de secteur</h2>
+          <p>
+            Par défaut, cette mission utilise la carte de déploiement
+            configuration Primus. Le champ de bataille tout entier constitue
+            un seul secteur, pour les besoins de l’objectif secondaire
+            Domination de secteur (X).
+          </p>
+
+          <figure class="deploy-fig">
+            <div
+              class="sector-map sector-map--whole"
+              role="img"
+              aria-label="Carte de secteur : le champ de bataille tout entier constitue un seul et unique secteur."
+            >
+              <span class="label label-center">Secteur unique</span>
+            </div>
+            <figcaption class="deploy-caption">
+              Champ&nbsp;: 48&nbsp;×&nbsp;36&nbsp;ps — un seul secteur couvrant
+              l’intégralité du champ de bataille.
+            </figcaption>
+          </figure>
+        </section>
+      </div>
+      <!-- /.rules-content -->
+
+      <nav class="page-nav" aria-label="Pages précédente et suivante">
+        <a href="nexus-de-ruine.html">← Nexus de ruine</a>
+        <a href="../mission-pack.html">Pack de missions →</a>
+      </nav>
+    </main>
+
+    <button class="back-to-top" aria-label="Retour en haut">↑</button>
+
+    <footer class="site-footer">
+      Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br />
+      Traduction française à usage personnel — d’après « Zone Mortalis :
+      Clearance Protocol Mission Pack » (édition anglaise 2026).
+    </footer>
+
+    <script src="../../js/main.js"></script>
+  </body>
+</html>

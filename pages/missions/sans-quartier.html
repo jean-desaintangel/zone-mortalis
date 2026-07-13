@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSP : n'autorise que nos propres fichiers + Google Fonts (défense en profondeur) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"
+    />
+    <title>Mission 2 : Sans quartier — Zone Mortalis VF</title>
+    <meta
+      name="description"
+      content="Mission 2 du protocole de nettoyage : Sans quartier. Objectifs Sang pour sang, Domination de secteur (2), Tueur de champions (3)."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../../assets/img/eye-of-horus.png" />
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body>
+    <!-- Lien d’évitement : premier élément focusable, il permet aux utilisateurs
+         clavier de sauter le menu et d’aller directement au contenu. -->
+    <a class="skip-link" href="#content">Aller au contenu</a>
+    <!-- Cette page présente la Mission 2 du pack de missions « Protocole de nettoyage ». -->
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a class="nav-brand" href="../../index.html">Zone Mortalis</a>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="../../index.html">Accueil</a></li>
+        <li><a href="../rules-core.html">Règles Principales</a></li>
+        <li><a href="../rules-special.html">Règles Spéciales</a></li>
+        <li><a href="../rules-advanced.html">Règles Avancées</a></li>
+        <li><a href="../reserves.html">Réserves</a></li>
+        <li><a href="../mission-pack.html" class="active">Missions</a></li>
+      </ul>
+    </nav>
+
+    <main id="content">
+      <header class="page-header">
+        <p class="kicker">
+          Journal Tactica — Zone Mortalis · Protocole d’assainissement,
+          Mission 2
+        </p>
+        <h1>Sans quartier</h1>
+        <p class="mission-flavor">
+          Une fois une tête de pont établie à l’intérieur de la ruche, les
+          forces adverses se disputent la suprématie. Les attaquants
+          n’accordent aucun quartier à l’ennemi tandis qu’ils progressent,
+          pendant que les défenseurs s’efforcent d’abattre tous ceux qui
+          approchent de leurs lignes défensives.
+        </p>
+        <hr class="rule-divider" />
+      </header>
+
+      <div class="rules-content">
+        <section>
+          <h2>Conditions de victoire : Protocoles d’assainissement</h2>
+          <p>
+            Les objectifs de mission suivants sont utilisés dans cette
+            mission :
+          </p>
+
+          <h3>Objectifs de mission principaux</h3>
+          <ul>
+            <li>Sang pour sang</li>
+          </ul>
+
+          <h3>Objectifs de mission secondaires</h3>
+          <ul>
+            <li>Domination de secteur (2)</li>
+            <li>Tueur de champions (3)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Règles spéciales de mission</h2>
+          <p>
+            Cette mission utilise la règle spéciale de mission Zone Mortalis
+            <strong>Action de percée</strong>, ainsi que les règles spéciales
+            de mission <strong>Réserves</strong> et
+            <strong>Saisir l’initiative</strong> telles que définies dans les
+            règles spéciales de mission de base (Core).
+          </p>
+        </section>
+
+        <section>
+          <h2>Cartes de déploiement &amp; de secteur</h2>
+          <p>
+            Par défaut, cette mission utilise la carte de déploiement
+            configuration Primus. Le champ de bataille est divisé en secteurs
+            comme indiqué sur la carte de secteur ci-dessous, pour les
+            besoins de l’objectif secondaire Domination de secteur (X).
+          </p>
+
+          <figure class="deploy-fig">
+            <div
+              class="sector-map sector-map--bands3"
+              role="img"
+              aria-label="Carte de secteur : champ de bataille divisé en trois bandes horizontales, Alpha, Beta et Gamma ; le secteur Beta, central, est grisé à titre d’exemple. Quatre marqueurs d’objectif jalonnent la ligne centrale."
+            >
+              <div class="region"></div>
+              <span class="label label-alpha">Secteur Alpha</span>
+              <span class="label label-beta">Secteur Beta</span>
+              <span class="label label-gamma">Secteur Gamma</span>
+              <span class="marker marker-1"></span>
+              <span class="marker marker-2"></span>
+              <span class="marker marker-3"></span>
+              <span class="marker marker-4"></span>
+            </div>
+            <figcaption class="deploy-caption">
+              Champ&nbsp;: 48&nbsp;×&nbsp;36&nbsp;ps — trois bandes de
+              48&nbsp;×&nbsp;12&nbsp;ps (Alpha, Beta, Gamma). Secteur Beta
+              grisé à titre d’exemple.
+            </figcaption>
+          </figure>
+        </section>
+      </div>
+      <!-- /.rules-content -->
+
+      <nav class="page-nav" aria-label="Pages précédente et suivante">
+        <a href="assaut-de-secteur.html">← Assaut de secteur</a>
+        <a href="terre-ensanglantee.html">Terre ensanglantée →</a>
+      </nav>
+    </main>
+
+    <button class="back-to-top" aria-label="Retour en haut">↑</button>
+
+    <footer class="site-footer">
+      Fan-made — Non officiel — Warhammer est une marque de Games Workshop.<br />
+      Traduction française à usage personnel — d’après « Zone Mortalis :
+      Clearance Protocol Mission Pack » (édition anglaise 2026).
+    </footer>
+
+    <script src="../../js/main.js"></script>
+  </body>
+</html>

@@ -637,3 +637,137 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 }
 .deploy-map .zone-tag--a { top: 12%; right: 8%; }
 .deploy-map .zone-tag--b { bottom: 12%; left: 8%; }
+
+/* ==========================================================================
+   Pages de mission individuelles (pages/missions/*.html)
+   Texte d'ambiance, objectifs de mission et cartes de secteur.
+   ========================================================================== */
+
+/* Accroche narrative sous le titre de la mission. */
+.mission-flavor {
+  max-width: 620px;
+  margin: 0.7rem auto 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* Renvoi de bas de liste (ex. astérisque vers une règle spéciale de mission). */
+.mission-footnote {
+  margin: -0.6rem 0 1.2rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+/* ---------- Carte de secteur ---------- */
+.sector-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1.5px solid var(--gold-dim);
+  background-color: var(--bg-alt);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(142,111,36,0.18) 0 1px, transparent 1px 25%),
+    repeating-linear-gradient(0deg,  rgba(142,111,36,0.18) 0 1px, transparent 1px 33.333%);
+}
+
+/* Secteur mis en surbrillance, à titre d'exemple. */
+.sector-map .region {
+  position: absolute;
+  background: rgba(122, 31, 31, 0.14);
+  border: 1px solid rgba(122, 31, 31, 0.3);
+  box-sizing: border-box;
+}
+
+.sector-map .label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-title);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-align: center;
+  padding: 0 4px;
+}
+
+/* Marqueur d'objectif (réticule). */
+.sector-map .marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 14px; height: 14px;
+  border: 1.5px solid var(--text-dim);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+}
+.sector-map .marker::before,
+.sector-map .marker::after {
+  content: "";
+  position: absolute;
+  background: var(--text-dim);
+}
+.sector-map .marker::before { left: 50%; top: -3px; bottom: -3px; width: 1px; transform: translateX(-50%); }
+.sector-map .marker::after { top: 50%; left: -3px; right: -3px; height: 1px; transform: translateY(-50%); }
+
+/* Plateforme d'ascenseur (Nexus de ruine). */
+.sector-map .elevator {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  background: var(--blood);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4px;
+  box-sizing: border-box;
+}
+.sector-map .elevator span {
+  font-family: var(--font-title);
+  font-size: 0.6rem;
+  line-height: 1.2;
+  color: #fff8ea;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Mission 1 — Assaut de secteur : quatre quadrants (Beta en surbrillance). */
+.sector-map--quad4 .region { top: 0; right: 0; width: 50%; height: 50%; }
+.sector-map--quad4 .label-alpha { top: 25%; left: 25%; }
+.sector-map--quad4 .label-beta  { top: 25%; left: 75%; }
+.sector-map--quad4 .label-gamma { top: 75%; left: 25%; }
+.sector-map--quad4 .label-delta { top: 75%; left: 75%; }
+
+/* Mission 2 — Sans quartier : trois bandes horizontales + marqueurs d'objectifs. */
+.sector-map--bands3 .region { top: 33.333%; left: 0; width: 100%; height: 33.333%; }
+.sector-map--bands3 .label-alpha { top: 16.6%; left: 50%; }
+.sector-map--bands3 .label-beta  { top: 50%; left: 50%; }
+.sector-map--bands3 .label-gamma { top: 83.3%; left: 50%; }
+.sector-map--bands3 .marker-1 { top: 0; left: 50%; }
+.sector-map--bands3 .marker-2 { top: 33.333%; left: 50%; }
+.sector-map--bands3 .marker-3 { top: 33.333%; left: 0; }
+.sector-map--bands3 .marker-4 { top: 33.333%; left: 100%; }
+
+/* Mission 3 — Terre ensanglantée : une bande centrale (Alpha) en surbrillance. */
+.sector-map--bands3-alpha .region { top: 33.333%; left: 0; width: 100%; height: 33.333%; }
+.sector-map--bands3-alpha .label-alpha { top: 50%; left: 50%; }
+
+/* Mission 4 — Prise de contrôle : quatre colonnes (Beta en surbrillance). */
+.sector-map--cols4 .region { top: 0; left: 25%; width: 25%; height: 100%; }
+.sector-map--cols4 .label-alpha { top: 50%; left: 12.5%; }
+.sector-map--cols4 .label-beta  { top: 50%; left: 37.5%; }
+.sector-map--cols4 .label-gamma { top: 50%; left: 62.5%; }
+.sector-map--cols4 .label-delta { top: 50%; left: 87.5%; }
+
+/* Mission 5 — Nexus de ruine : deux secteurs centraux + plateformes d'ascenseur. */
+.sector-map--elevators .region-alpha { top: 22%; left: 25%; width: 50%; height: 28%; }
+.sector-map--elevators .region-beta  { top: 50%; left: 25%; width: 50%; height: 28%; }
+.sector-map--elevators .label-alpha { top: 36%; left: 50%; }
+.sector-map--elevators .label-beta  { top: 64%; left: 50%; }
+.sector-map--elevators .elevator-left  { top: 50%; left: 0%; }
+.sector-map--elevators .elevator-right { top: 50%; left: 100%; }
+
+/* Mission 6 — Domination totale : aucun secteur nommé, champ de bataille entier. */
+.sector-map--whole .label-center { top: 50%; left: 50%; }
