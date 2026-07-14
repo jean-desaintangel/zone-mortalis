@@ -13,7 +13,6 @@
   --text-dim: #6d6147; /* texte secondaire */
   --gold: #7a5f1f; /* or texte : contraste AA vérifié (5,06:1 sur #f3eadc, 4,76:1 sur #efe4c8) */
   --gold-bright: #b4872f; /* or vif : réservé aux bordures et décorations (jamais pour du texte) */
-  --gold-dim: #7a5f1f; /* or atténué (bordures discrètes) */
   --blood: #7a1f1f; /* rouge sang */
   --blood-light: #a63131; /* rouge clair (hover) */
   --border: #cdbb91; /* bordures discrètes */
@@ -38,7 +37,9 @@ body {
   background: linear-gradient(180deg, #f8f2e6 0%, var(--bg) 100%);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 16px;
+  /* 100% = 16px par défaut, mais respecte la taille de police choisie
+     par l'utilisateur dans son navigateur (contrairement à une valeur en px). */
+  font-size: 100%;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -78,7 +79,7 @@ a:focus {
   background: var(--bg-card);
   color: var(--text);
   padding: 8px 14px;
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--gold);
 }
 
 /* Texte masqué visuellement mais lu par les lecteurs d'écran
@@ -117,7 +118,7 @@ h2 {
   letter-spacing: 0.03em;
   margin: 2.2rem 0 0.8rem;
   padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold);
 }
 h3 {
   font-size: 1.05rem;
@@ -225,7 +226,7 @@ button.rule-trigger:focus-visible {
    .rule-heading est posée par JS sur le titre qui contient le bouton. */
 h3.rule-heading {
   color: var(--gold);
-  border-bottom: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold);
   padding-bottom: 0.35rem;
 }
 
@@ -276,7 +277,7 @@ main {
   background: linear-gradient(
     90deg,
     var(--blood),
-    var(--gold-dim),
+    var(--gold),
     transparent
   );
   margin: 0.8rem 0 1.4rem;
@@ -294,7 +295,7 @@ section {
   right: 0;
   z-index: 100;
   background: rgba(245, 233, 206, 0.96);
-  border-bottom: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold);
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -319,10 +320,11 @@ section {
 /* Bouton hamburger */
 .nav-toggle {
   background: none;
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--gold);
   border-radius: 3px;
-  width: 42px;
-  height: 38px;
+  /* 44×44px minimum : taille de cible tactile recommandée (WCAG 2.5.5/2.5.8) */
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -394,7 +396,7 @@ section {
 
 /* ---------- Encadrés de contenu ---------- */
 .callout {
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--gold);
   background: rgba(255, 248, 234, 0.8);
   padding: 1rem 1.1rem;
   margin: 1.2rem 0;
@@ -454,7 +456,7 @@ table.rule-table caption {
   text-align: left;
   padding: 0.5rem 0.8rem;
   background: #f8f2e6;
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--gold);
   border-bottom: none;
 }
 table.rule-table th {
@@ -466,7 +468,7 @@ table.rule-table th {
   background: #efe4c8;
   text-align: left;
   padding: 0.55rem 0.8rem;
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--gold);
 }
 table.rule-table td {
   padding: 0.5rem 0.8rem;
@@ -489,13 +491,6 @@ table.rule-table tr:nth-child(even) td {
   font-size: 1.9rem;
   margin-bottom: 0.3rem;
 }
-.hero .subtitle {
-  font-family: var(--font-title);
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -507,7 +502,7 @@ table.rule-table tr:nth-child(even) td {
   display: block;
   background: #f9f4e8;
   border: 1px solid var(--border);
-  border-top: 3px solid var(--gold-dim);
+  border-top: 3px solid var(--gold);
   border-radius: 3px;
   padding: 1.1rem 1.2rem;
   color: var(--text);
@@ -584,7 +579,8 @@ table.rule-table tr:nth-child(even) td {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  height: 40px;
+  /* 44px : taille de cible tactile recommandée (WCAG 2.5.5/2.5.8) */
+  height: 44px;
   padding: 0 14px 0 12px;
   border-radius: 20px;
   border: 1px solid var(--gold-bright);
@@ -616,8 +612,10 @@ table.rule-table tr:nth-child(even) td {
   font-size: 0.85rem;
 }
 
-/* ---------- Pied de page du site ---------- */
-.site-footer {
+/* ---------- Pied de page du site ----------
+   Sélecteur d'élément (et non une classe) : le HTML utilise <footer>
+   sans classe, un sélecteur de classe ne s'appliquerait jamais. */
+footer {
   border-top: 1px solid var(--border);
   margin-top: 2.5rem;
   padding: 1.4rem 16px 2rem;
@@ -633,7 +631,9 @@ table.rule-table tr:nth-child(even) td {
 /* Tablette ≥ 768px */
 @media (min-width: 768px) {
   body {
-    font-size: 17px;
+    /* 106.25% de 16px = 17px, tout en restant proportionnel
+       au réglage de taille de police de l'utilisateur. */
+    font-size: 106.25%;
   }
   /* Esthétique "livre de règles" : justification réservée aux écrans larges,
      avec césure française automatique (activée par lang="fr" sur <html>)
@@ -726,7 +726,7 @@ table.rule-table tr:nth-child(even) td {
 
 /* ---------- Sous-règle : titre + texte ---------- */
 .subrule {
-  border-left: 3px solid var(--gold-dim);
+  border-left: 3px solid var(--gold);
   padding-left: 0.9rem;
   margin: 1.3rem 0;
 }
@@ -788,7 +788,7 @@ table.rule-table tr:nth-child(even) td {
 }
 .detach-card {
   border: 1px solid var(--border);
-  border-top: 3px solid var(--gold-dim);
+  border-top: 3px solid var(--gold);
   background: #f9f4e8;
   border-radius: 3px;
   padding: 1.1rem 1.2rem 1.3rem;
@@ -825,7 +825,7 @@ table.rule-table tr:nth-child(even) td {
 /* Emplacement obligatoire : liseré épais + halo (outline). */
 .role-slot.is-required {
   border: 2px solid var(--gold);
-  outline: 1px solid var(--gold-dim);
+  outline: 1px solid var(--gold);
   outline-offset: 3px;
 }
 .role-slot svg {
@@ -854,7 +854,7 @@ table.rule-table tr:nth-child(even) td {
 }
 .role-legend .dot.is-required {
   border: 2px solid var(--gold);
-  outline: 1px solid var(--gold-dim);
+  outline: 1px solid var(--gold);
   outline-offset: 2px;
 }
 
@@ -904,7 +904,7 @@ table.rule-table tr:nth-child(even) td {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  border: 1.5px solid var(--gold-dim);
+  border: 1.5px solid var(--gold);
   background-color: var(--bg-alt);
   background-image:
     repeating-linear-gradient(
@@ -945,14 +945,14 @@ table.rule-table tr:nth-child(even) td {
   left: 0;
   right: 0;
   height: 22%;
-  border-bottom: 1px dashed var(--gold-dim);
+  border-bottom: 1px dashed var(--gold);
 }
 .deploy-map--primus .zone-b {
   bottom: 0;
   left: 0;
   right: 0;
   height: 22%;
-  border-top: 1px dashed var(--gold-dim);
+  border-top: 1px dashed var(--gold);
 }
 
 /* Secundus : zones opposées gauche / droite. */
@@ -961,14 +961,14 @@ table.rule-table tr:nth-child(even) td {
   bottom: 0;
   left: 0;
   width: 25%;
-  border-right: 1px dashed var(--gold-dim);
+  border-right: 1px dashed var(--gold);
 }
 .deploy-map--secundus .zone-b {
   top: 0;
   bottom: 0;
   right: 0;
   width: 25%;
-  border-left: 1px dashed var(--gold-dim);
+  border-left: 1px dashed var(--gold);
 }
 
 /* Tertius : zones triangulaires diagonalement opposées + étiquettes. */
@@ -1025,7 +1025,7 @@ table.rule-table tr:nth-child(even) td {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  border: 1.5px solid var(--gold-dim);
+  border: 1.5px solid var(--gold);
   background-color: var(--bg-alt);
   background-image:
     repeating-linear-gradient(
@@ -1257,7 +1257,7 @@ table.rule-table tr:nth-child(even) td {
 .datasheet {
   background: #f9f4e8;
   border: 1px solid var(--border);
-  border-top: 3px solid var(--gold-dim);
+  border-top: 3px solid var(--gold);
   border-radius: 3px;
   padding: 1.4rem 1.2rem 1.6rem;
 }
@@ -1268,7 +1268,7 @@ table.rule-table tr:nth-child(even) td {
   flex-wrap: wrap;
   gap: 12px 16px;
   background: var(--bg-alt);
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--gold);
   padding: 0.7rem 0.9rem;
   margin-bottom: 1.1rem;
 }
@@ -1278,7 +1278,7 @@ table.rule-table tr:nth-child(even) td {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1.5px solid var(--gold-dim);
+  border: 1.5px solid var(--gold);
   background: rgba(255, 248, 234, 0.7);
   display: flex;
   align-items: center;
@@ -1313,7 +1313,7 @@ table.rule-table tr:nth-child(even) td {
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--text);
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--gold);
   background: rgba(255, 248, 234, 0.85);
   padding: 0.3rem 0.7rem;
   white-space: nowrap;
@@ -1357,7 +1357,7 @@ table.rule-table tr:nth-child(even) td {
 .datasheet-block h3 {
   margin: 0 0 0.5rem;
   padding-bottom: 0.3rem;
-  border-bottom: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold);
   font-size: 0.88rem;
 }
 .datasheet-block ul,

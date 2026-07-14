@@ -21,6 +21,18 @@
     />
     <link rel="icon" href="../assets/img/eye-of-horus.png" />
     <link rel="stylesheet" href="../css/style.css" />
+    <!-- Open Graph : aperçu enrichi lors d'un partage (Discord, réseaux sociaux).
+         og:image sera à ajouter avec l'URL absolue du site une fois en ligne. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Réserves" />
+    <meta
+      property="og:description"
+      content="Les Réserves dans les batailles Zone Mortalis : Stratagèmes de Réserves et Avantage Prime additionnel."
+    />
+    <!-- defer : le script est téléchargé pendant l'analyse du HTML et exécuté
+         juste avant DOMContentLoaded, sans bloquer l'affichage de la page. -->
+    <script src="../js/main.js" defer></script>
   </head>
   <body data-accordion="h3">
     <!-- Lien d’évitement : premier élément focusable, il permet aux utilisateurs
@@ -266,7 +278,5 @@
         leur statut n’est intentionné.
       </p>
     </footer>
-
-    <script src="../js/main.js"></script>
   </body>
 </html>
