@@ -6,26 +6,33 @@
 
 /* ---------- Variables de thème ---------- */
 :root {
-  --bg: #f3eadc;            /* fond principal clair */
-  --bg-alt: #efe4c8;        /* fond de panneaux */
-  --bg-card: #f8f2e6;       /* fond des cards */
-  --text: #241c12;          /* texte principal sombre */
-  --text-dim: #6d6147;      /* texte secondaire */
-  --gold: #8e6f24;          /* or texte : contraste AA (≈ 4,6:1) sur fond parchemin */
-  --gold-bright: #b4872f;   /* or vif : réservé aux bordures et décorations */
-  --gold-dim: #8e6f24;      /* or atténué (bordures discrètes) */
-  --blood: #7a1f1f;         /* rouge sang */
-  --blood-light: #a63131;   /* rouge clair (hover) */
-  --border: #cdbb91;        /* bordures discrètes */
-  --font-title: 'Cinzel', 'Times New Roman', serif;
-  --font-body: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+  --bg: #f3eadc; /* fond principal clair */
+  --bg-alt: #efe4c8; /* fond de panneaux */
+  --bg-card: #f8f2e6; /* fond des cards */
+  --text: #241c12; /* texte principal sombre */
+  --text-dim: #6d6147; /* texte secondaire */
+  --gold: #7a5f1f; /* or texte : contraste AA vérifié (5,06:1 sur #f3eadc, 4,76:1 sur #efe4c8) */
+  --gold-bright: #b4872f; /* or vif : réservé aux bordures et décorations (jamais pour du texte) */
+  --gold-dim: #7a5f1f; /* or atténué (bordures discrètes) */
+  --blood: #7a1f1f; /* rouge sang */
+  --blood-light: #a63131; /* rouge clair (hover) */
+  --border: #cdbb91; /* bordures discrètes */
+  --font-title: "Cinzel", "Times New Roman", serif;
+  --font-body: "Open Sans", "Segoe UI", Arial, sans-serif;
   --nav-height: 56px;
 }
 
 /* ---------- Réinitialisation et styles de base ---------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 12px); }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 12px);
+}
 
 body {
   background: linear-gradient(180deg, #f8f2e6 0%, var(--bg) 100%);
@@ -36,12 +43,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; height: auto; }
+img {
+  max-width: 100%;
+  height: auto;
+}
 
-a { color: var(--gold); text-decoration: none; }
-a:hover, a:focus { color: var(--blood-light); text-decoration: underline; }
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: var(--blood-light);
+  text-decoration: underline;
+}
 
-::selection { background: var(--gold-bright); color: #fff8ea; }
+::selection {
+  /* Or foncé : contraste ≥ 4,5:1 avec le texte clair (WCAG 1.4.3) */
+  background: var(--gold);
+  color: #fff8ea;
+}
 
 /* Lien d'évitement : invisible jusqu'au focus clavier (WCAG 2.4.1).
    Il permet de sauter le menu et d'aller directement au contenu. */
@@ -60,22 +81,77 @@ a:hover, a:focus { color: var(--blood-light); text-decoration: underline; }
   border: 1px solid var(--gold-dim);
 }
 
-/* ---------- Typographie et textes généraux ---------- */
-h1, h2, h3, h4 { font-family: var(--font-title); line-height: 1.2; }
+/* Texte masqué visuellement mais lu par les lecteurs d'écran
+   (ex. « (nouvelle fenêtre) » dans le pied de page). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-h1 { font-size: 1.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.04em; }
-h2 { font-size: 1.3rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.03em; margin: 2.2rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--gold-dim); }
-h3 { font-size: 1.05rem; color: var(--text); text-transform: uppercase; letter-spacing: 0.04em; margin: 1.6rem 0 0.6rem; }
-h4 { font-size: 0.95rem; color: var(--gold); margin: 1.2rem 0 0.5rem; }
+/* ---------- Typographie et textes généraux ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-title);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.7rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+h2 {
+  font-size: 1.3rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 2.2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+h3 {
+  font-size: 1.05rem;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 1.6rem 0 0.6rem;
+}
+h4 {
+  font-size: 0.95rem;
+  color: var(--gold);
+  margin: 1.2rem 0 0.5rem;
+}
 
 /* Texte aligné à gauche par défaut : la justification sur colonnes étroites
    (mobile) crée des "rivières" d'espaces peu lisibles (WCAG 1.4.8).
    L'esthétique "livre de règles" est réservée au desktop, plus bas. */
-p { margin: 0 0 1rem; }
-ul, ol { margin: 0 0 1rem; padding-left: 1.4rem; }
-li { margin-bottom: 0.5rem; }
-strong { color: #3e3018; }
-em { color: inherit; }
+p {
+  margin: 0 0 1rem;
+}
+ul,
+ol {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+li {
+  margin-bottom: 0.5rem;
+}
+strong {
+  color: #3e3018;
+}
+em {
+  color: inherit;
+}
 
 /* Résumé de règle : la phrase clé, mise en valeur pour repérer rapidement l'idée principale. */
 .rule-summary {
@@ -125,7 +201,8 @@ button.rule-trigger:focus-visible {
 
 .rule-trigger::after {
   content: "＋";
-  color: var(--gold-bright);
+  /* Indicateur d'état ouvert/fermé : contraste non textuel ≥ 3:1 (WCAG 1.4.11) */
+  color: var(--gold);
   font-size: 1rem;
   transition: transform 0.2s ease;
 }
@@ -171,9 +248,18 @@ main {
   padding: calc(var(--nav-height) + 20px) 16px 90px;
 }
 
-.page-header { margin-bottom: 1.6rem; text-align: center; }
-.page-header p { text-align: center; }
-.page-header .rule-divider { margin-left: auto; margin-right: auto; max-width: 320px; }
+.page-header {
+  margin-bottom: 1.6rem;
+  text-align: center;
+}
+.page-header p {
+  text-align: center;
+}
+.page-header .rule-divider {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+}
 
 .kicker {
   font-family: var(--font-title);
@@ -187,16 +273,25 @@ main {
 .rule-divider {
   height: 2px;
   border: none;
-  background: linear-gradient(90deg, var(--blood), var(--gold-dim), transparent);
+  background: linear-gradient(
+    90deg,
+    var(--blood),
+    var(--gold-dim),
+    transparent
+  );
   margin: 0.8rem 0 1.4rem;
 }
 
-section { margin-bottom: 2rem; }
+section {
+  margin-bottom: 2rem;
+}
 
 /* ---------- Navigation principale sticky ---------- */
 .site-nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: rgba(245, 233, 206, 0.96);
   border-bottom: 1px solid var(--gold-dim);
@@ -216,14 +311,18 @@ section { margin-bottom: 2rem; }
   text-transform: uppercase;
   white-space: nowrap;
 }
-.nav-brand:hover { color: var(--gold); text-decoration: none; }
+.nav-brand:hover {
+  color: var(--gold);
+  text-decoration: none;
+}
 
 /* Bouton hamburger */
 .nav-toggle {
   background: none;
   border: 1px solid var(--gold-dim);
   border-radius: 3px;
-  width: 42px; height: 38px;
+  width: 42px;
+  height: 38px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -233,18 +332,30 @@ section { margin-bottom: 2rem; }
 }
 .nav-toggle span {
   display: block;
-  width: 20px; height: 2px;
-  background: var(--gold-bright);
-  transition: transform 0.25s, opacity 0.25s;
+  width: 20px;
+  height: 2px;
+  /* Barres du hamburger : contraste non textuel ≥ 3:1 (WCAG 1.4.11) */
+  background: var(--gold);
+  transition:
+    transform 0.25s,
+    opacity 0.25s;
 }
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* Menu mobile : un panneau qui s'ouvre et se ferme au clic sur l'icône hamburger. */
 .nav-menu {
   position: fixed;
-  top: var(--nav-height); left: 0; right: 0;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
   background: #f7eedc;
   border-bottom: 2px solid var(--blood);
   list-style: none;
@@ -254,8 +365,12 @@ section { margin-bottom: 2rem; }
   max-height: calc(100vh - var(--nav-height));
   overflow-y: auto;
 }
-.nav-menu.open { display: block; }
-.nav-menu li { margin: 0; }
+.nav-menu.open {
+  display: block;
+}
+.nav-menu li {
+  margin: 0;
+}
 .nav-menu a {
   display: block;
   padding: 11px 22px;
@@ -266,8 +381,16 @@ section { margin-bottom: 2rem; }
   color: var(--text);
   border-left: 3px solid transparent;
 }
-.nav-menu a:hover { color: var(--gold); border-left-color: var(--gold-bright); text-decoration: none; background: rgba(201,168,76,0.06); }
-.nav-menu a.active { color: var(--gold); border-left-color: var(--blood); }
+.nav-menu a:hover {
+  color: var(--gold);
+  border-left-color: var(--gold-bright);
+  text-decoration: none;
+  background: rgba(201, 168, 76, 0.06);
+}
+.nav-menu a.active {
+  color: var(--gold);
+  border-left-color: var(--blood);
+}
 
 /* ---------- Encadrés de contenu ---------- */
 .callout {
@@ -277,19 +400,43 @@ section { margin-bottom: 2rem; }
   margin: 1.2rem 0;
   border-radius: 2px;
 }
-.callout > h3, .callout > h4 { margin-top: 0; }
-.callout p:last-child, .callout ol:last-child, .callout ul:last-child { margin-bottom: 0; }
+.callout > h3,
+.callout > h4 {
+  margin-top: 0;
+}
+.callout p:last-child,
+.callout ol:last-child,
+.callout ul:last-child {
+  margin-bottom: 0;
+}
 
 /* Encadré d'alerte : utilisé pour les notes du concepteur ou les avertissements importants. */
-.callout--designer { border-color: var(--blood); background: rgba(139, 0, 0, 0.08); }
-.callout--designer > h3, .callout--designer > h4 { color: var(--blood-light); text-align: center; }
+.callout--designer {
+  border-color: var(--blood);
+  background: rgba(139, 0, 0, 0.08);
+}
+.callout--designer > h3,
+.callout--designer > h4 {
+  color: var(--blood-light);
+  text-align: center;
+}
 
 /* Encadré de mise en avant : sert à souligner une règle particulièrement importante. */
-.callout--rule { border-color: var(--gold-bright); }
-.callout--rule > h3, .callout--rule > h4 { color: var(--gold); text-align: center; }
+.callout--rule {
+  border-color: var(--gold-bright);
+}
+.callout--rule > h3,
+.callout--rule > h4 {
+  color: var(--gold);
+  text-align: center;
+}
 
 /* ---------- Tableaux de règles ---------- */
-.table-wrap { overflow-x: auto; margin: 1.2rem 0; -webkit-overflow-scrolling: touch; }
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  -webkit-overflow-scrolling: touch;
+}
 
 table.rule-table {
   width: 100%;
@@ -326,13 +473,29 @@ table.rule-table td {
   border: 1px solid var(--border);
   vertical-align: top;
 }
-table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
+table.rule-table tr:nth-child(even) td {
+  background: rgba(180, 135, 47, 0.05);
+}
 
 /* ---------- Cartes de la page d'accueil ---------- */
-.hero { text-align: center; padding: 1.6rem 0 0.6rem; }
-.hero p { text-align: center; }
-.hero h1 { font-size: 1.9rem; margin-bottom: 0.3rem; }
-.hero .subtitle { font-family: var(--font-title); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); }
+.hero {
+  text-align: center;
+  padding: 1.6rem 0 0.6rem;
+}
+.hero p {
+  text-align: center;
+}
+.hero h1 {
+  font-size: 1.9rem;
+  margin-bottom: 0.3rem;
+}
+.hero .subtitle {
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -348,11 +511,27 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   border-radius: 3px;
   padding: 1.1rem 1.2rem;
   color: var(--text);
-  transition: border-color 0.2s, transform 0.15s;
+  transition:
+    border-color 0.2s,
+    transform 0.15s;
 }
-.card:hover { border-top-color: var(--gold-bright); text-decoration: none; color: var(--text); transform: translateY(-2px); }
-.card h2 { font-size: 1rem; border: none; margin: 0 0 0.35rem; padding: 0; }
-.card p { font-size: 0.88rem; color: var(--text-dim); margin: 0; }
+.card:hover {
+  border-top-color: var(--gold-bright);
+  text-decoration: none;
+  color: var(--text);
+  transform: translateY(-2px);
+}
+.card h2 {
+  font-size: 1rem;
+  border: none;
+  margin: 0 0 0.35rem;
+  padding: 0;
+}
+.card p {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  margin: 0;
+}
 
 /* ---------- Navigation de bas de page (précédent / suivant) ---------- */
 .page-nav {
@@ -371,9 +550,11 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 /* ---------- Bouton de retour en haut ---------- */
 .back-to-top {
   position: fixed;
-  right: 16px; bottom: 18px;
+  right: 16px;
+  bottom: 18px;
   z-index: 90;
-  width: 46px; height: 46px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: 1px solid var(--gold-bright);
   background: rgba(255, 248, 234, 0.96);
@@ -385,13 +566,20 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   align-items: center;
   justify-content: center;
 }
-.back-to-top.visible { display: flex; }
-.back-to-top:hover { background: var(--blood); color: #fff; border-color: var(--blood); }
+.back-to-top.visible {
+  display: flex;
+}
+.back-to-top:hover {
+  background: var(--blood);
+  color: #fff;
+  border-color: var(--blood);
+}
 
 /* ---------- Bouton de téléchargement (impression / PDF) ---------- */
 .download-page {
   position: fixed;
-  left: 16px; bottom: 18px;
+  left: 16px;
+  bottom: 18px;
   z-index: 90;
   display: flex;
   align-items: center;
@@ -408,8 +596,25 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   text-transform: uppercase;
   cursor: pointer;
 }
-.download-page:hover { background: var(--blood); color: #fff; border-color: var(--blood); }
-.download-page svg { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; }
+.download-page:hover {
+  background: var(--blood);
+  color: #fff;
+  border-color: var(--blood);
+}
+.download-page svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+/* Navigation de pied de page : lien vers le plan du site
+   (second système de navigation, RGAA 12.1 / WCAG 2.4.5). */
+.footer-nav {
+  text-align: center;
+  margin: 2rem 0 0.6rem;
+  font-size: 0.85rem;
+}
 
 /* ---------- Pied de page du site ---------- */
 .site-footer {
@@ -427,21 +632,39 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 
 /* Tablette ≥ 768px */
 @media (min-width: 768px) {
-  body { font-size: 17px; }
+  body {
+    font-size: 17px;
+  }
   /* Esthétique "livre de règles" : justification réservée aux écrans larges,
      avec césure française automatique (activée par lang="fr" sur <html>)
      pour éviter les grands espaces entre les mots. */
-  p { text-align: justify; hyphens: auto; }
-  h1 { font-size: 2.1rem; }
-  .hero h1 { font-size: 2.5rem; }
-  .card-grid { grid-template-columns: 1fr 1fr; }
-  main { padding-left: 24px; padding-right: 24px; }
+  p {
+    text-align: justify;
+    hyphens: auto;
+  }
+  h1 {
+    font-size: 2.1rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  main {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 /* Desktop ≥ 1024px : menu horizontal, plus de hamburger */
 @media (min-width: 1024px) {
-  .nav-toggle { display: none; }
-  .site-nav { padding: 0 28px; }
+  .nav-toggle {
+    display: none;
+  }
+  .site-nav {
+    padding: 0 28px;
+  }
   /* Le sélecteur .nav-menu.open est répété ici pour battre la règle mobile
      ".nav-menu.open { display: block }" par la spécificité, sans !important. */
   .nav-menu,
@@ -466,9 +689,16 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
     font-size: 0.78rem;
     white-space: nowrap;
   }
-  .nav-menu a:hover { border-bottom-color: var(--gold-bright); background: none; }
-  .nav-menu a.active { border-bottom-color: var(--blood); }
-  .card-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .nav-menu a:hover {
+    border-bottom-color: var(--gold-bright);
+    background: none;
+  }
+  .nav-menu a.active {
+    border-bottom-color: var(--blood);
+  }
+  .card-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 /* ==========================================================================
@@ -476,8 +706,14 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
    (troubles vestibulaires — WCAG 2.3.3)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; }
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
 }
 
 /* ==========================================================================
@@ -494,11 +730,27 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   padding-left: 0.9rem;
   margin: 1.3rem 0;
 }
-.subrule h4 { margin-top: 0; }
+/* Ces sous-titres sont des h3 (hiérarchie h2 → h3 sans saut, RGAA 9.1),
+   mais gardent visuellement leur ancienne apparence de h4. */
+.subrule h3,
+.deploy-row h3 {
+  font-size: 0.95rem;
+  color: var(--gold);
+  text-transform: none;
+  letter-spacing: normal;
+  border: none;
+  padding-bottom: 0;
+  margin: 1.2rem 0 0.5rem;
+}
+.subrule h3 {
+  margin-top: 0;
+}
 
 /* Fiche Déclencheur/Coût/Cible d'une réaction : étiquette + valeur, pour un
    repérage plus rapide que des paragraphes en gras noyés dans le texte. */
-.reaction-meta { margin: 0 0 1.3rem; }
+.reaction-meta {
+  margin: 0 0 1.3rem;
+}
 .reaction-meta dt {
   font-family: var(--font-title);
   font-size: 0.8rem;
@@ -508,12 +760,24 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   letter-spacing: 0.04em;
   margin-top: 0.9rem;
 }
-.reaction-meta dt:first-child { margin-top: 0; }
-.reaction-meta dd { margin: 0.2rem 0 0; }
+.reaction-meta dt:first-child {
+  margin-top: 0;
+}
+.reaction-meta dd {
+  margin: 0.2rem 0 0;
+}
 
 /* Deux sous-règles côte à côte sur écran large, empilées sur mobile. */
-.duo-grid { display: grid; grid-template-columns: 1fr; gap: 0 2rem; }
-@media (min-width: 768px) { .duo-grid { grid-template-columns: 1fr 1fr; } }
+.duo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 2rem;
+}
+@media (min-width: 768px) {
+  .duo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 /* ---------- Détachements principaux ---------- */
 .detach-grid {
@@ -530,7 +794,15 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   padding: 1.1rem 1.2rem 1.3rem;
   text-align: center;
 }
-.detach-card h4 { color: var(--text); margin: 0 0 0.15rem; }
+.detach-card h3 {
+  font-size: 0.95rem;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: normal;
+  border: none;
+  padding-bottom: 0;
+  margin: 0 0 0.15rem;
+}
 
 /* Grille des emplacements de rôle (4 colonnes). */
 .role-grid {
@@ -541,7 +813,8 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   margin: 0 auto;
 }
 .role-slot {
-  width: 42px; height: 42px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: 1px solid var(--border);
   display: flex;
@@ -555,7 +828,9 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   outline: 1px solid var(--gold-dim);
   outline-offset: 3px;
 }
-.role-slot svg { fill: #3e3018; }
+.role-slot svg {
+  fill: #3e3018;
+}
 
 /* Légende des pictogrammes. */
 .role-legend {
@@ -566,9 +841,14 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   font-size: 0.82rem;
   color: var(--text-dim);
 }
-.role-legend > span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.role-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 .role-legend .dot {
-  width: 18px; height: 18px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: 1px solid var(--border);
 }
@@ -580,7 +860,9 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 
 /* Sur écran large : deux détachements par ligne, le 3e centré. */
 @media (min-width: 768px) {
-  .detach-grid { grid-template-columns: 1fr 1fr; }
+  .detach-grid {
+    grid-template-columns: 1fr 1fr;
+  }
   .detach-card--wide {
     grid-column: 1 / -1;
     max-width: calc(50% - 8px);
@@ -598,12 +880,18 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   padding: 1.4rem 0;
   border-bottom: 1px solid var(--border);
 }
-.deploy-row:last-child { border-bottom: none; }
+.deploy-row:last-child {
+  border-bottom: none;
+}
 @media (min-width: 768px) {
-  .deploy-row { grid-template-columns: minmax(0, 360px) 1fr; }
+  .deploy-row {
+    grid-template-columns: minmax(0, 360px) 1fr;
+  }
 }
 
-.deploy-fig { margin: 0; }
+.deploy-fig {
+  margin: 0;
+}
 .deploy-caption {
   margin-top: 0.5rem;
   font-size: 0.72rem;
@@ -619,8 +907,16 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   border: 1.5px solid var(--gold-dim);
   background-color: var(--bg-alt);
   background-image:
-    repeating-linear-gradient(90deg, rgba(142,111,36,0.18) 0 1px, transparent 1px 25%),
-    repeating-linear-gradient(0deg,  rgba(142,111,36,0.18) 0 1px, transparent 1px 33.333%);
+    repeating-linear-gradient(
+      90deg,
+      rgba(142, 111, 36, 0.18) 0 1px,
+      transparent 1px 25%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(142, 111, 36, 0.18) 0 1px,
+      transparent 1px 33.333%
+    );
 }
 /* Zones de déploiement colorées. */
 .deploy-map .zone {
@@ -636,20 +932,54 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   color: var(--text);
   padding: 4px;
 }
-.deploy-map .zone-a { background: rgba(142, 111, 36, 0.16); }
-.deploy-map .zone-b { background: rgba(122, 31, 31, 0.16); }
+.deploy-map .zone-a {
+  background: rgba(142, 111, 36, 0.16);
+}
+.deploy-map .zone-b {
+  background: rgba(122, 31, 31, 0.16);
+}
 
 /* Primus : zones opposées haut / bas. */
-.deploy-map--primus .zone-a { top: 0; left: 0; right: 0; height: 22%; border-bottom: 1px dashed var(--gold-dim); }
-.deploy-map--primus .zone-b { bottom: 0; left: 0; right: 0; height: 22%; border-top: 1px dashed var(--gold-dim); }
+.deploy-map--primus .zone-a {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22%;
+  border-bottom: 1px dashed var(--gold-dim);
+}
+.deploy-map--primus .zone-b {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 22%;
+  border-top: 1px dashed var(--gold-dim);
+}
 
 /* Secundus : zones opposées gauche / droite. */
-.deploy-map--secundus .zone-a { top: 0; bottom: 0; left: 0; width: 25%; border-right: 1px dashed var(--gold-dim); }
-.deploy-map--secundus .zone-b { top: 0; bottom: 0; right: 0; width: 25%; border-left: 1px dashed var(--gold-dim); }
+.deploy-map--secundus .zone-a {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  border-right: 1px dashed var(--gold-dim);
+}
+.deploy-map--secundus .zone-b {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  border-left: 1px dashed var(--gold-dim);
+}
 
 /* Tertius : zones triangulaires diagonalement opposées + étiquettes. */
-.deploy-map--tertius .zone-a { inset: 0; clip-path: polygon(50% 0, 100% 0, 100% 66.7%); }
-.deploy-map--tertius .zone-b { inset: 0; clip-path: polygon(0 33.3%, 0 100%, 50% 100%); }
+.deploy-map--tertius .zone-a {
+  inset: 0;
+  clip-path: polygon(50% 0, 100% 0, 100% 66.7%);
+}
+.deploy-map--tertius .zone-b {
+  inset: 0;
+  clip-path: polygon(0 33.3%, 0 100%, 50% 100%);
+}
 .deploy-map .zone-tag {
   position: absolute;
   font-family: var(--font-title);
@@ -658,8 +988,14 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   text-transform: uppercase;
   color: var(--text);
 }
-.deploy-map .zone-tag--a { top: 12%; right: 8%; }
-.deploy-map .zone-tag--b { bottom: 12%; left: 8%; }
+.deploy-map .zone-tag--a {
+  top: 12%;
+  right: 8%;
+}
+.deploy-map .zone-tag--b {
+  bottom: 12%;
+  left: 8%;
+}
 
 /* ==========================================================================
    Pages de mission individuelles (pages/missions/*.html)
@@ -692,8 +1028,16 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   border: 1.5px solid var(--gold-dim);
   background-color: var(--bg-alt);
   background-image:
-    repeating-linear-gradient(90deg, rgba(142,111,36,0.18) 0 1px, transparent 1px 25%),
-    repeating-linear-gradient(0deg,  rgba(142,111,36,0.18) 0 1px, transparent 1px 33.333%);
+    repeating-linear-gradient(
+      90deg,
+      rgba(142, 111, 36, 0.18) 0 1px,
+      transparent 1px 25%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(142, 111, 36, 0.18) 0 1px,
+      transparent 1px 33.333%
+    );
 }
 
 /* Secteur mis en surbrillance, à titre d'exemple. */
@@ -720,7 +1064,8 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 .sector-map .marker {
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 14px; height: 14px;
+  width: 14px;
+  height: 14px;
   border: 1.5px solid var(--text-dim);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.55);
@@ -731,14 +1076,27 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   position: absolute;
   background: var(--text-dim);
 }
-.sector-map .marker::before { left: 50%; top: -3px; bottom: -3px; width: 1px; transform: translateX(-50%); }
-.sector-map .marker::after { top: 50%; left: -3px; right: -3px; height: 1px; transform: translateY(-50%); }
+.sector-map .marker::before {
+  left: 50%;
+  top: -3px;
+  bottom: -3px;
+  width: 1px;
+  transform: translateX(-50%);
+}
+.sector-map .marker::after {
+  top: 50%;
+  left: -3px;
+  right: -3px;
+  height: 1px;
+  transform: translateY(-50%);
+}
 
 /* Plateforme d'ascenseur (Nexus de ruine). */
 .sector-map .elevator {
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 64px; height: 64px;
+  width: 64px;
+  height: 64px;
   background: var(--blood);
   display: flex;
   align-items: center;
@@ -757,43 +1115,136 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
 }
 
 /* Mission 1 — Assaut de secteur : quatre quadrants (Beta en surbrillance). */
-.sector-map--quad4 .region { top: 0; right: 0; width: 50%; height: 50%; }
-.sector-map--quad4 .label-alpha { top: 25%; left: 25%; }
-.sector-map--quad4 .label-beta  { top: 25%; left: 75%; }
-.sector-map--quad4 .label-gamma { top: 75%; left: 25%; }
-.sector-map--quad4 .label-delta { top: 75%; left: 75%; }
+.sector-map--quad4 .region {
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+}
+.sector-map--quad4 .label-alpha {
+  top: 25%;
+  left: 25%;
+}
+.sector-map--quad4 .label-beta {
+  top: 25%;
+  left: 75%;
+}
+.sector-map--quad4 .label-gamma {
+  top: 75%;
+  left: 25%;
+}
+.sector-map--quad4 .label-delta {
+  top: 75%;
+  left: 75%;
+}
 
 /* Mission 2 — Sans quartier : trois bandes horizontales + marqueurs d'objectifs. */
-.sector-map--bands3 .region { top: 33.333%; left: 0; width: 100%; height: 33.333%; }
-.sector-map--bands3 .label-alpha { top: 16.6%; left: 50%; }
-.sector-map--bands3 .label-beta  { top: 50%; left: 50%; }
-.sector-map--bands3 .label-gamma { top: 83.3%; left: 50%; }
-.sector-map--bands3 .marker-1 { top: 0; left: 50%; }
-.sector-map--bands3 .marker-2 { top: 33.333%; left: 50%; }
-.sector-map--bands3 .marker-3 { top: 33.333%; left: 0; }
-.sector-map--bands3 .marker-4 { top: 33.333%; left: 100%; }
+.sector-map--bands3 .region {
+  top: 33.333%;
+  left: 0;
+  width: 100%;
+  height: 33.333%;
+}
+.sector-map--bands3 .label-alpha {
+  top: 16.6%;
+  left: 50%;
+}
+.sector-map--bands3 .label-beta {
+  top: 50%;
+  left: 50%;
+}
+.sector-map--bands3 .label-gamma {
+  top: 83.3%;
+  left: 50%;
+}
+.sector-map--bands3 .marker-1 {
+  top: 0;
+  left: 50%;
+}
+.sector-map--bands3 .marker-2 {
+  top: 33.333%;
+  left: 50%;
+}
+.sector-map--bands3 .marker-3 {
+  top: 33.333%;
+  left: 0;
+}
+.sector-map--bands3 .marker-4 {
+  top: 33.333%;
+  left: 100%;
+}
 
 /* Mission 3 — Terre ensanglantée : une bande centrale (Alpha) en surbrillance. */
-.sector-map--bands3-alpha .region { top: 33.333%; left: 0; width: 100%; height: 33.333%; }
-.sector-map--bands3-alpha .label-alpha { top: 50%; left: 50%; }
+.sector-map--bands3-alpha .region {
+  top: 33.333%;
+  left: 0;
+  width: 100%;
+  height: 33.333%;
+}
+.sector-map--bands3-alpha .label-alpha {
+  top: 50%;
+  left: 50%;
+}
 
 /* Mission 4 — Prise de contrôle : quatre colonnes (Beta en surbrillance). */
-.sector-map--cols4 .region { top: 0; left: 25%; width: 25%; height: 100%; }
-.sector-map--cols4 .label-alpha { top: 50%; left: 12.5%; }
-.sector-map--cols4 .label-beta  { top: 50%; left: 37.5%; }
-.sector-map--cols4 .label-gamma { top: 50%; left: 62.5%; }
-.sector-map--cols4 .label-delta { top: 50%; left: 87.5%; }
+.sector-map--cols4 .region {
+  top: 0;
+  left: 25%;
+  width: 25%;
+  height: 100%;
+}
+.sector-map--cols4 .label-alpha {
+  top: 50%;
+  left: 12.5%;
+}
+.sector-map--cols4 .label-beta {
+  top: 50%;
+  left: 37.5%;
+}
+.sector-map--cols4 .label-gamma {
+  top: 50%;
+  left: 62.5%;
+}
+.sector-map--cols4 .label-delta {
+  top: 50%;
+  left: 87.5%;
+}
 
 /* Mission 5 — Nexus de ruine : deux secteurs centraux + plateformes d'ascenseur. */
-.sector-map--elevators .region-alpha { top: 22%; left: 25%; width: 50%; height: 28%; }
-.sector-map--elevators .region-beta  { top: 50%; left: 25%; width: 50%; height: 28%; }
-.sector-map--elevators .label-alpha { top: 36%; left: 50%; }
-.sector-map--elevators .label-beta  { top: 64%; left: 50%; }
-.sector-map--elevators .elevator-left  { top: 50%; left: 0%; }
-.sector-map--elevators .elevator-right { top: 50%; left: 100%; }
+.sector-map--elevators .region-alpha {
+  top: 22%;
+  left: 25%;
+  width: 50%;
+  height: 28%;
+}
+.sector-map--elevators .region-beta {
+  top: 50%;
+  left: 25%;
+  width: 50%;
+  height: 28%;
+}
+.sector-map--elevators .label-alpha {
+  top: 36%;
+  left: 50%;
+}
+.sector-map--elevators .label-beta {
+  top: 64%;
+  left: 50%;
+}
+.sector-map--elevators .elevator-left {
+  top: 50%;
+  left: 0%;
+}
+.sector-map--elevators .elevator-right {
+  top: 50%;
+  left: 100%;
+}
 
 /* Mission 6 — Domination totale : aucun secteur nommé, champ de bataille entier. */
-.sector-map--whole .label-center { top: 50%; left: 50%; }
+.sector-map--whole .label-center {
+  top: 50%;
+  left: 50%;
+}
 
 /* ==========================================================================
    Page « Unités spéciales » (pages/units.html) et fiches d'unité
@@ -836,7 +1287,9 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   color: var(--gold);
 }
 
-.datasheet-heading { flex: 1 1 220px; }
+.datasheet-heading {
+  flex: 1 1 220px;
+}
 
 .datasheet-kicker {
   font-family: var(--font-title);
@@ -866,11 +1319,21 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   white-space: nowrap;
 }
 
-.datasheet-comp { margin-bottom: 0.8rem; }
-.datasheet-comp p { margin-bottom: 0.3rem; }
-.datasheet-comp ul { margin-bottom: 0; font-size: 0.9rem; }
+.datasheet-comp {
+  margin-bottom: 0.8rem;
+}
+.datasheet-comp p {
+  margin-bottom: 0.3rem;
+}
+.datasheet-comp ul {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
 
-.datasheet-fluff { font-style: italic; color: var(--text-dim); }
+.datasheet-fluff {
+  font-style: italic;
+  color: var(--text-dim);
+}
 
 /* Deux colonnes pour Équipement / Traits / Règles spéciales / Type. */
 .datasheet-columns {
@@ -880,11 +1343,17 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   margin: 1.4rem 0;
 }
 @media (min-width: 640px) {
-  .datasheet-columns { grid-template-columns: 1fr 1fr; }
+  .datasheet-columns {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.datasheet-block { margin-bottom: 1.2rem; }
-.datasheet-block:last-child { margin-bottom: 0; }
+.datasheet-block {
+  margin-bottom: 1.2rem;
+}
+.datasheet-block:last-child {
+  margin-bottom: 0;
+}
 .datasheet-block h3 {
   margin: 0 0 0.5rem;
   padding-bottom: 0.3rem;
@@ -892,20 +1361,37 @@ table.rule-table tr:nth-child(even) td { background: rgba(180, 135, 47, 0.05); }
   font-size: 0.88rem;
 }
 .datasheet-block ul,
-.datasheet-block ol { margin-bottom: 0; font-size: 0.92rem; }
-.datasheet-block ul ul { margin-top: 0.3rem; font-size: 0.92em; }
+.datasheet-block ol {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+.datasheet-block ul ul {
+  margin-top: 0.3rem;
+  font-size: 0.92em;
+}
 
 /* Tableau de profils / d'armes : variante centrée de .rule-table. */
-table.stat-table { font-size: 0.82rem; }
+table.stat-table {
+  font-size: 0.82rem;
+}
 table.stat-table th,
-table.stat-table td { text-align: center; }
+table.stat-table td {
+  text-align: center;
+}
 table.stat-table th:first-child,
-table.stat-table td:first-child { text-align: left; }
-table.stat-table td:first-child { font-style: italic; }
+table.stat-table td:first-child {
+  text-align: left;
+}
+table.stat-table td:first-child {
+  font-style: italic;
+}
 
 /* Colonne numérique isolée dans un tableau d'armes (le nom de l'arme et les
    colonnes de texte — règles spéciales, traits — restent alignés à gauche). */
-th.num, td.num { text-align: center; }
+th.num,
+td.num {
+  text-align: center;
+}
 
 /* Légende d'abréviations sous un tableau (ex. « R : Portée · PA : ... »). */
 .table-legend {
@@ -922,22 +1408,52 @@ th.num, td.num { text-align: center; }
    et encadrés non coupés au milieu par un saut de page.
    ========================================================================== */
 @media print {
-  .site-nav, .back-to-top, .download-page, .page-nav, .skip-link { display: none !important; }
+  .site-nav,
+  .back-to-top,
+  .download-page,
+  .page-nav,
+  .skip-link {
+    display: none !important;
+  }
 
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
 
-  body { background: #fff; color: #000; }
+  body {
+    background: #fff;
+    color: #000;
+  }
 
-  main { max-width: none; padding: 0 6mm; }
+  main {
+    max-width: none;
+    padding: 0 6mm;
+  }
 
-  a { color: inherit; text-decoration: none; }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-  h1, h2, .kicker, .datasheet-points { color: #000 !important; }
+  h1,
+  h2,
+  .kicker,
+  .datasheet-points {
+    color: #000 !important;
+  }
 
-  .datasheet, .callout, table.rule-table, .reaction-meta, figure {
+  .datasheet,
+  .callout,
+  table.rule-table,
+  .reaction-meta,
+  figure {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  h2, h3 { break-after: avoid; page-break-after: avoid; }
+  h2,
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
 }

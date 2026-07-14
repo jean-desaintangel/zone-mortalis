@@ -8,10 +8,10 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:"
     />
-    <title>Unités spéciales</title>
+    <title>Plan du site</title>
     <meta
       name="description"
-      content="Les unités additionnelles pour les batailles Zone Mortalis : Section de Raid Veletaris, Vétérans Breacher, Vétérans Despoiler, Techniciens de Combat Auxilia et Manipule Castellax Infernus."
+      content="Plan du site Zone Mortalis : accès direct à toutes les pages de règles, de missions et de fiches d'unités."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,7 +26,8 @@
     <!-- Lien d’évitement : premier élément focusable, il permet aux utilisateurs
          clavier de sauter le menu et d’aller directement au contenu. -->
     <a class="skip-link" href="#content">Aller au contenu</a>
-    <!-- Cette page sert de sommaire vers les fiches techniques des unités additionnelles de Zone Mortalis. -->
+    <!-- Le plan du site offre un second système de navigation (RGAA 12.1 / WCAG 2.4.5) :
+         toutes les pages du guide sont accessibles depuis cette liste hiérarchique. -->
     <nav class="site-nav" aria-label="Navigation principale">
       <a class="nav-brand" href="../index.html">Zone Mortalis</a>
       <button
@@ -43,71 +44,97 @@
         <li><a href="rules-advanced.html">Règles Avancées</a></li>
         <li><a href="reserves.html">Réserves</a></li>
         <li><a href="mission-pack.html">Missions</a></li>
-        <li>
-          <a href="units.html" class="active" aria-current="page">Unités</a>
-        </li>
+        <li><a href="units.html">Unités</a></li>
       </ul>
     </nav>
 
     <main id="content">
       <header class="page-header">
         <p class="kicker">Journal Tactica — Zone Mortalis</p>
-        <h1>Unités spéciales</h1>
+        <h1>Plan du site</h1>
         <hr class="rule-divider" />
       </header>
 
       <div class="rules-content">
         <section>
-          <p>
-            Les fiches techniques suivantes présentent des unités additionnelles
-            particulièrement adaptées aux combats en espace confiné des
-            batailles Zone Mortalis. Chacune peut être incluse dans les
-            Détachements de sa Liste d’Armée, sous réserve d’acceptation par
-            votre adversaire.
-          </p>
+          <h2>Toutes les pages du guide</h2>
+          <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="rules-core.html">Règles principales</a></li>
+            <li><a href="rules-special.html">Règles spéciales</a></li>
+            <li><a href="rules-advanced.html">Règles avancées</a></li>
+            <li><a href="reserves.html">Les Réserves</a></li>
+            <li>
+              <a href="mission-pack.html"
+                >Pack de Missions « Protocole de Nettoyage »</a
+              >
+              <ul>
+                <li>
+                  <a href="missions/assaut-de-secteur.html"
+                    >Assaut de secteur</a
+                  >
+                </li>
+                <li><a href="missions/sans-quartier.html">Sans quartier</a></li>
+                <li>
+                  <a href="missions/terre-ensanglantee.html"
+                    >Terre ensanglantée</a
+                  >
+                </li>
+                <li>
+                  <a href="missions/prise-de-controle.html"
+                    >Prise de contrôle</a
+                  >
+                </li>
+                <li>
+                  <a href="missions/nexus-de-ruine.html">Nexus de ruine</a>
+                </li>
+                <li>
+                  <a href="missions/domination-totale.html"
+                    >Domination totale</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="units.html">Unités spéciales</a>
+              <ul>
+                <li>
+                  <a href="units/veletaris-raider.html"
+                    >Section de Raid Veletaris</a
+                  >
+                </li>
+                <li>
+                  <a href="units/veterans-breacher.html"
+                    >Escouade de Vétérans Breacher</a
+                  >
+                </li>
+                <li>
+                  <a href="units/veterans-despoiler.html"
+                    >Escouade de Vétérans Despoiler</a
+                  >
+                </li>
+                <li>
+                  <a href="units/techniciens-combat-auxilia.html"
+                    >Section de Techniciens de Combat Auxilia</a
+                  >
+                </li>
+                <li>
+                  <a href="units/manipule-castellax-infernus.html"
+                    >Manipule Castellax Infernus</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="plan-du-site.html" aria-current="page">Plan du site</a>
+            </li>
+          </ul>
         </section>
       </div>
-
-      <div class="card-grid">
-        <a class="card" href="units/veletaris-raider.html">
-          <h2>Section de Raid Veletaris</h2>
-          <p>
-            Solar Auxilia · 85 Points — Fusils à pompe de brèche, boucliers
-            d’abordage et masses-tempête pour l’assaut à courte portée.
-          </p>
-        </a>
-        <a class="card" href="units/veterans-breacher.html">
-          <h2>Escouade de Vétérans Breacher</h2>
-          <p>
-            Legiones Astartes · 125 Points — Briseurs de lignes lourdement
-            équipés, taillés pour l’assaut en Zone Mortalis.
-          </p>
-        </a>
-        <a class="card" href="units/veterans-despoiler.html">
-          <h2>Escouade de Vétérans Despoiler</h2>
-          <p>
-            Legiones Astartes · 95 Points — Vétérans de corps à corps sans
-            réacteur dorsal, à l’assaut des adversaires les plus redoutables.
-          </p>
-        </a>
-        <a class="card" href="units/techniciens-combat-auxilia.html">
-          <h2>Section de Techniciens de Combat Auxilia</h2>
-          <p>
-            Solar Auxilia · 35 Points — Spécialistes du décryptage de combat,
-            capables de contourner les cogitateurs ennemis.
-          </p>
-        </a>
-        <a class="card" href="units/manipule-castellax-infernus.html">
-          <h2>Manipule Castellax Infernus</h2>
-          <p>
-            Mechanicum · 110 Points — Automates de combat rapproché équipés
-            d’incinérateurs de purge et de lames énergisées.
-          </p>
-        </a>
-      </div>
+      <!-- /.rules-content -->
 
       <nav class="page-nav" aria-label="Pages précédente et suivante">
-        <a href="mission-pack.html">← Pack de missions</a>
+        <a href="../index.html">← Accueil</a>
       </nav>
     </main>
 

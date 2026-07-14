@@ -11,24 +11,32 @@
      - data-accordion="sequence" : seules les sections numérotées se replient
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-
+document.addEventListener("DOMContentLoaded", () => {
   /* ---------- 1. Menu hamburger (mobile) ---------- */
-  const toggle = document.querySelector('.nav-toggle');
-  const menu = document.querySelector('.nav-menu');
+  const toggle = document.querySelector(".nav-toggle");
+  const menu = document.querySelector(".nav-menu");
 
   if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
+    // Met à jour l'état ET le libellé du bouton : un lecteur d'écran entend
+    // ainsi « Fermer le menu » quand le panneau est ouvert, et inversement.
+    const setMenuState = (open) => {
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute(
+        "aria-label",
+        open ? "Fermer le menu" : "Ouvrir le menu",
+      );
+    };
+
+    toggle.addEventListener("click", () => {
       // aria-expanded : accessibilité + pilote l'animation CSS du bouton
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      setMenuState(menu.classList.toggle("open"));
     });
 
     // Ferme le menu quand on clique sur un lien (utile en navigation par ancres)
-    menu.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') {
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+    menu.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") {
+        menu.classList.remove("open");
+        setMenuState(false);
       }
     });
   }
@@ -45,13 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
    * et le bouton natif gère Entrée/Espace sans code clavier supplémentaire.
    */
   function makeAccordion(card, heading, details) {
-    card.classList.add('rule-card');
-    heading.classList.add('rule-heading');
+    card.classList.add("rule-card");
+    heading.classList.add("rule-heading");
 
-    const btn = document.createElement('button');
-    btn.type = 'button'; // évite tout comportement "submit" si un jour dans un <form>
-    btn.className = 'rule-trigger';
-    btn.setAttribute('aria-expanded', 'false');
+    const btn = document.createElement("button");
+    btn.type = "button"; // évite tout comportement "submit" si un jour dans un <form>
+    btn.className = "rule-trigger";
+    btn.setAttribute("aria-expanded", "false");
 
     // On déplace le contenu du titre dans le bouton (le titre enveloppe le bouton).
     while (heading.firstChild) {
@@ -62,27 +70,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lien programmatique bouton → panneau (aria-controls exige un id).
     accordionCount += 1;
     details.id = `rule-details-${accordionCount}`;
-    btn.setAttribute('aria-controls', details.id);
+    btn.setAttribute("aria-controls", details.id);
 
     card.appendChild(details);
 
-    btn.addEventListener('click', () => {
-      const open = card.classList.toggle('is-open');
+    btn.addEventListener("click", () => {
+      const open = card.classList.toggle("is-open");
       // aria-expanded informe les lecteurs d'écran de l'état ouvert/fermé.
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
 
   const mode = document.body.dataset.accordion;
 
   /* --- Mode "sections" : règles principales, spéciales et réactions --- */
-  if (mode === 'sections') {
-    document.querySelectorAll('.rules-content > section').forEach((card) => {
-      const heading = card.querySelector(':scope > h2');
+  if (mode === "sections") {
+    document.querySelectorAll(".rules-content > section").forEach((card) => {
+      const heading = card.querySelector(":scope > h2");
       if (!heading) return; // section sans titre h2 direct (ex. encadré seul)
 
-      const details = document.createElement('div');
-      details.className = 'rule-details';
+      const details = document.createElement("div");
+      details.className = "rule-details";
 
       // On ne déplace dans le tiroir que ce qui vient APRÈS le résumé
       // (.rule-summary) : le titre et le résumé restent toujours visibles,
@@ -90,14 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
       // croise le résumé, et repasse à false si un nouveau H2 apparaît.
       // Si la section ne contient aucun résumé, il n'y a rien à garder
       // visible en permanence : tout ce qui suit le H2 se replie.
-      const hasSummary = !!card.querySelector(':scope > .rule-summary');
+      const hasSummary = !!card.querySelector(":scope > .rule-summary");
       let capture = !hasSummary;
       Array.from(card.children).forEach((node) => {
-        if (node.tagName === 'H2') {
+        if (node.tagName === "H2") {
           capture = !hasSummary;
           return;
         }
-        if (node.classList.contains('rule-summary')) {
+        if (node.classList.contains("rule-summary")) {
           capture = true;
           return;
         }
@@ -114,26 +122,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --- Mode "h3" : stratagèmes de réserves --- */
-  if (mode === 'h3') {
+  if (mode === "h3") {
     // Les H3 ne sont pas dans des <section> séparées : on exclut ceux qui se
     // trouvent dans un encadré .callout (ils ne doivent pas devenir des
     // accordéons), et on garde ceux du texte courant.
-    const stratHeadings = Array.from(document.querySelectorAll('.rules-content h3'))
-      .filter((heading) => !heading.closest('.callout'));
+    const stratHeadings = Array.from(
+      document.querySelectorAll(".rules-content h3"),
+    ).filter((heading) => !heading.closest(".callout"));
 
     stratHeadings.forEach((heading) => {
-      const card = document.createElement('div');
+      const card = document.createElement("div");
       heading.parentNode.insertBefore(card, heading);
       card.appendChild(heading);
 
-      const details = document.createElement('div');
-      details.className = 'rule-details';
+      const details = document.createElement("div");
+      details.className = "rule-details";
 
       // Comme il n'y a pas de conteneur dédié par stratagème, on "aspire"
       // les éléments frères qui suivent le titre, un par un, jusqu'au H3
       // suivant (= le prochain stratagème) ou la fin du bloc.
       let next = card.nextSibling;
-      while (next && !(next.nodeType === 1 && next.tagName === 'H3')) {
+      while (next && !(next.nodeType === 1 && next.tagName === "H3")) {
         const toMove = next;
         next = next.nextSibling;
         details.appendChild(toMove);
@@ -144,20 +153,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --- Mode "sequence" : séquence de mission (sections numérotées) --- */
-  if (mode === 'sequence') {
+  if (mode === "sequence") {
     // Seules les sections numérotées ("1. Sélectionner…", "2. …") forment la
     // Séquence de Mission ; les sections d'objectifs, non numérotées, ne
     // doivent pas devenir des accordéons et sont donc ignorées par ce filtre.
-    Array.from(document.querySelectorAll('.rules-content > section'))
+    Array.from(document.querySelectorAll(".rules-content > section"))
       .filter((section) => {
-        const heading = section.querySelector(':scope > h2');
+        const heading = section.querySelector(":scope > h2");
         return heading && /^\d+\.\s/.test(heading.textContent.trim());
       })
       .forEach((section) => {
-        const heading = section.querySelector(':scope > h2');
+        const heading = section.querySelector(":scope > h2");
 
-        const details = document.createElement('div');
-        details.className = 'rule-details';
+        const details = document.createElement("div");
+        details.className = "rule-details";
 
         let next = heading.nextSibling;
         while (next) {
@@ -171,17 +180,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- 3. Bouton retour en haut ---------- */
-  const topBtn = document.querySelector('.back-to-top');
+  const topBtn = document.querySelector(".back-to-top");
   if (topBtn) {
-    window.addEventListener('scroll', () => {
-      // Affiché après un écran de défilement
-      topBtn.classList.toggle('visible', window.scrollY > window.innerHeight);
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        // Affiché après un écran de défilement
+        topBtn.classList.toggle("visible", window.scrollY > window.innerHeight);
+      },
+      { passive: true },
+    );
 
-    topBtn.addEventListener('click', () => {
+    topBtn.addEventListener("click", () => {
       // Respecte le réglage "réduire les animations" du système (a11y).
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
     });
   }
 
@@ -190,9 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // est adaptée par la règle @media print de css/style.css (nav et boutons
   // flottants masqués, fond blanc). L'utilisateur choisit "Enregistrer en PDF"
   // dans cette boîte de dialogue : aucune génération de PDF côté site.
-  const downloadBtn = document.querySelector('.download-page');
+  const downloadBtn = document.querySelector(".download-page");
   if (downloadBtn) {
-    downloadBtn.addEventListener('click', () => window.print());
+    downloadBtn.addEventListener("click", () => window.print());
   }
-
 });
