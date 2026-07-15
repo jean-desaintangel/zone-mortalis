@@ -491,6 +491,29 @@ table.rule-table tr:nth-child(even) td {
   font-size: 1.9rem;
   margin-bottom: 0.3rem;
 }
+
+/* ---------- Mise en page de la page d'accueil : texte + image ---------- */
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  margin-bottom: 1.4rem;
+}
+.hero-image {
+  width: 100%;
+  max-width: 320px;
+  flex: 0 0 auto;
+}
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--gold-bright);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(36, 28, 18, 0.25);
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -526,20 +549,6 @@ table.rule-table tr:nth-child(even) td {
   font-size: 0.88rem;
   color: var(--text-dim);
   margin: 0;
-}
-
-/* ---------- Navigation de bas de page (précédent / suivant) ---------- */
-.page-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 3rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--border);
-  font-family: var(--font-title);
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 /* ---------- Bouton de retour en haut ---------- */
@@ -604,21 +613,13 @@ table.rule-table tr:nth-child(even) td {
   fill: currentColor;
 }
 
-/* Navigation de pied de page : lien vers le plan du site
-   (second système de navigation, RGAA 12.1 / WCAG 2.4.5). */
-.footer-nav {
-  text-align: center;
-  margin: 2rem 0 0.6rem;
-  font-size: 0.85rem;
-}
-
 /* ---------- Pied de page du site ----------
    Sélecteur d'élément (et non une classe) : le HTML utilise <footer>
    sans classe, un sélecteur de classe ne s'appliquerait jamais. */
 footer {
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--blood);
   margin-top: 2.5rem;
-  padding: 1.4rem 16px 2rem;
+  padding: 1.6rem 16px 2rem;
   text-align: center;
   font-size: 0.78rem;
   color: var(--text-dim);
@@ -647,6 +648,21 @@ footer {
   }
   .hero h1 {
     font-size: 2.5rem;
+  }
+  .hero-layout {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2.6rem;
+  }
+  .hero-layout .hero {
+    text-align: left;
+    padding: 0;
+  }
+  .hero-layout .hero p {
+    text-align: left;
+  }
+  .hero-image {
+    max-width: 300px;
   }
   .card-grid {
     grid-template-columns: 1fr 1fr;
@@ -1411,7 +1427,6 @@ td.num {
   .site-nav,
   .back-to-top,
   .download-page,
-  .page-nav,
   .skip-link {
     display: none !important;
   }
