@@ -246,7 +246,7 @@ h3.rule-heading {
 main {
   max-width: 860px;
   margin: 0 auto;
-  padding: calc(var(--nav-height) + 20px) 16px 90px;
+  padding: 140px 16px 90px;
 }
 
 .page-header {
