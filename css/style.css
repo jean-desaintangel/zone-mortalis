@@ -1470,3 +1470,70 @@ td.num {
     page-break-after: avoid;
   }
 }
+
+/* ---------- Cartes de documents téléchargeables ---------- */
+.documents-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  margin: 1.8rem 0;
+}
+
+@media (min-width: 768px) {
+  .documents-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.document-card {
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold-bright);
+  background: #f9f4e8;
+  border-radius: 6px;
+  padding: 1.4rem 1.2rem;
+}
+
+.document-card h2 {
+  font-size: 0.95rem;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin: 0 0 0.6rem;
+  border: none;
+  padding: 0;
+}
+
+.document-source {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.download-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.btn-download {
+  display: inline-block;
+  background: #d4c4ac;
+  color: #333;
+  padding: 0.55rem 1rem;
+  border: 1px solid #bfa989;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn-download:hover {
+  background: #c4b49c;
+  border-color: #af9879;
+  color: #000;
+  text-decoration: none;
+}
