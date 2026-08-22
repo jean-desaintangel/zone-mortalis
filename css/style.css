@@ -294,13 +294,14 @@ section {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(245, 233, 206, 0.96);
-  border-bottom: 1px solid var(--gold);
+  background: rgba(245, 233, 206, 0.98);
+  border-bottom: 2px solid var(--gold);
   height: var(--nav-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 14px;
+  box-shadow: 0 2px 4px rgba(122, 95, 31, 0.1);
 }
 
 .nav-brand {
@@ -692,26 +693,31 @@ footer {
     flex-wrap: wrap;
     background: none;
     border: none;
-    padding: 0;
+    padding: 10px 0;
     overflow: visible;
     max-height: none;
     align-items: center;
     justify-content: center;
-    gap: 0;
+    row-gap: 6px;
   }
   .nav-menu a {
-    padding: 8px 12px;
+    padding: 6px 14px;
     border-left: none;
-    border-bottom: 2px solid transparent;
-    font-size: 0.78rem;
+    border-bottom: 3px solid transparent;
+    font-size: 0.76rem;
     white-space: nowrap;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: all 0.2s ease;
   }
   .nav-menu a:hover {
     border-bottom-color: var(--gold-bright);
+    color: var(--gold-bright);
     background: none;
   }
   .nav-menu a.active {
     border-bottom-color: var(--blood);
+    color: var(--blood);
   }
   .card-grid {
     grid-template-columns: 1fr 1fr 1fr;
