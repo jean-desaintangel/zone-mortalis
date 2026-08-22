@@ -30,7 +30,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nav-height) + 12px);
+  scroll-padding-top: 140px;
 }
 
 body {
@@ -296,11 +296,12 @@ section {
   z-index: 100;
   background: rgba(245, 233, 206, 0.98);
   border-bottom: 2px solid var(--gold);
-  height: var(--nav-height);
+  height: auto;
+  min-height: var(--nav-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 14px;
+  padding: 8px 14px;
   box-shadow: 0 2px 4px rgba(122, 95, 31, 0.1);
 }
 
