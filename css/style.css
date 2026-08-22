@@ -687,14 +687,17 @@ footer {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    height: var(--nav-height);
+    height: auto;
     display: flex;
+    flex-wrap: wrap;
     background: none;
     border: none;
     padding: 0;
     overflow: visible;
     max-height: none;
     align-items: center;
+    justify-content: center;
+    gap: 0;
   }
   .nav-menu a {
     padding: 8px 12px;
